@@ -20,31 +20,31 @@ export function Header() {
           <nav className="hidden space-x-2 md:flex">
             <Link
               href="#servicios"
-              className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
             >
               Servicios
             </Link>
             <Link
               href="#portafolio"
-              className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
             >
               Portafolio
             </Link>
             <Link
               href="#testimonios"
-              className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
             >
               Testimonios
             </Link>
             <Link
               href="#precios"
-              className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
             >
               Precios
             </Link>
             <Link
               href="#contacto"
-              className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
             >
               Contacto
             </Link>
@@ -86,31 +86,31 @@ export function Header() {
               <div className="flex flex-col items-start">
                 <Link
                   href="#servicios"
-                  className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
                 >
                   Servicios
                 </Link>
                 <Link
                   href="#portafolio"
-                  className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
                 >
                   Portafolio
                 </Link>
                 <Link
                   href="#testimonios"
-                  className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
                 >
                   Testimonios
                 </Link>
                 <Link
                   href="#precios"
-                  className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
                 >
                   Precios
                 </Link>
                 <Link
                   href="#contacto"
-                  className={`${buttonVariants({ variant: 'link' })} text-current hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
                 >
                   Contacto
                 </Link>

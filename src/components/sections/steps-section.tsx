@@ -17,7 +17,7 @@ export function StepsSection() {
         </div>
 
         <div className="container mx-auto grid gap-2 px-6 lg:grid-cols-2 lg:px-32">
-          <div className="aspect-w-16 aspect-h-9 lg:aspect-none relative">
+          <div className="lg:aspect-none relative">
             <Image
               src="/steps.svg"
               alt="Ilustración de desarrollo"
@@ -63,14 +63,14 @@ export function StepsSection() {
             ].map(({ step, title, description }) => (
               <div key={step} className="mb-8 flex gap-x-5 last:mb-0">
                 <div className="relative">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary text-xs font-bold uppercase text-primary">
+                  <div className="flex size-8 items-center justify-center rounded-full border-2 border-primary text-xs font-bold uppercase text-primary">
                     {step}
                   </div>
                   {step < 4 && (
-                    <div className="absolute left-1/2 top-8 h-full w-px -translate-x-1/2 transform bg-primary"></div>
+                    <div className="absolute left-1/2 top-8 h-full w-px -translate-x-1/2 bg-primary"></div>
                   )}
                 </div>
-                <div className="flex-grow">
+                <div className="grow">
                   <p className="text-sm lg:text-base">
                     <span className="font-semibold">{title}</span> {description}
                   </p>
