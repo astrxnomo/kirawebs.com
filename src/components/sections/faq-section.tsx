@@ -42,7 +42,7 @@ export function FAQSection() {
             Encuentra respuestas a las preguntas más comunes
           </p>
         </div>
-        <div className="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-lg">
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border bg-background">
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`}>
