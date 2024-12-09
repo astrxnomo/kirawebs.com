@@ -10,7 +10,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+    <header className="header-animate fixed top-0 z-50 w-full">
       <div className="container mx-auto px-6 lg:px-32">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -20,31 +20,31 @@ export function Header() {
           <nav className="hidden space-x-2 md:flex">
             <Link
               href="#servicios"
-              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
+              className={`${buttonVariants({ variant: 'ghost' })} `}
             >
               Servicios
             </Link>
             <Link
               href="#portafolio"
-              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
+              className={`${buttonVariants({ variant: 'ghost' })} `}
             >
               Portafolio
             </Link>
             <Link
               href="#testimonios"
-              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
+              className={`${buttonVariants({ variant: 'ghost' })} `}
             >
               Testimonios
             </Link>
             <Link
               href="#precios"
-              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
+              className={`${buttonVariants({ variant: 'ghost' })} `}
             >
               Precios
             </Link>
             <Link
               href="#contacto"
-              className={`${buttonVariants({ variant: 'link' })} text-foreground hover:text-primary`}
+              className={`${buttonVariants({ variant: 'ghost' })} `}
             >
               Contacto
             </Link>
@@ -86,31 +86,31 @@ export function Header() {
               <div className="flex flex-col items-start">
                 <Link
                   href="#servicios"
-                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'ghost' })} `}
                 >
                   Servicios
                 </Link>
                 <Link
                   href="#portafolio"
-                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'ghost' })} `}
                 >
                   Portafolio
                 </Link>
                 <Link
                   href="#testimonios"
-                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'ghost' })} `}
                 >
                   Testimonios
                 </Link>
                 <Link
                   href="#precios"
-                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'ghost' })} `}
                 >
                   Precios
                 </Link>
                 <Link
                   href="#contacto"
-                  className={`${buttonVariants({ variant: 'link' })} text-black hover:text-primary`}
+                  className={`${buttonVariants({ variant: 'ghost' })} `}
                 >
                   Contacto
                 </Link>
