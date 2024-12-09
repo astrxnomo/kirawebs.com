@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
@@ -10,12 +9,7 @@ export function HeroSection() {
   return (
     <section className="pb-8 pt-28 lg:pb-24 lg:pt-36">
       <div className="container mx-auto grid gap-2 px-6 lg:grid-cols-2 lg:px-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col justify-center space-y-4"
-        >
+        <div className="flex flex-col justify-center space-y-4">
           <div className="space-y-2">
             <h1 className="text-5xl font-bold tracking-tighter lg:text-6xl">
               Páginas web modernas, fáciles de editar
@@ -34,13 +28,8 @@ export function HeroSection() {
               Ver Proyectos
             </Button>
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex w-full items-center justify-center"
-        >
+        </div>
+        <div className="flex w-full items-center justify-center">
           <Image
             src="/hero.svg"
             alt="Development illustration"
@@ -49,7 +38,7 @@ export function HeroSection() {
             className="w-full max-w-lg lg:max-w-none"
             priority
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

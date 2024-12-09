@@ -22,27 +22,18 @@ import {
 
 export function ContactSection() {
   return (
-    <section id="contacto" className="bg-muted/50 py-24">
+    <section id="contacto" className="py-24">
       <div className="container mx-auto px-6 lg:px-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto mb-16 max-w-[900px] text-center"
-        >
+        <div className="mx-auto mb-16 max-w-[900px] text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Contacta con Nosotros
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Estamos aquí para ayudarte a hacer realidad tu próximo proyecto
           </p>
-        </motion.div>
+        </div>
         <div className="grid gap-8 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <Card className="p-8">
               <form className="space-y-6">
                 <div className="space-y-2">
@@ -103,13 +94,8 @@ export function ContactSection() {
                 </Button>
               </form>
             </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          </div>
+          <div className="space-y-8">
             <div className="grid gap-4">
               <div className="flex items-center gap-4">
                 <MapPin className="h-6 w-6 text-primary" />
@@ -161,7 +147,7 @@ export function ContactSection() {
                 ></iframe>
               </div>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
