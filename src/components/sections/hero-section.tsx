@@ -77,6 +77,7 @@ export function HeroSection() {
                       alt={image.alt}
                       fill
                       className="object-cover"
+                      unoptimized
                     />
                   </div>
                 </SwiperSlide>
