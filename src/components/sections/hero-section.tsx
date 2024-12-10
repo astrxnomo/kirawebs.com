@@ -13,23 +13,23 @@ import { Button } from '@/components/ui/button';
 
 const previewImages = [
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=1920?exp=1733801368&sig=FG_CTJm19Lhuo6CAPdhq8DEZegMWmqjVfpCGcFPPMbE',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733846682&sig=sM1Zgu33YWCSH2Bzo13K_ZvOvt3sE_ckCiphGK5p5yU',
     alt: 'Project Preview 1',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=1920?exp=1733801368&sig=FG_CTJm19Lhuo6CAPdhq8DEZegMWmqjVfpCGcFPPMbE',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733846682&sig=sM1Zgu33YWCSH2Bzo13K_ZvOvt3sE_ckCiphGK5p5yU',
     alt: 'Project Preview 2',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=1920?exp=1733801368&sig=FG_CTJm19Lhuo6CAPdhq8DEZegMWmqjVfpCGcFPPMbE',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733846682&sig=sM1Zgu33YWCSH2Bzo13K_ZvOvt3sE_ckCiphGK5p5yU',
     alt: 'Project Preview 3',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=1920?exp=1733801368&sig=FG_CTJm19Lhuo6CAPdhq8DEZegMWmqjVfpCGcFPPMbE',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733846682&sig=sM1Zgu33YWCSH2Bzo13K_ZvOvt3sE_ckCiphGK5p5yU',
     alt: 'Project Preview 4',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=1920?exp=1733801368&sig=FG_CTJm19Lhuo6CAPdhq8DEZegMWmqjVfpCGcFPPMbE',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733846682&sig=sM1Zgu33YWCSH2Bzo13K_ZvOvt3sE_ckCiphGK5p5yU',
     alt: 'Project Preview 5',
   },
 ];
@@ -77,7 +77,6 @@ export function HeroSection() {
                       alt={image.alt}
                       fill
                       className="object-cover"
-                      unoptimized
                     />
                   </div>
                 </SwiperSlide>
