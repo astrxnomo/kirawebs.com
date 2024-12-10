@@ -20,31 +20,31 @@ export function Header() {
           <nav className="hidden space-x-2 md:flex">
             <Link
               href="#servicios"
-              className={`${buttonVariants({ variant: 'ghost' })} `}
+              className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
             >
               Servicios
             </Link>
             <Link
               href="#portafolio"
-              className={`${buttonVariants({ variant: 'ghost' })} `}
+              className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
             >
               Portafolio
             </Link>
             <Link
               href="#testimonios"
-              className={`${buttonVariants({ variant: 'ghost' })} `}
+              className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
             >
               Testimonios
             </Link>
             <Link
               href="#precios"
-              className={`${buttonVariants({ variant: 'ghost' })} `}
+              className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
             >
               Precios
             </Link>
             <Link
               href="#contacto"
-              className={`${buttonVariants({ variant: 'ghost' })} `}
+              className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
             >
               Contacto
             </Link>
@@ -81,36 +81,36 @@ export function Header() {
           </button>
         </div>
         {isMenuOpen && (
-          <div className="border-b py-4 md:hidden">
+          <div className="border-b bg-background py-4 md:hidden">
             <nav className="flex flex-col">
               <div className="flex flex-col items-start">
                 <Link
                   href="#servicios"
-                  className={`${buttonVariants({ variant: 'ghost' })} `}
+                  className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
                 >
                   Servicios
                 </Link>
                 <Link
                   href="#portafolio"
-                  className={`${buttonVariants({ variant: 'ghost' })} `}
+                  className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
                 >
                   Portafolio
                 </Link>
                 <Link
                   href="#testimonios"
-                  className={`${buttonVariants({ variant: 'ghost' })} `}
+                  className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
                 >
                   Testimonios
                 </Link>
                 <Link
                   href="#precios"
-                  className={`${buttonVariants({ variant: 'ghost' })} `}
+                  className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
                 >
                   Precios
                 </Link>
                 <Link
                   href="#contacto"
-                  className={`${buttonVariants({ variant: 'ghost' })} `}
+                  className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}
                 >
                   Contacto
                 </Link>
