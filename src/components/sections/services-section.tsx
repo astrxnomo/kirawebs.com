@@ -50,12 +50,6 @@ export function ServicesSection() {
               <div className="mb-4">{service.icon}</div>
               <h3 className="mb-2 text-xl font-bold">{service.title}</h3>
               <p className="text-muted-foreground">{service.description}</p>
-              <a
-                href="#"
-                className="mt-4 inline-flex items-center text-primary hover:underline"
-              >
-                Saber más →
-              </a>
             </Card>
           ))}
         </div>

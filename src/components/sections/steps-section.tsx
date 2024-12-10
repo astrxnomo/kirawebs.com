@@ -7,7 +7,7 @@ export function StepsSection() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-4 xl:px-0">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        <div className="md-3 mx-auto max-w-3xl text-center lg:mb-16">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Contacta con Nosotros
           </h2>
@@ -15,9 +15,8 @@ export function StepsSection() {
             Estamos aquí para ayudarte a hacer realidad tu próximo proyecto
           </p>
         </div>
-
         <div className="container mx-auto grid gap-2 px-6 lg:grid-cols-2 lg:px-32">
-          <div className="lg:aspect-none relative">
+          <div className="flex w-full items-center justify-center">
             <Image
               src="/steps.svg"
               alt="Ilustración de desarrollo"
@@ -30,7 +29,7 @@ export function StepsSection() {
 
           <div>
             <div className="mb-4">
-              <h3 className="text-xs font-medium uppercase text-primary">
+              <h3 className="text-xs font-semibold uppercase text-primary">
                 Pasos
               </h3>
             </div>
@@ -67,7 +66,7 @@ export function StepsSection() {
                     {step}
                   </div>
                   {step < 4 && (
-                    <div className="absolute left-1/2 top-8 h-full w-px -translate-x-1/2 bg-primary"></div>
+                    <div className="absolute left-1/2 top-8 h-full w-0.5 -translate-x-1/2 bg-primary"></div>
                   )}
                 </div>
                 <div className="grow">

@@ -37,11 +37,8 @@ export function CompareSection() {
           </p>
         </div>
         <Card className="mx-auto max-w-4xl overflow-hidden">
-          <CardHeader>
-            <CardTitle>Comparación de Características</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-3 gap-4 p-6">
+          <CardContent className="pt-6">
+            <div className="grid grid-cols-3 gap-4">
               <div className="text-lg font-medium text-gray-700">
                 Características
               </div>

@@ -19,13 +19,10 @@ export function HeroSection() {
               soluciones digitales innovadoras que transforman negocios.
             </p>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <Button size="lg" className="gap-2">
+          <div>
+            <Button size="lg">
               Conseguir mi web
               <ArrowRight className="h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline">
-              Ver Proyectos
             </Button>
           </div>
         </div>
