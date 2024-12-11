@@ -37,7 +37,7 @@ const previewImages = [
 export function HeroSection() {
   return (
     <section className="pb-8 pt-28 lg:pb-24 lg:pt-36">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-32">
         <div className="flex flex-col items-center gap-8 lg:flex-row">
           <div className="flex-1 space-y-4 text-center lg:text-left">
             <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
@@ -54,7 +54,7 @@ export function HeroSection() {
               </Button>
             </div>
           </div>
-          <div className="w-full max-w-3xl flex-1 p-5">
+          <div className="w-full max-w-sm flex-1 p-5 md:max-w-xl">
             <Swiper
               effect={'cards'}
               grabCursor={true}
@@ -62,15 +62,12 @@ export function HeroSection() {
               className="w-full"
               loop={true}
               autoplay={{
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
               }}
             >
               {previewImages.map((image, index) => (
-                <SwiperSlide
-                  key={index}
-                  className="overflow-hidden rounded-lg shadow-xl"
-                >
+                <SwiperSlide key={index} className="rounded-lg shadow-xl">
                   <div className="aspect-video">
                     <Image
                       src={image.src}
