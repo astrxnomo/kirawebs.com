@@ -7,13 +7,13 @@ import { StepsSection } from '@/components/home/steps-section';
 
 export default function Home() {
   return (
-    <>
+    <div className="duration-1000 ease-out animate-in fade-in">
       <HeroSection />
       <ServicesSection />
       <StepsSection />
       <CompareSection />
       <FAQSection />
       <ContactSection />
-    </>
+    </div>
   );
 }
