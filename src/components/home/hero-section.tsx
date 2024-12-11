@@ -1,6 +1,5 @@
 'use client';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 
@@ -11,28 +10,34 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Button } from '@/components/ui/button';
 
-const previewImages = [
-  {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-    alt: 'Project Preview 1',
-  },
-  {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-    alt: 'Project Preview 2',
-  },
-  {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-    alt: 'Project Preview 3',
-  },
-  {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-    alt: 'Project Preview 4',
-  },
-  {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-    alt: 'Project Preview 5',
-  },
-];
+const heroSectionData = {
+  title: 'Páginas web modernas, fáciles de editar',
+  description:
+    'Desarrollo web profesional que impulsa resultados. Creamos soluciones digitales innovadoras que transforman negocios.',
+  buttonText: 'Conseguir mi web',
+  previewImages: [
+    {
+      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      alt: 'Project Preview 1',
+    },
+    {
+      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      alt: 'Project Preview 2',
+    },
+    {
+      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      alt: 'Project Preview 3',
+    },
+    {
+      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      alt: 'Project Preview 4',
+    },
+    {
+      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      alt: 'Project Preview 5',
+    },
+  ],
+};
 
 export function HeroSection() {
   return (
@@ -41,15 +46,14 @@ export function HeroSection() {
         <div className="flex flex-col items-center gap-8 lg:flex-row">
           <div className="flex-1 space-y-4 text-center lg:text-left">
             <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
-              Páginas web modernas, fáciles de editar
+              {heroSectionData.title}
             </h1>
             <p className="max-w-prose text-muted-foreground">
-              Desarrollo web profesional que impulsa resultados. Creamos
-              soluciones digitales innovadoras que transforman negocios.
+              {heroSectionData.description}
             </p>
             <div>
               <Button size="lg">
-                Conseguir mi web
+                {heroSectionData.buttonText}
                 <ArrowRight />
               </Button>
             </div>
@@ -66,7 +70,7 @@ export function HeroSection() {
                 disableOnInteraction: false,
               }}
             >
-              {previewImages.map((image, index) => (
+              {heroSectionData.previewImages.map((image, index) => (
                 <SwiperSlide key={index} className="rounded-lg shadow-xl">
                   <div className="aspect-video">
                     <Image
