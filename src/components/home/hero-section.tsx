@@ -13,23 +13,23 @@ import { Button } from '@/components/ui/button';
 
 const previewImages = [
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733882366&sig=0-e-Y_OiURzGcchnc40w5_9UFJpUa3MgNgf87nwjBZA',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
     alt: 'Project Preview 1',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733882366&sig=0-e-Y_OiURzGcchnc40w5_9UFJpUa3MgNgf87nwjBZA',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
     alt: 'Project Preview 2',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733882366&sig=0-e-Y_OiURzGcchnc40w5_9UFJpUa3MgNgf87nwjBZA',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
     alt: 'Project Preview 3',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733882366&sig=0-e-Y_OiURzGcchnc40w5_9UFJpUa3MgNgf87nwjBZA',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
     alt: 'Project Preview 4',
   },
   {
-    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733882366&sig=0-e-Y_OiURzGcchnc40w5_9UFJpUa3MgNgf87nwjBZA',
+    src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
     alt: 'Project Preview 5',
   },
 ];
