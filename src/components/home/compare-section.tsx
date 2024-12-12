@@ -30,55 +30,57 @@ export function CompareSection() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-6 lg:px-32">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+        <div className="mx-auto mb-16 max-w-[900px] text-center">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             {data.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-xl text-gray-600">
+          <p className="mt-4 text-lg text-muted-foreground">
             {data.description}
           </p>
         </div>
         <Card className="mx-auto max-w-4xl overflow-hidden transition-shadow hover:shadow-lg">
           <CardContent className="p-0">
-            <div className="grid grid-cols-3 divide-x divide-y-0 divide-gray-200">
-              <div className="bg-gray-50 p-4 sm:p-6">
-                <h3 className="mb-4 truncate text-lg font-semibold">
+            <div className="flex">
+              <div className="bg-muted/50 p-4 sm:w-1/2 sm:p-6 md:w-2/5 lg:w-1/3">
+                <h3 className="mb-4 text-base font-semibold sm:text-lg">
                   Características
                 </h3>
                 {data.features.map((feature, index) => (
                   <div
                     key={feature}
                     className={cn(
-                      'py-3 text-xs lg:text-base',
-                      index !== 0 && 'border-t border-gray-200',
+                      'py-3 text-xs sm:text-sm lg:text-base',
+                      index !== 0 && 'border-t border-border',
                     )}
                   >
                     {feature}
                   </div>
                 ))}
               </div>
-              {data.comparisons.map(comparison => (
-                <div key={comparison.name} className="p-4 sm:p-6">
-                  <h3 className="mb-4 text-center text-lg font-semibold">
-                    {comparison.name}
-                  </h3>
-                  {comparison.features.map((hasFeature, index) => (
-                    <div
-                      key={`${comparison.name}-${index}`}
-                      className={cn(
-                        'flex items-center justify-center py-2.5 lg:py-3.5',
-                        index !== 0 && 'border-t border-gray-200',
-                      )}
-                    >
-                      {hasFeature ? (
-                        <Check className="h-5 w-5 text-primary" />
-                      ) : (
-                        <Minus className="h-5 w-5 text-gray-300" />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
+              <div className="flex flex-1 divide-x divide-border">
+                {data.comparisons.map(comparison => (
+                  <div key={comparison.name} className="flex-1 p-4 sm:p-6">
+                    <h3 className="mb-4 text-center text-base font-semibold sm:text-lg">
+                      {comparison.name}
+                    </h3>
+                    {comparison.features.map((hasFeature, index) => (
+                      <div
+                        key={`${comparison.name}-${index}`}
+                        className={cn(
+                          'flex items-center justify-center py-3',
+                          index !== 0 && 'border-t border-border',
+                        )}
+                      >
+                        {hasFeature ? (
+                          <Check className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
+                        ) : (
+                          <Minus className="h-4 w-4 text-muted-foreground sm:h-5 sm:w-5" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </CardContent>
         </Card>
