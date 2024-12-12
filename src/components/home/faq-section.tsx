@@ -1,11 +1,13 @@
+import Container from '@/components/home/container';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../ui/accordion';
+} from '@/components/ui/accordion';
 
-const sectionData = {
+const data = {
+  id: 'faq',
   title: 'Preguntas Frecuentes',
   description: 'Encuentra respuestas a las preguntas más comunes',
   faqs: [
@@ -34,31 +36,23 @@ const sectionData = {
 
 export function FAQSection() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-6 lg:px-32">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            {sectionData.title}
-          </h2>
-          <p className="mt-4 md:text-xl">{sectionData.description}</p>
-        </div>
-        <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border bg-background transition-shadow hover:shadow-lg">
-          <Accordion type="single" collapsible>
-            {sectionData.faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="flex w-full justify-between p-6 text-left text-lg font-semibold">
-                  <span>{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
-                  <div className="overflow-hidden">
-                    <p>{faq.answer}</p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+    <Container id={data.id} title={data.title} description={data.description}>
+      <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border bg-background transition-shadow hover:shadow-lg">
+        <Accordion type="single" collapsible>
+          {data.faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`faq-${index}`}>
+              <AccordionTrigger className="flex w-full justify-between p-6 text-left text-lg font-semibold">
+                <span>{faq.question}</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <div className="overflow-hidden">
+                  <p>{faq.answer}</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
-    </section>
+    </Container>
   );
 }

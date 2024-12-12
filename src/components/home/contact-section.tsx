@@ -1,11 +1,10 @@
 import { Building2, Mail, MapPin, Phone } from 'lucide-react';
 
+import Container from '@/components/home/container';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-
 import {
   Select,
   SelectContent,
@@ -15,9 +14,10 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 
-const contactInfo = {
+const data = {
   title: 'Contacta con Nosotros',
   description:
     'Estamos aquí para ayudarte a hacer realidad tu próximo proyecto',
@@ -47,86 +47,73 @@ const contactInfo = {
 
 export function ContactSection() {
   return (
-    <section id="contacto" className="py-24">
-      <div className="container mx-auto px-6 lg:px-32">
-        <div className="mx-auto mb-16 max-w-[900px] text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            {contactInfo.title}
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            {contactInfo.description}
-          </p>
+    <Container id="contact" title={data.title} description={data.description}>
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div>
+          <Card className="p-8 transition-shadow hover:shadow-lg">
+            <form className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name">Nombre completo</Label>
+                <Input id="name" placeholder="Tu nombre" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email corporativo</Label>
+                <Input id="email" type="email" placeholder="tu@empresa.com" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Teléfono (opcional)</Label>
+                <Input id="phone" type="tel" placeholder="+34 600 000 000" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="select-26">Select with separator</Label>
+                <Select defaultValue="s1">
+                  <SelectTrigger id="select-26">
+                    <SelectValue placeholder="Select framework" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Frontend</SelectLabel>
+                      <SelectItem value="s1">React</SelectItem>
+                      <SelectItem value="s2">Vue</SelectItem>
+                      <SelectItem value="s3">Angular</SelectItem>
+                    </SelectGroup>
+                    <SelectSeparator />
+                    <SelectGroup>
+                      <SelectLabel>Backend</SelectLabel>
+                      <SelectItem value="s4">Node.js</SelectItem>
+                      <SelectItem value="s5">Python</SelectItem>
+                      <SelectItem value="s6">Java</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Descripción del proyecto</Label>
+                <Textarea
+                  id="message"
+                  placeholder="Cuéntanos sobre tu proyecto..."
+                  className="min-h-[100px]"
+                />
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="gdpr"
+                  className="rounded border-input"
+                />
+                <Label htmlFor="gdpr" className="text-sm">
+                  Acepto la política de privacidad y el tratamiento de datos
+                </Label>
+              </div>
+              <Button type="submit" className="w-full">
+                Enviar Mensaje
+              </Button>
+            </form>
+          </Card>
         </div>
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div>
-            <Card className="p-8 transition-shadow hover:shadow-lg">
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nombre completo</Label>
-                  <Input id="name" placeholder="Tu nombre" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email corporativo</Label>
-                  <Input id="email" type="email" placeholder="tu@empresa.com" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Teléfono (opcional)</Label>
-                  <Input id="phone" type="tel" placeholder="+34 600 000 000" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="select-26">Select with separator</Label>
-                  <Select defaultValue="s1">
-                    <SelectTrigger id="select-26">
-                      <SelectValue placeholder="Select framework" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>Frontend</SelectLabel>
-                        <SelectItem value="s1">React</SelectItem>
-                        <SelectItem value="s2">Vue</SelectItem>
-                        <SelectItem value="s3">Angular</SelectItem>
-                      </SelectGroup>
-                      <SelectSeparator />
-                      <SelectGroup>
-                        <SelectLabel>Backend</SelectLabel>
-                        <SelectItem value="s4">Node.js</SelectItem>
-                        <SelectItem value="s5">Python</SelectItem>
-                        <SelectItem value="s6">Java</SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Descripción del proyecto</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Cuéntanos sobre tu proyecto..."
-                    className="min-h-[100px]"
-                  />
-                </div>
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="gdpr"
-                    className="rounded border-input"
-                  />
-                  <Label htmlFor="gdpr" className="text-sm">
-                    Acepto la política de privacidad y el tratamiento de datos
-                  </Label>
-                </div>
-                <Button type="submit" className="w-full">
-                  Enviar Mensaje
-                </Button>
-              </form>
-            </Card>
-          </div>
-          <div className="space-y-8">
-            {[
-              contactInfo.address,
-              contactInfo.email,
-              contactInfo.phone,
-              contactInfo.hours,
-            ].map((info, index) => (
+        <div className="space-y-8">
+          {[data.address, data.email, data.phone, data.hours].map(
+            (info, index) => (
               <div key={index} className="flex items-center gap-4">
                 <info.icon className="h-6 w-6 text-primary" />
                 <div>
@@ -134,23 +121,23 @@ export function ContactSection() {
                   <p className="text-muted-foreground">{info.details}</p>
                 </div>
               </div>
-            ))}
-            <Card className="p-8 transition-shadow hover:shadow-lg">
-              <div className="relative aspect-video">
-                <iframe
-                  src={contactInfo.mapSrc}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  className="rounded-lg"
-                ></iframe>
-              </div>
-            </Card>
-          </div>
+            ),
+          )}
+          <Card className="p-8 transition-shadow hover:shadow-lg">
+            <div className="relative aspect-video">
+              <iframe
+                src={data.mapSrc}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                className="rounded-lg"
+              ></iframe>
+            </div>
+          </Card>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

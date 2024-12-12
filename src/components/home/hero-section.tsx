@@ -8,9 +8,11 @@ import Image from 'next/image';
 import { Autoplay, EffectCards } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Container from '@/components/home/container';
 import { Button } from '@/components/ui/button';
 
-const heroSectionData = {
+const data = {
+  id: 'hero',
   title: 'Páginas web modernas, fáciles de editar',
   description:
     'Desarrollo web profesional que impulsa resultados. Creamos soluciones digitales innovadoras que transforman negocios.',
@@ -41,51 +43,49 @@ const heroSectionData = {
 
 export function HeroSection() {
   return (
-    <section className="pb-8 pt-28 lg:pb-24 lg:pt-36">
-      <div className="container mx-auto px-4 lg:px-32">
-        <div className="flex flex-col items-center gap-8 lg:flex-row">
-          <div className="flex-1 space-y-4 text-center lg:text-left">
-            <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
-              {heroSectionData.title}
-            </h1>
-            <p className="max-w-prose text-muted-foreground">
-              {heroSectionData.description}
-            </p>
-            <div>
-              <Button size="lg">
-                {heroSectionData.buttonText}
-                <ArrowRight />
-              </Button>
-            </div>
-          </div>
-          <div className="w-full max-w-sm flex-1 p-5 md:max-w-xl">
-            <Swiper
-              effect={'cards'}
-              grabCursor={true}
-              modules={[EffectCards, Autoplay]}
-              className="w-full"
-              loop={true}
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-              }}
-            >
-              {heroSectionData.previewImages.map((image, index) => (
-                <SwiperSlide key={index} className="rounded-lg shadow-xl">
-                  <div className="aspect-video">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+    <Container id={data.id} className="pt-6">
+      <div className="flex flex-col items-center gap-8 lg:flex-row">
+        <div className="flex-1 space-y-4 text-center lg:text-left">
+          <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
+            {data.title}
+          </h1>
+          <p className="max-w-prose text-muted-foreground">
+            {data.description}
+          </p>
+          <div>
+            <Button size="lg">
+              {data.buttonText}
+              <ArrowRight />
+            </Button>
           </div>
         </div>
+        <div className="w-full max-w-sm flex-1 p-5 md:max-w-xl">
+          <Swiper
+            effect={'cards'}
+            grabCursor={true}
+            modules={[EffectCards, Autoplay]}
+            className="w-full"
+            loop={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+          >
+            {data.previewImages.map((image, index) => (
+              <SwiperSlide key={index} className="rounded-lg shadow-xl">
+                <div className="aspect-video">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-    </section>
+    </Container>
   );
 }

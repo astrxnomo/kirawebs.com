@@ -17,7 +17,7 @@ export function Header() {
             <Code2 className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold">Kira</span>
           </div>
-          <nav className="hidden space-x-2 md:flex">
+          <nav className="hidden gap-1 md:flex">
             <Link
               href="#servicios"
               className={`${buttonVariants({ variant: 'ghost' })} font-semibold`}

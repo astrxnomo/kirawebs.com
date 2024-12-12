@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export function Footer() {
   return (
-    <footer className="bg-muted/50 py-12">
+    <footer className="bg-muted/50 pt-12">
       <div className="container mx-auto px-6 lg:px-32">
         <div className="grid gap-8 lg:grid-cols-4">
           <div className="space-y-4">
@@ -134,7 +134,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-border pt-8 text-center text-muted-foreground">
+        <div className="mt-12 flex items-center justify-center border-t border-border p-5 text-center text-muted-foreground">
           <p>© 2024 Kira. Todos los derechos reservados.</p>
         </div>
       </div>
