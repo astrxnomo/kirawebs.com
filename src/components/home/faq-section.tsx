@@ -42,11 +42,11 @@ export function FAQSection() {
           </h2>
           <p className="mt-4 md:text-xl">{sectionData.description}</p>
         </div>
-        <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border bg-background">
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border bg-background transition-shadow hover:shadow-lg">
           <Accordion type="single" collapsible>
             {sectionData.faqs.map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="flex w-full justify-between p-6 text-left text-lg">
+                <AccordionTrigger className="flex w-full justify-between p-6 text-left text-lg font-semibold">
                   <span>{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
