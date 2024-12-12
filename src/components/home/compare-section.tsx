@@ -1,6 +1,7 @@
-import { Check } from 'lucide-react';
+import { Check, Minus } from 'lucide-react';
 
-import { Card, CardContent } from '../ui/card';
+import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/utils/cn';
 
 const data = {
   title: 'Por Qué Elegirnos',
@@ -15,12 +16,12 @@ const data = {
   ],
   comparisons: [
     {
-      name: 'Otros',
-      features: [true, true, false, false, false, false],
-    },
-    {
       name: 'Kira',
       features: [true, true, true, true, true, true],
+    },
+    {
+      name: 'Otros',
+      features: [true, true, false, false, false, false],
     },
   ],
 };
@@ -30,37 +31,49 @@ export function CompareSection() {
     <section className="py-24">
       <div className="container mx-auto px-6 lg:px-32">
         <div className="mb-12 text-center">
-          <h2 className="p-1 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             {data.title}
           </h2>
-          <p className="mt-4 md:text-xl">{data.description}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-xl text-gray-600">
+            {data.description}
+          </p>
         </div>
-        <Card className="mx-auto max-w-4xl overflow-hidden">
-          <CardContent className="pt-6">
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-lg font-medium text-gray-700">
-                Características
+        <Card className="mx-auto max-w-4xl overflow-hidden transition-shadow hover:shadow-lg">
+          <CardContent className="p-0">
+            <div className="grid grid-cols-3 divide-x divide-y-0 divide-gray-200">
+              <div className="bg-gray-50 p-4 sm:p-6">
+                <h3 className="mb-4 truncate text-lg font-semibold">
+                  Características
+                </h3>
+                {data.features.map((feature, index) => (
+                  <div
+                    key={feature}
+                    className={cn(
+                      'py-3 text-xs lg:text-base',
+                      index !== 0 && 'border-t border-gray-200',
+                    )}
+                  >
+                    {feature}
+                  </div>
+                ))}
               </div>
               {data.comparisons.map(comparison => (
-                <div
-                  key={comparison.name}
-                  className="text-center text-lg font-medium text-gray-700"
-                >
-                  {comparison.name}
-                </div>
-              ))}
-              {data.features.map((feature, featureIndex) => (
-                <div key={feature} className="contents">
-                  <div className="border-t border-gray-200 py-4">{feature}</div>
-                  {data.comparisons.map((comparison, comparisonIndex) => (
+                <div key={comparison.name} className="p-4 sm:p-6">
+                  <h3 className="mb-4 text-center text-lg font-semibold">
+                    {comparison.name}
+                  </h3>
+                  {comparison.features.map((hasFeature, index) => (
                     <div
-                      key={`${comparison.name}-${feature}`}
-                      className="border-t border-gray-200 py-4 text-center"
+                      key={`${comparison.name}-${index}`}
+                      className={cn(
+                        'flex items-center justify-center py-2.5 lg:py-3.5',
+                        index !== 0 && 'border-t border-gray-200',
+                      )}
                     >
-                      {comparison.features[featureIndex] ? (
-                        <Check className="mx-auto text-blue-500" />
+                      {hasFeature ? (
+                        <Check className="h-5 w-5 text-primary" />
                       ) : (
-                        <span className="text-gray-300">-</span>
+                        <Minus className="h-5 w-5 text-gray-300" />
                       )}
                     </div>
                   ))}
