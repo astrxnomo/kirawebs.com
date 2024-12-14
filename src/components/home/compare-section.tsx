@@ -35,7 +35,7 @@ export function CompareSection() {
       <Card className="mx-auto max-w-4xl overflow-hidden transition-shadow hover:shadow-lg">
         <CardContent className="p-0">
           <div className="flex">
-            <div className="bg-muted/50 p-4 sm:w-1/2 sm:p-6 md:w-2/5 lg:w-1/3">
+            <div className="bg-muted/20 p-4 sm:w-1/2 sm:p-6 md:w-2/5 lg:w-1/3">
               <h3 className="mb-4 text-base font-semibold sm:text-lg">
                 Características
               </h3>

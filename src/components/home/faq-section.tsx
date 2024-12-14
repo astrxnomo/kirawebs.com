@@ -37,22 +37,20 @@ const data = {
 export function FAQSection() {
   return (
     <Container id={data.id} title={data.title} description={data.description}>
-      <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border bg-background transition-shadow hover:shadow-lg">
-        <Accordion type="single" collapsible>
-          {data.faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`faq-${index}`}>
-              <AccordionTrigger className="flex w-full justify-between p-6 text-left text-lg font-semibold">
-                <span>{faq.question}</span>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <div className="overflow-hidden">
-                  <p>{faq.answer}</p>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+      <Accordion type="single" collapsible>
+        {data.faqs.map((faq, index) => (
+          <AccordionItem key={index} value={`faq-${index}`}>
+            <AccordionTrigger className="flex w-full justify-between p-6 text-left text-lg font-semibold">
+              <span>{faq.question}</span>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6">
+              <div className="overflow-hidden">
+                <p>{faq.answer}</p>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </Container>
   );
 }
