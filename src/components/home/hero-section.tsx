@@ -44,7 +44,7 @@ const data = {
 export function HeroSection() {
   return (
     <Container id={data.id} className="pt-6">
-      <div className="flex flex-col items-center gap-8 lg:flex-row">
+      <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-14">
         <div className="flex-1 space-y-4 text-center lg:text-left">
           <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
             {data.title}

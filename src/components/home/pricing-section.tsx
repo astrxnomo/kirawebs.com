@@ -16,15 +16,15 @@ const pricingPlans = [
   {
     title: 'Pro',
     description:
-      'Presencia profesional en línea con diseño optimizado y dinámico.',
+      'Página web profesional en línea con diseño optimizado y dinámico.',
     price: '$40',
     pricePeriod: '/ month',
     buttonText: 'Try it',
   },
   {
-    title: 'Personalizado',
+    title: 'Premium',
     description:
-      'Web personalizada con soporte técnico y diseño avanzado a medida.',
+      'Paginas web personalizada con soporte técnico y diseño avanzado a medida.',
     price: '',
     pricePeriod: '',
     buttonText: 'Contact us',

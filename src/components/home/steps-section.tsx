@@ -50,14 +50,14 @@ export function StepsSection() {
     <Container id={data.id} title={data.title} description={data.description}>
       <div className="relative">
         <div
-          className="absolute left-6 top-12 h-[calc(100%-48px)] w-0.5 bg-primary/30 lg:left-0 lg:top-1/2 lg:h-0.5 lg:w-full"
+          className="absolute left-6 h-full w-0.5 bg-primary lg:left-0 lg:top-6 lg:h-0.5 lg:w-full"
           aria-hidden="true"
         />
         <div className="relative z-10 flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-y-0">
           {stepsData.map(step => (
             <div
               key={step.title}
-              className="flex w-full items-start lg:flex-col lg:items-center lg:px-4"
+              className="flex w-full items-center lg:flex-col lg:items-center lg:px-4"
             >
               <div className="mr-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground lg:mb-4">
                 {step.step}

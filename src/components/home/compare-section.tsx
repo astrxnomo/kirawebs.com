@@ -60,7 +60,7 @@ export function CompareSection() {
                   <div
                     key={`${comparison.name}-${index}`}
                     className={cn(
-                      'flex items-center justify-center py-3',
+                      'flex items-center justify-center py-3 md:py-3.5',
                       index !== 0 && 'border-t border-border',
                     )}
                   >
