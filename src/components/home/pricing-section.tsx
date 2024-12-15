@@ -9,25 +9,26 @@ const pricingPlans = [
     title: 'Esencial',
     description:
       'Página web simple y funcional para negocios pequeños y emprendedores.',
-    price: '$800k',
+    price: '$600K',
     pricePeriod: '/ unico pago',
-    buttonText: 'Try it',
+    buttonText: 'Comprar',
   },
   {
     title: 'Pro',
     description:
       'Página web profesional en línea con diseño optimizado y dinámico.',
-    price: '$40',
-    pricePeriod: '/ month',
-    buttonText: 'Try it',
+    price: '$1.2M',
+    pricePeriod: '/ unico pago',
+
+    buttonText: 'Comprar',
   },
   {
     title: 'Premium',
     description:
       'Paginas web personalizada con soporte técnico y diseño avanzado a medida.',
-    price: '',
+    price: '$---',
     pricePeriod: '',
-    buttonText: 'Contact us',
+    buttonText: 'Negociar',
   },
 ];
 

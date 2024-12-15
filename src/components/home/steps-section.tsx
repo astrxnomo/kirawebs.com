@@ -50,7 +50,7 @@ export function StepsSection() {
     <Container id={data.id} title={data.title} description={data.description}>
       <div className="relative">
         <div
-          className="absolute left-6 h-full w-0.5 bg-primary lg:left-0 lg:top-6 lg:h-0.5 lg:w-full"
+          className="absolute left-[23px] h-full w-0.5 bg-primary lg:left-0 lg:top-6 lg:h-0.5 lg:w-full"
           aria-hidden="true"
         />
         <div className="relative z-10 flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-y-0">
