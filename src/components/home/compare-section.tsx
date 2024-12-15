@@ -10,50 +10,49 @@ const data = {
   title: 'Por Qué Elegirnos',
   description: 'Comparación de características y servicios',
   features: [
-    'Diseño Responsivo',
-    'Optimización SEO',
-    'Panel de Administración',
+    'Tecnologías Modernas',
+    'Alto Rendimiento',
+    'Facilidad de Uso',
     'Soporte 24/7',
-    'Análisis de Datos',
-    'Seguridad Avanzada',
-    'Personalización Total',
+    'Personalización',
     'Escalabilidad',
-    'Integración de APIs Personalizadas',
-    'Rendimiento Optimizado',
+    'Precios Competitivos',
+    'Seguridad',
+    'Integración con Notion',
+    'Control Total del Sitio',
+    'Tiempo de Desarrollo Rápido',
   ],
   comparisons: [
     {
       name: 'Kira',
-      features: [true, true, true, true, true, true, true, true, true, true],
+      features: [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+      ],
     },
     {
       name: 'WordPress',
       features: [
         true,
         true,
-        true,
         false,
         false,
-        false,
-        false,
-        false,
-        false,
-        false,
-      ],
-    },
-    {
-      name: 'Wix',
-      features: [
         true,
         true,
         true,
         false,
         false,
         false,
-        false,
-        false,
-        false,
-        false,
+        true,
       ],
     },
     {
@@ -61,13 +60,14 @@ const data = {
       features: [
         true,
         true,
-        true,
-        true,
-        true,
+        false,
         true,
         false,
         false,
         false,
+        true,
+        false,
+        true,
         false,
       ],
     },
@@ -77,17 +77,15 @@ const data = {
 export function CompareSection() {
   return (
     <Container id={data.id} title={data.title} description={data.description}>
-      <Card className="overflow-x-auto">
+      <Card className="overflow-x-auto p-3">
         <div className="flex min-w-[800px]">
-          <div className="w-1/3 bg-muted/20 p-4 sm:w-1/4 md:w-1/5">
-            <h3 className="mb-4 text-base font-semibold sm:text-lg">
-              Características
-            </h3>
+          <div className="w-1/4 bg-muted/30 p-4">
+            <h3 className="mb-4 text-lg font-medium">Características</h3>
             {data.features.map((feature, index) => (
               <div
                 key={feature}
                 className={cn(
-                  'py-3 text-xs sm:text-sm lg:text-base',
+                  'py-3 text-xs lg:text-[15px]',
                   index !== 0 && 'border-t border-border',
                 )}
               >
@@ -98,21 +96,21 @@ export function CompareSection() {
           <div className="flex flex-1 divide-x divide-border">
             {data.comparisons.map(comparison => (
               <div key={comparison.name} className="flex-1 p-4">
-                <h3 className="mb-4 text-center text-base font-semibold sm:text-lg">
+                <h3 className="mb-4 text-center font-medium lg:text-lg">
                   {comparison.name}
                 </h3>
                 {comparison.features.map((hasFeature, index) => (
                   <div
                     key={`${comparison.name}-${index}`}
                     className={cn(
-                      'flex items-center justify-center py-3 md:py-3.5',
+                      'flex items-center justify-center py-3',
                       index !== 0 && 'border-t border-border',
                     )}
                   >
                     {hasFeature ? (
-                      <Check className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
+                      <Check className="h-4 w-4 text-primary" />
                     ) : (
-                      <Minus className="h-4 w-4 text-muted-foreground sm:h-5 sm:w-5" />
+                      <Minus className="h-4 w-4 text-muted-foreground" />
                     )}
                   </div>
                 ))}
