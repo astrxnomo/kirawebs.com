@@ -1,5 +1,6 @@
 import { CompareSection } from '@/components/home/compare-section';
 import { ContactSection } from '@/components/home/contact-section';
+import CotizacionForm from '@/components/home/cotizacion-form';
 import { FAQSection } from '@/components/home/faq-section';
 import { HeroSection } from '@/components/home/hero-section';
 import { PricingSection } from '@/components/home/pricing-section';
@@ -14,6 +15,7 @@ export default function Home() {
       <StepsSection />
       <CompareSection />
       <PricingSection />
+      <CotizacionForm />
       <FAQSection />
       <ContactSection />
     </div>
