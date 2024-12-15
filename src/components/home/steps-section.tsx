@@ -62,7 +62,7 @@ export function StepsSection() {
               <div className="mr-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground lg:mb-4">
                 {step.step}
               </div>
-              <Card className="h-full p-6 transition-shadow hover:shadow-lg">
+              <Card className="h-full p-6">
                 <step.icon className="mb-4 h-6 w-6 text-primary" />
                 <h3 className="mb-2 font-bold">{step.title}</h3>
                 <p className="text-sm text-muted-foreground">

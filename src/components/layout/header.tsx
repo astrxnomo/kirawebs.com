@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <header className="header-animate fixed top-0 z-50 w-full">
-      <div className="container mx-auto px-6 lg:px-32">
+      <div className="container mx-auto px-6 lg:px-28">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
             <Code2 className="h-6 w-6 text-primary" />

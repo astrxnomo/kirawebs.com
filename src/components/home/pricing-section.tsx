@@ -1,34 +1,32 @@
-import { MoveRight, PhoneCall } from 'lucide-react';
-
-import { PricingCard } from '@/components/home/pricing/pricing-card';
 import { PricingFeature } from '@/components/home/pricing/pricing-feature';
+import { PricingTier } from '@/components/home/pricing/pricing-tier';
 import { Card } from '@/components/ui/card';
 
 import Container from './container';
 
 const pricingPlans = [
   {
-    title: 'Startup',
+    title: 'Esencial',
     description:
-      'Our goal is to streamline SMB trade, making it easier and faster than ever for everyone and everywhere.',
+      'Página web simple y funcional para negocios pequeños y emprendedores.',
+    price: '$800k',
+    pricePeriod: '/ unico pago',
+    buttonText: 'Try it',
+  },
+  {
+    title: 'Pro',
+    description:
+      'Presencia profesional en línea con diseño optimizado y dinámico.',
     price: '$40',
     pricePeriod: '/ month',
     buttonText: 'Try it',
   },
   {
-    title: 'Growth',
+    title: 'Personalizado',
     description:
-      'Our goal is to streamline SMB trade, making it easier and faster than ever for everyone and everywhere.',
-    price: '$40',
-    pricePeriod: '/ month',
-    buttonText: 'Try it',
-  },
-  {
-    title: 'Enterprise',
-    description:
-      'Our goal is to streamline SMB trade, making it easier and faster than ever for everyone and everywhere.',
-    price: '$40',
-    pricePeriod: '/ month',
+      'Web personalizada con soporte técnico y diseño avanzado a medida.',
+    price: '',
+    pricePeriod: '',
     buttonText: 'Contact us',
   },
 ];
@@ -46,18 +44,19 @@ export function PricingSection() {
   return (
     <Container
       id="pricing"
-      title="Pricing"
-      description="Choose the best plan for your business"
+      title="Precios"
+      description="Elige el plan que mejor se adapte a tus necesidades"
     >
-      <div className="grid w-full grid-cols-3 divide-x p-6 text-left lg:grid-cols-4">
+      <Card className="grid w-full grid-cols-3 items-center divide-x py-4 lg:grid-cols-4">
         <div className="col-span-3 lg:col-span-1"></div>
         {pricingPlans.map((plan, index) => (
-          <PricingCard key={index} {...plan} />
+          <PricingTier key={index} {...plan} />
         ))}
+
         {pricingFeatures.map((feature, index) => (
           <PricingFeature key={index} {...feature} />
         ))}
-      </div>
+      </Card>
     </Container>
   );
 }

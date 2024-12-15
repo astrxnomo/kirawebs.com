@@ -26,24 +26,15 @@ const data = {
       title: 'Asesoría Técnica',
       description: 'Consultoría para mejorar y optimizar tu presencia online.',
     },
-    {
-      icon: <ShoppingBag className="size-8 text-primary" />,
-      title: 'Marketing Digital',
-      description:
-        'Estrategias para aumentar tu visibilidad y atraer más clientes.',
-    },
   ],
 };
 
 export function ServicesSection() {
   return (
     <Container id={data.id} title={data.title} description={data.description}>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 lg:grid-cols-3">
         {data.services.map((service, index) => (
-          <Card
-            key={index}
-            className="h-full p-6 transition-shadow hover:shadow-lg"
-          >
+          <Card key={index} className="h-full p-6">
             <div className="mb-4">{service.icon}</div>
             <h3 className="mb-2 font-bold">{service.title}</h3>
             <p className="text-sm text-muted-foreground">

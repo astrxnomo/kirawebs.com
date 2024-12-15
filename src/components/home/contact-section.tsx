@@ -40,7 +40,7 @@ export function ContactSection() {
     <Container id="contact" title={data.title} description={data.description}>
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
-          <Card className="p-8 transition-shadow hover:shadow-lg">
+          <Card className="p-8">
             <h3 className="mb-2 text-xl">Formulario</h3>
 
             <form className="space-y-6">
@@ -86,7 +86,7 @@ export function ContactSection() {
               </div>
             </div>
           ))}
-          <Card className="p-8 transition-shadow hover:shadow-lg">
+          <Card className="p-8">
             <div className="relative aspect-video">
               <iframe
                 src={data.mapSrc}
