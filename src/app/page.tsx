@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="duration-1000 ease-out animate-in fade-in slide-in-from-bottom-10">
       <HeroSection />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <StepsSection />
       <CompareSection />
       <PricingSection />
