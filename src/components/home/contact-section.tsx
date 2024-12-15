@@ -26,7 +26,7 @@ const data = {
     },
   ],
   mapSrc:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78987.54215296617!2d-75.52484262363613!3d5.068696196415094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e476ffa6a42ce3b%3A0xa863cf6423ea141c!2sManizales%2C%20Caldas!5e1!3m2!1ses-419!2sco!4v1733635845952!5m2!1ses-419!2sco',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16258048.38473994!2d-85.00482797945533!3d5.820311668188996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e15a43aae1594a3%3A0x9a0d9a04eff2a340!2sColombia!5e0!3m2!1ses-419!2sco!4v1734294789361!5m2!1ses-419!2sco',
 };
 
 export function ContactSection() {

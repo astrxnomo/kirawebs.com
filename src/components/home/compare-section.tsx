@@ -77,7 +77,7 @@ const data = {
 export function CompareSection() {
   return (
     <Container id={data.id} title={data.title} description={data.description}>
-      <Card className="overflow-x-auto p-3">
+      <Card className="mx-auto w-full max-w-6xl overflow-x-auto p-3">
         <div className="flex min-w-[800px]">
           <div className="w-1/4 bg-muted/30 p-4">
             <h3 className="mb-4 text-lg font-medium">Características</h3>

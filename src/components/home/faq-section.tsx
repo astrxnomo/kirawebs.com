@@ -45,7 +45,7 @@ export function FAQSection() {
       <Accordion
         type="single"
         collapsible
-        className="w-full space-y-2"
+        className="mx-auto w-full max-w-3xl space-y-2"
         defaultValue="3"
       >
         {data.faqs.map(item => (
