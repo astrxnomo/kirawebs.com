@@ -16,15 +16,60 @@ const data = {
     'Soporte 24/7',
     'Análisis de Datos',
     'Seguridad Avanzada',
+    'Personalización Total',
+    'Escalabilidad',
+    'Integración de APIs Personalizadas',
+    'Rendimiento Optimizado',
   ],
   comparisons: [
     {
       name: 'Kira',
-      features: [true, true, true, true, true, true],
+      features: [true, true, true, true, true, true, true, true, true, true],
     },
     {
-      name: 'Otros',
-      features: [true, true, false, false, false, false],
+      name: 'WordPress',
+      features: [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+      ],
+    },
+    {
+      name: 'Wix',
+      features: [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+      ],
+    },
+    {
+      name: 'Agencias',
+      features: [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+      ],
     },
   ],
 };
@@ -32,9 +77,9 @@ const data = {
 export function CompareSection() {
   return (
     <Container id={data.id} title={data.title} description={data.description}>
-      <Card>
-        <div className="flex">
-          <div className="bg-muted/20 p-4 sm:w-1/2 sm:p-6 md:w-2/5 lg:w-1/3">
+      <Card className="overflow-x-auto">
+        <div className="flex min-w-[800px]">
+          <div className="w-1/3 bg-muted/20 p-4 sm:w-1/4 md:w-1/5">
             <h3 className="mb-4 text-base font-semibold sm:text-lg">
               Características
             </h3>
@@ -52,7 +97,7 @@ export function CompareSection() {
           </div>
           <div className="flex flex-1 divide-x divide-border">
             {data.comparisons.map(comparison => (
-              <div key={comparison.name} className="flex-1 p-4 sm:p-6">
+              <div key={comparison.name} className="flex-1 p-4">
                 <h3 className="mb-4 text-center text-base font-semibold sm:text-lg">
                   {comparison.name}
                 </h3>
