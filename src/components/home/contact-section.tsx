@@ -1,104 +1,219 @@
-import { Building2, Mail, MapPin, Phone } from 'lucide-react';
+'use client';
 
-import Container from '@/components/home/container';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader } from '@/components/ui/card';
+import { ChevronDown, Mail, Phone } from 'lucide-react';
+import { forwardRef, useState } from 'react';
+import * as RPNInput from 'react-phone-number-input';
+import flags from 'react-phone-number-input/flags';
+
+import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/utils/cn';
+
+import { Button } from '../ui/button';
+import { Checkbox } from '../ui/checkbox';
+import { Textarea } from '../ui/textarea';
+import Container from './container';
 
 const data = {
-  title: 'Contacta con Nosotros',
-  description:
-    'Estamos aquí para ayudarte a hacer realidad tu próximo proyecto',
-  address: {
-    icon: MapPin,
-    title: 'Dirección',
-    details: 'Calle Innovación, 123\n28001 Madrid, España',
-  },
-  email: {
-    icon: Mail,
-    title: 'Email',
-    details: 'info@kirawebs.com',
-  },
+  title: 'Contacto',
+  description: 'Ponte en contacto con nosotros para más información.',
+  contactMethods: [
+    {
+      icon: Mail,
+      title: 'Email',
+      details: 'info@kirawebs.com',
+    },
+  ],
   mapSrc:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78987.54215296617!2d-75.52484262363613!3d5.068696196415094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e476ffa6a42ce3b%3A0xa863cf6423ea141c!2sManizales%2C%20Caldas!5e1!3m2!1ses-419!2sco!4v1733635845952!5m2!1ses-419!2sco',
 };
 
 export function ContactSection() {
+  const [phoneValue, setPhoneValue] = useState('');
+
   return (
-    <Container id="contact" title={data.title} description={data.description}>
+    <Container
+      id="contact"
+      title={data.title}
+      description={data.description}
+      className="mb-20"
+    >
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
           <Card className="p-8">
             <form className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="tu@empresa.com" />
+                <Label htmlFor="input-10">
+                  Email <span className="text-destructive">*</span>
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="input-10"
+                    className="peer pe-9"
+                    placeholder="tu@correo.com"
+                    type="email"
+                  />
+                  <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
+                    <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                  </div>
+                </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone">Teléfono (opcional)</Label>
-                <Input id="phone" type="tel" placeholder="+34 600 000 000" />
+                <Label htmlFor="input-04" className="leading-6">
+                  Telefono
+                </Label>
+                <RPNInput.default
+                  className="flex rounded-lg shadow-sm shadow-black/5"
+                  international
+                  flagComponent={FlagComponent}
+                  countrySelectComponent={CountrySelect}
+                  inputComponent={PhoneInput}
+                  id="phone"
+                  placeholder="Enter phone number"
+                  value={phoneValue}
+                  onChange={newValue => setPhoneValue(newValue ?? '')}
+                />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="message">Descripción del proyecto</Label>
+                <Label htmlFor="textarea-03">
+                  Descripción <span className="text-destructive">*</span>
+                </Label>
                 <Textarea
-                  id="message"
-                  placeholder="Cuéntanos sobre tu proyecto..."
-                  className="min-h-[100px]"
+                  id="textarea-03"
+                  placeholder="Escribe una descripción"
                 />
+                <p
+                  className="mt-2 text-xs text-muted-foreground"
+                  role="region"
+                  aria-live="polite"
+                >
+                  Agrega todos los detalles que consideres necesarios
+                </p>
               </div>
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="gdpr"
-                  className="rounded border-input"
-                />
-                <Label htmlFor="gdpr" className="text-sm">
-                  Acepto la política de privacidad y el tratamiento de datos
+              <div className="flex items-center gap-2">
+                <Checkbox id="checkbox-07" />
+                <Label htmlFor="checkbox-07">
+                  Acepto la{' '}
+                  <a
+                    className="underline"
+                    href="https://originui.com"
+                    target="_blank"
+                  >
+                    politica de privacidad
+                  </a>{' '}
+                  y el{' '}
+                  <a
+                    className="underline"
+                    href="https://originui.com"
+                    target="_blank"
+                  >
+                    tratamiento de datos
+                  </a>{' '}
+                  <span className="text-destructive">*</span>
                 </Label>
               </div>
               <Button type="submit" className="w-full">
-                Enviar Mensaje
+                Enviar
               </Button>
             </form>
           </Card>
         </div>
-        <div className="space-y-8">
-          {[data.address, data.email].map((info, index) => (
-            <div key={index} className="flex items-center gap-4">
-              <info.icon className="h-6 w-6 text-primary" />
-              <div>
-                <h4 className="font-bold">{info.title}</h4>
-                <p className="text-muted-foreground">{info.details}</p>
-              </div>
-            </div>
-          ))}
-          <Card className="p-8">
-            <div className="relative aspect-video">
-              <iframe
-                src={data.mapSrc}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                className="rounded-lg"
-              ></iframe>
-            </div>
-          </Card>
-        </div>
+        <Card className="p-6">
+          <div>
+            <iframe
+              src={data.mapSrc}
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg"
+            ></iframe>
+          </div>
+        </Card>
       </div>
     </Container>
   );
 }
+
+const PhoneInput = forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
+  ({ className, ...props }, ref) => {
+    return (
+      <Input
+        className={cn(
+          '-ms-px rounded-s-none shadow-none focus-visible:z-10',
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+
+PhoneInput.displayName = 'PhoneInput';
+
+type CountrySelectProps = {
+  disabled?: boolean;
+  value: RPNInput.Country;
+  onChange: (value: RPNInput.Country) => void;
+  options: { label: string; value: RPNInput.Country | undefined }[];
+};
+
+const CountrySelect = ({
+  disabled,
+  value,
+  onChange,
+  options,
+}: CountrySelectProps) => {
+  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onChange(event.target.value as RPNInput.Country);
+  };
+
+  return (
+    <div className="relative inline-flex items-center self-stretch rounded-s-lg border border-input bg-background py-2 pe-2 ps-3 text-muted-foreground transition-shadow focus-within:z-10 focus-within:border-ring focus-within:outline-none focus-within:ring-[3px] focus-within:ring-ring/20 hover:bg-accent hover:text-foreground has-[:disabled]:pointer-events-none has-[:disabled]:opacity-50">
+      <div className="inline-flex items-center gap-1" aria-hidden="true">
+        <FlagComponent country={value} countryName={value} aria-hidden="true" />
+        <span className="text-muted-foreground/80">
+          <ChevronDown size={16} strokeWidth={2} aria-hidden="true" />
+        </span>
+      </div>
+      <select
+        disabled={disabled}
+        value={value}
+        onChange={handleSelect}
+        className="absolute inset-0 text-sm opacity-0"
+        aria-label="Select country"
+      >
+        <option key="default" value="">
+          Select a country
+        </option>
+        {options
+          .filter(x => x.value)
+          .map((option, index) => (
+            <option key={option.value ?? `empty-${index}`} value={option.value}>
+              {option.label}{' '}
+              {option.value &&
+                `+${RPNInput.getCountryCallingCode(option.value)}`}
+            </option>
+          ))}
+      </select>
+    </div>
+  );
+};
+
+const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
+  const Flag = flags[country];
+
+  return (
+    <span className="w-5 overflow-hidden rounded-sm">
+      {Flag ? (
+        <Flag title={countryName} />
+      ) : (
+        <Phone size={16} aria-hidden="true" />
+      )}
+    </span>
+  );
+};
