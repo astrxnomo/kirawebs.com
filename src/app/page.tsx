@@ -14,7 +14,7 @@ export default function Home() {
       {/* <ServicesSection /> */}
       <StepsSection />
       <CompareSection />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <CotizacionForm />
       <FAQSection />
       <ContactSection />
