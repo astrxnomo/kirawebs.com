@@ -49,17 +49,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import {
-  calcularPrecio,
-  funcionalidadesRecomendadas,
-  paginasRecomendadas,
-} from '@/utils/pricing';
+import { calcularPrecio, templates } from '@/utils/pricing';
 
 import Container from './container';
 
 const STEPS = [
-  'Tipo de Proyecto',
-  'Páginas y Diseño',
+  'Plantillas',
+  'Secciónes y Diseño',
   'Funcionalidades',
   'Plazos y Servicios',
   'Contacto y Resumen',
@@ -68,10 +64,10 @@ const STEPS = [
 export default function CotizacionForm() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    tipoSitio: '',
-    paginas: [] as string[],
+    template: '',
+    sections: [] as string[],
     disenoPersonalizado: false,
-    funcionalidades: [] as string[],
+    recommendedFeatures: [] as string[],
     plazo: 30,
     mantenimiento: false,
     seo: false,
@@ -81,11 +77,11 @@ export default function CotizacionForm() {
     email: '',
     descripcion: '',
   });
-  const [precio, setPrecio] = useState(0);
-  const [nuevaPagina, setNuevaPagina] = useState('');
+  const [price, setPrice] = useState(0);
+  const [newSection, setNewSection] = useState('');
 
   useEffect(() => {
-    setPrecio(calcularPrecio(formData));
+    setPrice(calcularPrecio(formData));
   }, [formData]);
 
   const handleNext = () => setStep(step + 1);
@@ -95,17 +91,17 @@ export default function CotizacionForm() {
     setFormData(previous => ({ ...previous, [key]: value }));
   };
 
-  const addPagina = () => {
-    if (nuevaPagina && !formData.paginas.includes(nuevaPagina)) {
-      updateFormData('paginas', [...formData.paginas, nuevaPagina]);
-      setNuevaPagina('');
+  const addSection = () => {
+    if (newSection && !formData.sections.includes(newSection)) {
+      updateFormData('sections', [...formData.sections, newSection]);
+      setNewSection('');
     }
   };
 
   const removePagina = (pagina: string) => {
     updateFormData(
-      'paginas',
-      formData.paginas.filter(p => p !== pagina),
+      'sections',
+      formData.sections.filter(p => p !== pagina),
     );
   };
 
@@ -125,9 +121,9 @@ export default function CotizacionForm() {
             </CardTitle>
             <CardDescription className="text-center">
               {step === 1 &&
-                'Selecciona el tipo de sitio web que mejor se adapte a tus necesidades'}
+                'Selecciona una plantilla que se ajuste a tus necesidades, las plantillas tienen características y funcionalidades sugeridas pero puedes personalizarlas a tu gusto'}
               {step === 2 &&
-                'Define las páginas de tu sitio y elige el tipo de diseño que deseas'}
+                'Define las secciónes de tu sitio y elige el tipo de diseño que deseas'}
               {step === 3 &&
                 'Selecciona las funcionalidades que harán único tu proyecto'}
               {step === 4 &&
@@ -149,53 +145,71 @@ export default function CotizacionForm() {
                 {step === 1 && (
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="tipoSitio"
-                        className="text-lg font-medium"
-                      >
-                        Tipo de sitio web
-                      </Label>
-                      <Select
+                      <RadioGroup
+                        className="grid grid-cols-2 gap-4 md:grid-cols-3"
+                        defaultValue=""
                         onValueChange={value => {
-                          updateFormData('tipoSitio', value);
+                          updateFormData('template', value);
                           updateFormData(
-                            'paginas',
-                            paginasRecomendadas[
-                              value as keyof typeof paginasRecomendadas
-                            ] || [],
+                            'sections',
+                            templates[value as keyof typeof templates]
+                              .sections || [],
                           );
                           updateFormData(
-                            'funcionalidades',
-                            funcionalidadesRecomendadas[
-                              value as keyof typeof funcionalidadesRecomendadas
-                            ] || [],
+                            'recommendedFeatures',
+                            templates[value as keyof typeof templates]
+                              .recommendedFeatures || [],
                           );
                         }}
                       >
-                        <SelectTrigger id="tipoSitio">
-                          <SelectValue placeholder="Selecciona el tipo de sitio" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="landing">Landing Page</SelectItem>
-                          <SelectItem value="corporativo">
-                            Sitio Corporativo
-                          </SelectItem>
-                          <SelectItem value="blog">Blog</SelectItem>
-                          <SelectItem value="ecommerce">E-commerce</SelectItem>
-                          <SelectItem value="portfolio">Portfolio</SelectItem>
-                        </SelectContent>
-                      </Select>
+                        {Object.keys(templates).map(template => (
+                          <div
+                            key={template}
+                            className="relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm shadow-black/5 has-[[data-state=checked]]:border-ring"
+                          >
+                            <RadioGroupItem
+                              value={template}
+                              id={template}
+                              aria-describedby={`radio-${template}-description`}
+                              className="order-1 after:absolute after:inset-0"
+                            />
+                            <div className="flex grow items-center gap-3">
+                              <div className="grid gap-2">
+                                <Label
+                                  htmlFor={template}
+                                  className="font-semibold"
+                                >
+                                  {template.charAt(0).toUpperCase() +
+                                    template.slice(1)}
+                                </Label>
+                                <p
+                                  id={`radio-${template}-description`}
+                                  className="text-xs text-muted-foreground"
+                                >
+                                  {
+                                    templates[
+                                      template as keyof typeof templates
+                                    ].description
+                                  }
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </RadioGroup>
                     </div>
-                    {formData.tipoSitio && (
+                    {formData.template && formData.template !== 'ninguna' && (
                       <div className="space-y-2 rounded-lg bg-muted p-6">
                         <div>
                           <h4 className="mb-2 text-sm font-medium">
-                            Páginas sugeridas:
+                            Secciónes sugeridas:
                           </h4>
                           <ul className="list-inside list-disc space-y-1 text-xs">
-                            {paginasRecomendadas[
-                              formData.tipoSitio as keyof typeof paginasRecomendadas
-                            ]?.map(pagina => <li key={pagina}>{pagina}</li>)}
+                            {templates[
+                              formData.template as keyof typeof templates
+                            ].sections?.map(section => (
+                              <li key={section}>{section}</li>
+                            ))}
                           </ul>
                         </div>
                         <div>
@@ -203,9 +217,9 @@ export default function CotizacionForm() {
                             Funcionalidades recomendadas:
                           </h4>
                           <ul className="list-inside list-disc space-y-1 text-xs">
-                            {funcionalidadesRecomendadas[
-                              formData.tipoSitio as keyof typeof funcionalidadesRecomendadas
-                            ]?.map(function_ => (
+                            {templates[
+                              formData.template as keyof typeof templates
+                            ].recommendedFeatures?.map(function_ => (
                               <li key={function_}>{function_}</li>
                             ))}
                           </ul>
@@ -219,15 +233,15 @@ export default function CotizacionForm() {
                   <div className="space-y-8">
                     <div className="space-y-4">
                       <Label className="text-lg font-medium">
-                        Páginas del sitio
+                        Secciónes del sitio
                       </Label>
                       <div className="flex flex-wrap gap-2">
-                        {formData.paginas.map(pagina => (
-                          <Badge key={pagina}>
-                            {pagina}
+                        {formData.sections.map(section => (
+                          <Badge key={section}>
+                            {section}
                             <button
                               className="-my-px -me-1.5 -ms-px inline-flex size-5 shrink-0 items-center justify-center rounded-[inherit] p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
-                              onClick={() => removePagina(pagina)}
+                              onClick={() => removePagina(section)}
                             >
                               <X size={12} strokeWidth={2} aria-hidden="true" />
                             </button>
@@ -236,11 +250,11 @@ export default function CotizacionForm() {
                       </div>
                       <div className="flex gap-2">
                         <Input
-                          value={nuevaPagina}
-                          onChange={event => setNuevaPagina(event.target.value)}
-                          placeholder="Nueva página"
+                          value={newSection}
+                          onChange={event => setNewSection(event.target.value)}
+                          placeholder="Nueva Sección "
                         />
-                        <Button onClick={addPagina} type="button">
+                        <Button onClick={addSection} type="button">
                           <PlusIcon className="h-4 w-4" /> Añadir
                         </Button>
                       </div>
@@ -303,30 +317,34 @@ export default function CotizacionForm() {
                             <TooltipTrigger asChild>
                               <div
                                 className={`flex cursor-pointer items-center space-x-2 rounded-lg border p-4 hover:bg-accent ${
-                                  formData.funcionalidades.includes(function_)
+                                  formData.recommendedFeatures.includes(
+                                    function_,
+                                  )
                                     ? 'bg-accent'
                                     : ''
                                 }`}
                                 onClick={() => {
                                   if (
-                                    formData.funcionalidades.includes(function_)
+                                    formData.recommendedFeatures.includes(
+                                      function_,
+                                    )
                                   ) {
                                     updateFormData(
-                                      'funcionalidades',
-                                      formData.funcionalidades.filter(
+                                      'recommendedFeatures',
+                                      formData.recommendedFeatures.filter(
                                         (f: string) => f !== function_,
                                       ),
                                     );
                                   } else {
-                                    updateFormData('funcionalidades', [
-                                      ...formData.funcionalidades,
+                                    updateFormData('recommendedFeatures', [
+                                      ...formData.recommendedFeatures,
                                       function_,
                                     ]);
                                   }
                                 }}
                               >
                                 <Checkbox
-                                  checked={formData.funcionalidades.includes(
+                                  checked={formData.recommendedFeatures.includes(
                                     function_,
                                   )}
                                   onCheckedChange={() => {}}
@@ -557,13 +575,13 @@ export default function CotizacionForm() {
                               <li className="flex justify-between">
                                 <span>Tipo de sitio:</span>
                                 <span className="font-medium">
-                                  {formData.tipoSitio || 'No seleccionado'}
+                                  {formData.template || 'No seleccionado'}
                                 </span>
                               </li>
                               <li className="flex justify-between">
-                                <span>Páginas:</span>
+                                <span>Secciónes:</span>
                                 <span className="text-right font-medium">
-                                  {formData.paginas.join(', ') || 'Ninguna'}
+                                  {formData.sections.join(', ') || 'Ninguna'}
                                 </span>
                               </li>
                               <li className="flex justify-between">
@@ -573,10 +591,10 @@ export default function CotizacionForm() {
                                 </span>
                               </li>
                               <li className="flex justify-between">
-                                <span>Funcionalidades:</span>
+                                <span>recommendedFeatures:</span>
                                 <span className="text-right font-medium">
-                                  {formData.funcionalidades.length > 0
-                                    ? formData.funcionalidades.join(', ')
+                                  {formData.recommendedFeatures.length > 0
+                                    ? formData.recommendedFeatures.join(', ')
                                     : 'Ninguna'}
                                 </span>
                               </li>
@@ -634,7 +652,7 @@ export default function CotizacionForm() {
                           <span className="text-xl font-semibold">
                             Precio estimado:
                           </span>
-                          <span className="text-3xl font-bold">${precio}</span>
+                          <span className="text-3xl font-bold">${price}</span>
                         </div>
                         <p className="mt-2 text-xs text-muted-foreground">
                           Este precio es aproximado y puede variar según tus

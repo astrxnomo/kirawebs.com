@@ -2,7 +2,7 @@ export const calcularPrecio = (formData: any) => {
   let precioBase = 500;
 
   // Tipo de sitio
-  switch (formData.tipoSitio) {
+  switch (formData.webTemplate) {
     case 'landing': {
       precioBase += 300;
       break;
@@ -26,13 +26,15 @@ export const calcularPrecio = (formData: any) => {
   }
 
   // Número de páginas
-  precioBase += formData.paginas.length * 100;
+  if (formData.paginas && Array.isArray(formData.paginas)) {
+    precioBase += formData.paginas.length * 100;
+  }
 
   // Diseño personalizado
   if (formData.disenoPersonalizado) precioBase += 800;
 
   // Funcionalidades adicionales
-  formData.funcionalidades.forEach((function_: string) => {
+  formData.recommendedFeatures.forEach((function_: string) => {
     switch (function_) {
       case 'Formulario de contacto': {
         precioBase += 150;
@@ -99,30 +101,46 @@ export const calcularPrecio = (formData: any) => {
   return precioBase;
 };
 
-export const paginasRecomendadas = {
-  landing: ['Inicio'],
-  corporativo: ['Inicio', 'Nosotros', 'Servicios', 'Contacto'],
-  blog: ['Inicio', 'Blog', 'Acerca de', 'Contacto'],
-  ecommerce: ['Inicio', 'Productos', 'Carrito', 'Cuenta', 'Contacto'],
-  portfolio: ['Inicio', 'Proyectos', 'Acerca de', 'Contacto'],
-};
-
-export const funcionalidadesRecomendadas = {
-  landing: ['Formulario de contacto', 'Integración con redes sociales'],
-  corporativo: [
-    'Formulario de contacto',
-    'Galería de imágenes',
-    'Blog integrado',
-  ],
-  blog: [
-    'Blog integrado',
-    'Sistema de búsqueda avanzado',
-    'Integración con redes sociales',
-  ],
-  ecommerce: [
-    'Carrito de compras',
-    'Sistema de búsqueda avanzado',
-    'Área de clientes',
-  ],
-  portfolio: ['Galería de imágenes', 'Formulario de contacto'],
+export const templates = {
+  sencilla: {
+    sections: [],
+    description: 'Ideal para sitios web simples y directos',
+    recommendedFeatures: [],
+  },
+  emprendimiento: {
+    sections: ['Acerca de', 'Servicios', 'Contacto'],
+    description: 'Ideal para pequeños negocios y emprendimientos',
+    recommendedFeatures: [
+      'Formulario de contacto',
+      'Integración con redes sociales',
+    ],
+  },
+  corporativo: {
+    sections: ['Historia', 'Servicios', 'Contacto'],
+    description: 'Ideal para empresas y corporaciones',
+    recommendedFeatures: [
+      'Formulario de contacto',
+      'Galería de imágenes',
+      'Blog integrado',
+    ],
+  },
+  blog: {
+    sections: ['Acerca de', 'Contacto'],
+    description: 'Ideal para bloggers y creadores de contenido',
+    recommendedFeatures: [
+      'Blog integrado',
+      'Sistema de búsqueda avanzado',
+      'Integración con redes sociales',
+    ],
+  },
+  personal: {
+    sections: ['Servicios', 'Proyectos', 'Acerca de', 'Contacto'],
+    description: 'Ideal para portafolios personales y freelancers',
+    recommendedFeatures: ['Galería de imágenes', 'Formulario de contacto'],
+  },
+  ninguna: {
+    sections: [],
+    description: 'Ideal si quieres un sitio web completamente personalizado',
+    recommendedFeatures: [],
+  },
 };
