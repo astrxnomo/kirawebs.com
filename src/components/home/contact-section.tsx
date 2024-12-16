@@ -41,7 +41,7 @@ export function ContactSection() {
     >
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
-          <Card className="p-8">
+          <Card className="p-6">
             <form className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="input-10">
