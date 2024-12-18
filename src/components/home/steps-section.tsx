@@ -1,13 +1,13 @@
-import { Code, Megaphone, PhoneCall, Rocket, Search } from 'lucide-react';
+import { Code, FileText, Handshake, PhoneCall, Rocket } from 'lucide-react';
 
 import Container from '@/components/home/container';
 import { Card } from '@/components/ui/card';
 
 const data = {
   id: 'steps',
-  title: 'Nuestro Proceso de Desarrollo',
+  title: 'Cómo conseguir tu página web',
   description:
-    'Acompañamos tu proyecto desde la idea inicial hasta la entrega final, asegurando calidad en cada etapa.',
+    'Te guiamos a través de un proceso sencillo y efectivo para obtener la página web perfecta para tu negocio.',
   button: {
     text: 'Contáctanos',
     icon: PhoneCall,
@@ -17,31 +17,31 @@ const data = {
 const stepsData = [
   {
     step: 1,
-    title: 'Investigación y Análisis',
+    title: 'Consulta Inicial',
     description:
-      'Comprendemos tus necesidades y analizamos el mercado para ofrecerte la mejor solución.',
-    icon: Search,
+      'Rellena el formulario de cotización para que podamos entender tus necesidades y ofrecerte un estimado del costo de tu página web. Solo ingresa tu correo y envíalo.',
+    icon: FileText,
   },
   {
     step: 2,
-    title: 'Diseño Creativo',
+    title: 'Propuesta Detallada',
     description:
-      'Creamos diseños innovadores y funcionales que se adaptan a tus objetivos y a tu audiencia.',
-    icon: Code,
+      'Te enviaremos una propuesta detallada con el diseño y funcionalidades ideales para tu negocio, adaptada a tus necesidades específicas.',
+    icon: Handshake,
   },
   {
     step: 3,
-    title: 'Desarrollo y Pruebas',
+    title: 'Desarrollo y Ajustes',
     description:
-      'Desarrollamos tu producto con las últimas tecnologías y realizamos pruebas exhaustivas para garantizar su calidad.',
-    icon: Rocket,
+      'Desarrollamos tu página web y te mantenemos informado durante todo el proceso. Haremos los ajustes necesarios según tus comentarios y preferencias.',
+    icon: Code,
   },
   {
     step: 4,
-    title: 'Entrega y Soporte',
+    title: 'Lanzamiento y Soporte',
     description:
-      'Entregamos tu producto final y ofrecemos soporte continuo para asegurar su éxito a largo plazo.',
-    icon: Megaphone,
+      'Lanzamos tu página web y te ofrecemos soporte constante para asegurarnos de que todo funcione a la perfección, incluso después del lanzamiento.',
+    icon: Rocket,
   },
 ];
 

@@ -13,9 +13,9 @@ import { Button } from '@/components/ui/button';
 
 const data = {
   id: 'hero',
-  title: 'Páginas web modernas, fáciles de editar',
+  title: 'Tu web, sin complicaciones ni secretos',
   description:
-    'Desarrollo web profesional que impulsa resultados. Creamos soluciones digitales innovadoras que transforman negocios.',
+    'Con tecnologías modernas y un enfoque transparente, creamos páginas web fáciles de gestionar, para que tú solo te dediques a lo que más importa: hacer crecer tu negocio.',
   buttonText: 'Conseguir mi web',
   previewImages: [
     {
@@ -53,7 +53,10 @@ export function HeroSection() {
             {data.description}
           </p>
           <div>
-            <Button size="lg">
+            <Button
+              size="lg"
+              className="transition-transform duration-300 hover:scale-105"
+            >
               {data.buttonText}
               <ArrowRight />
             </Button>
