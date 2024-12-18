@@ -1,6 +1,6 @@
 'use client';
 
-import { Code2 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -13,10 +13,12 @@ export function Header() {
     <header className="header-animate fixed top-0 z-50 w-full">
       <div className="container mx-auto px-6 lg:px-28">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Code2 className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">Kira</span>
-          </div>
+          <Link href="/">
+            <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+              <Image src="/logo.svg" alt="Logo" width={30} height={30} />
+              <span className="text-lg font-extrabold text-primary">Kira</span>
+            </div>
+          </Link>
           <nav className="hidden gap-1 md:flex">
             <Link
               href="#servicios"
@@ -50,7 +52,12 @@ export function Header() {
             </Link>
           </nav>
           <div className="hidden items-center space-x-4 md:flex">
-            <Button size="sm">Contactar</Button>
+            <Button
+              className="transition-transform duration-300 hover:scale-105"
+              size="sm"
+            >
+              Contactar
+            </Button>
           </div>
           <button
             className="md:hidden"
