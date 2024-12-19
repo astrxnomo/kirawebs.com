@@ -1,7 +1,3 @@
-import {
-  type SimulationPriceFormData,
-  type UpdateFormDataFunction,
-} from '@/components/home/price-simulator/price-simulation-form';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import {
@@ -9,6 +5,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+
+import { usePriceSimulator } from './price-simulator-provider';
 
 const FEATURES = [
   'Formulario de contacto',
@@ -23,13 +21,9 @@ const FEATURES = [
   'Sistema de búsqueda avanzado',
 ];
 
-export function FeaturesStep({
-  formData,
-  updateFormData,
-}: {
-  formData: SimulationPriceFormData;
-  updateFormData: UpdateFormDataFunction;
-}) {
+export function FeaturesStep() {
+  const { formData, updateFormData } = usePriceSimulator();
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 gap-4">

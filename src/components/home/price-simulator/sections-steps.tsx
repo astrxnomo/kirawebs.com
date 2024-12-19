@@ -1,22 +1,15 @@
 import { PlusIcon, X } from 'lucide-react';
 import { useState } from 'react';
 
-import {
-  type SimulationPriceFormData,
-  type UpdateFormDataFunction,
-} from '@/components/home/price-simulator/price-simulation-form';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-export function SectionsStep({
-  formData,
-  updateFormData,
-}: {
-  formData: SimulationPriceFormData;
-  updateFormData: UpdateFormDataFunction;
-}) {
+import { usePriceSimulator } from './price-simulator-provider';
+
+export function SectionsStep() {
+  const { formData, updateFormData } = usePriceSimulator();
   const [newSection, setNewSection] = useState('');
 
   const addSection = () => {

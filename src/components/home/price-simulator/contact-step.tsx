@@ -1,28 +1,22 @@
 import { Mail } from 'lucide-react';
 
 import {
-  type SimulationPriceFormData,
-  type UpdateFormDataFunction,
-} from '@/components/home/price-simulator/price-simulation-form';
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { calcularPrecio } from '@/utils/price-simulator';
 
-export function ContactStep({
-  formData,
-  updateFormData,
-  price,
-}: {
-  formData: SimulationPriceFormData;
-  updateFormData: UpdateFormDataFunction;
-  price: number;
-}) {
+import { usePriceSimulator } from './price-simulator-provider';
+
+export function ContactStep() {
+  const { formData, updateFormData } = usePriceSimulator();
+
   const summaryItems = [
     { label: 'Tipo de sitio', value: formData.template || 'No seleccionado' },
     { label: 'Secciones', value: formData.sections },
@@ -44,62 +38,30 @@ export function ContactStep({
     },
   ];
 
-  const renderSummaryItem = (
-    label: string,
-    value: string | string[] | boolean,
-  ) => (
-    <li key={label} className="flex justify-between">
-      <span>{label}:</span>
-      <span className="text-right font-medium">
-        {Array.isArray(value)
-          ? value.join(', ') || 'Ninguna'
-          : value.toString()}
-      </span>
-    </li>
-  );
-
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="email">
-          Correo Electrónico <span className="text-destructive">*</span>
-        </Label>
-        <div className="relative">
-          <Input
-            id="email"
-            type="email"
-            className="peer pe-9"
-            value={formData.email}
-            onChange={event => updateFormData('email', event.target.value)}
-            placeholder="tu@email.com"
-          />
-          <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
-            <Mail size={16} strokeWidth={2} aria-hidden="true" />
-          </div>
-        </div>
+        <Label htmlFor="email">Correo Electrónico</Label>
+        <Input
+          id="email"
+          type="email"
+          value={formData.email}
+          onChange={event => updateFormData('email', event.target.value)}
+          placeholder="Ingresa tu correo electrónico"
+        />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="descripcion">
-          Descripción adicional{' '}
-          <span className="text-muted-foreground">(Opcional)</span>
-        </Label>
+        <Label htmlFor="descripcion">Descripción del Proyecto</Label>
         <Textarea
           id="descripcion"
           value={formData.descripcion}
           onChange={event => updateFormData('descripcion', event.target.value)}
           placeholder="Cuéntanos más sobre tu proyecto..."
         />
-        <p
-          className="mt-2 text-xs text-muted-foreground"
-          role="region"
-          aria-live="polite"
-        >
-          Agrega todos los detalles que consideres necesarios
-        </p>
       </div>
+      <div className="mt-6 space-y-2 rounded-lg bg-accent/50 p-6">
+        <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
 
-      <div className="mt-6 space-y-2 rounded-lg bg-accent p-6">
-        <h3 className="text-lg font-semibold">Resumen de tu cotización</h3>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-sm">
@@ -107,9 +69,16 @@ export function ContactStep({
             </AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 text-xs">
-                {summaryItems.map(item =>
-                  renderSummaryItem(item.label, item.value),
-                )}
+                {summaryItems.map(item => (
+                  <li key={item.label} className="flex justify-between">
+                    <span>{item.label}:</span>
+                    <span className="text-right font-medium">
+                      {Array.isArray(item.value)
+                        ? item.value.join(', ') || 'Ninguna'
+                        : item.value.toString()}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -119,9 +88,16 @@ export function ContactStep({
             </AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 text-xs">
-                {additionalServices.map(service =>
-                  renderSummaryItem(service.label, service.value),
-                )}
+                {additionalServices.map(service => (
+                  <li key={service.label} className="flex justify-between">
+                    <span>{service.label}:</span>
+                    <span className="text-right font-medium">
+                      {Array.isArray(service.value)
+                        ? service.value.join(', ') || 'Ninguna'
+                        : service.value.toString()}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -129,12 +105,23 @@ export function ContactStep({
         <div className="pt-4">
           <div className="flex items-center justify-between">
             <span className="text-xl font-semibold">Precio estimado:</span>
-            <span className="text-3xl font-bold">${price}</span>
+            <span className="text-3xl font-bold">
+              ${calcularPrecio(formData)}
+            </span>
           </div>
           <p className="mt-2 text-xs text-muted-foreground">
             Este precio es aproximado y puede variar según tus necesidades.
           </p>
         </div>
+      </div>
+      <div className="">
+        <Button
+          onClick={() => console.log('Enviar cotización', formData)}
+          className="w-full transition-all duration-300 ease-in-out hover:scale-105"
+          size="lg"
+        >
+          <Mail /> Enviar Cotización
+        </Button>
       </div>
     </div>
   );

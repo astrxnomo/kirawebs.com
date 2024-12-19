@@ -1,19 +1,19 @@
 import { Check } from 'lucide-react';
-import React from 'react';
 
 interface Step {
   name: string;
   icon: React.ElementType;
 }
 
-interface StepIndicatorProps {
+export function StepIndicator({
+  steps,
+  currentStep,
+}: {
   steps: Step[];
   currentStep: number;
-}
-
-export function StepIndicator({ steps, currentStep }: StepIndicatorProps) {
+}) {
   return (
-    <div className="mb-8">
+    <div className="mb-4">
       <ol className="relative flex w-full items-center justify-center">
         {steps.map((step, index) => {
           const Icon = step.icon;
@@ -41,7 +41,7 @@ export function StepIndicator({ steps, currentStep }: StepIndicatorProps) {
                 )}
               </div>
               <span
-                className={`mt-2 text-center text-xs font-medium sm:text-sm ${
+                className={`mt-2 hidden text-center font-medium sm:text-sm md:block ${
                   isCurrent ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >

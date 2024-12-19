@@ -11,6 +11,13 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
+import Container from '@/components/home/container';
+import { ContactStep } from '@/components/home/price-simulator/contact-step';
+import { FeaturesStep } from '@/components/home/price-simulator/features-step';
+import { SectionsStep } from '@/components/home/price-simulator/sections-steps';
+import { StepIndicator } from '@/components/home/price-simulator/step-indicator';
+import { TemplatesStep } from '@/components/home/price-simulator/templates-step';
+import { TimeStep } from '@/components/home/price-simulator/time-step';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -20,34 +27,8 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { calcularPrecio } from '@/utils/pricing';
 
-import Container from '../container';
-import { ContactStep } from './contact-step';
-import { FeaturesStep } from './features-step';
-import { SectionsStep } from './sections-steps';
-import { StepIndicator } from './step-indicator';
-import { TemplatesStep } from './templates-step';
-import { TimeStep } from './time-step';
-
-export type SimulationPriceFormData = {
-  template: string;
-  sections: string[];
-  recommendedFeatures: string[];
-  plazo: number;
-  mantenimiento: boolean;
-  seo: boolean;
-  hosting: boolean;
-  dominio: boolean;
-  integracionExterna: boolean;
-  email: string;
-  descripcion: string;
-};
-
-export type UpdateFormDataFunction = <K extends keyof SimulationPriceFormData>(
-  field: K,
-  value: SimulationPriceFormData[K],
-) => void;
+import { PriceSimulatorProvider } from './price-simulator-provider';
 
 const STEPS = [
   {
@@ -79,65 +60,11 @@ const STEPS = [
 
 export function PriceSimulatorForm() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<SimulationPriceFormData>({
-    template: '',
-    sections: [],
-    recommendedFeatures: [],
-    plazo: 30,
-    mantenimiento: false,
-    seo: false,
-    hosting: false,
-    dominio: false,
-    integracionExterna: false,
-    email: '',
-    descripcion: '',
-  });
-
-  const updateFormData: UpdateFormDataFunction = (field, value) => {
-    setFormData(previous => ({ ...previous, [field]: value }));
-  };
 
   const handleNext = () =>
     setCurrentStep(previous => Math.min(previous + 1, STEPS.length - 1));
   const handlePrevious = () =>
     setCurrentStep(previous => Math.max(previous - 1, 0));
-
-  const price = calcularPrecio(formData);
-
-  const renderStep = () => {
-    switch (currentStep) {
-      case 0: {
-        return (
-          <TemplatesStep formData={formData} updateFormData={updateFormData} />
-        );
-      }
-      case 1: {
-        return (
-          <SectionsStep formData={formData} updateFormData={updateFormData} />
-        );
-      }
-      case 2: {
-        return (
-          <FeaturesStep formData={formData} updateFormData={updateFormData} />
-        );
-      }
-      case 3: {
-        return <TimeStep formData={formData} updateFormData={updateFormData} />;
-      }
-      case 4: {
-        return (
-          <ContactStep
-            formData={formData}
-            updateFormData={updateFormData}
-            price={price}
-          />
-        );
-      }
-      default: {
-        return;
-      }
-    }
-  };
 
   return (
     <Container
@@ -155,40 +82,41 @@ export function PriceSimulatorForm() {
             <CardDescription>{STEPS[currentStep].description}</CardDescription>
           </CardHeader>
           <CardContent>
-            <div
-              key={currentStep}
-              className="flex flex-col items-center justify-between gap-6 duration-200 animate-in slide-in-from-bottom-5"
-            >
-              <TooltipProvider>
-                <div className="w-full">{renderStep()}</div>
-              </TooltipProvider>
-              <div className="flex w-full justify-between gap-4">
-                {currentStep > 0 && (
-                  <Button
-                    variant="outline"
-                    onClick={handlePrevious}
-                    className="transition-transform duration-300 ease-in-out hover:-translate-x-1"
-                  >
-                    <ArrowLeft className="mr-2 h-4 w-4" /> Anterior
-                  </Button>
-                )}
-                {currentStep < STEPS.length - 1 ? (
-                  <Button
-                    onClick={handleNext}
-                    className="transition-transform duration-300 ease-in-out hover:translate-x-1"
-                  >
-                    Siguiente <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={() => console.log('Enviar cotización', formData)}
-                    className="transition-all duration-300 ease-in-out hover:scale-105"
-                  >
-                    <Mail className="mr-2 h-4 w-4" /> Enviar Cotización
-                  </Button>
-                )}
+            <PriceSimulatorProvider>
+              <div
+                key={currentStep}
+                className="flex flex-col items-center justify-between gap-6 duration-200 animate-in slide-in-from-bottom-5"
+              >
+                <TooltipProvider>
+                  <div className="w-full">
+                    {currentStep === 0 && <TemplatesStep />}
+                    {currentStep === 1 && <SectionsStep />}
+                    {currentStep === 2 && <FeaturesStep />}
+                    {currentStep === 3 && <TimeStep />}
+                    {currentStep === 4 && <ContactStep />}
+                  </div>
+                </TooltipProvider>
+                <div className="flex w-full justify-between gap-4">
+                  {currentStep > 0 && (
+                    <Button
+                      variant="outline"
+                      onClick={handlePrevious}
+                      className="transition-transform duration-300 ease-in-out hover:-translate-x-1"
+                    >
+                      <ArrowLeft className="mr-2 h-4 w-4" /> Anterior
+                    </Button>
+                  )}
+                  {currentStep < STEPS.length - 1 && (
+                    <Button
+                      onClick={handleNext}
+                      className="transition-transform duration-300 ease-in-out hover:translate-x-1"
+                    >
+                      Siguiente <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
+                </div>
               </div>
-            </div>
+            </PriceSimulatorProvider>
           </CardContent>
         </Card>
       </div>
