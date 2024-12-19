@@ -1,8 +1,8 @@
 import { CompareSection } from '@/components/home/compare-section';
 import { ContactSection } from '@/components/home/contact-section';
-import CotizacionForm from '@/components/home/cotizacion-form';
 import { FAQSection } from '@/components/home/faq-section';
 import { HeroSection } from '@/components/home/hero-section';
+import { PriceSimulatorForm } from '@/components/home/price-simulator/price-simulation-form';
 import { PricingSection } from '@/components/home/pricing-section';
 import { ServicesSection } from '@/components/home/services-section';
 import { StepsSection } from '@/components/home/steps-section';
@@ -15,7 +15,7 @@ export default function Home() {
       <StepsSection />
       <CompareSection />
       {/* <PricingSection /> */}
-      <CotizacionForm />
+      <PriceSimulatorForm />
       <FAQSection />
       <ContactSection />
     </div>

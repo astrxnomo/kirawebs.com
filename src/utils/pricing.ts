@@ -107,7 +107,7 @@ export const templates = {
     description: 'Ideal para sitios web simples y directos',
     recommendedFeatures: [],
   },
-  emprendimiento: {
+  emprendedor: {
     sections: ['Acerca de', 'Servicios', 'Contacto'],
     description: 'Ideal para pequeños negocios y emprendimientos',
     recommendedFeatures: [
@@ -144,3 +144,36 @@ export const templates = {
     recommendedFeatures: [],
   },
 };
+
+export const additionalServices = [
+  {
+    id: 'mantenimiento',
+    label: 'Mantenimiento mensual',
+    tooltip: 'Incluye actualizaciones y soporte técnico',
+    price: 200,
+  },
+  {
+    id: 'seo',
+    label: 'Optimización SEO',
+    tooltip: 'Mejora la visibilidad de tu sitio en los motores de búsqueda',
+    price: 400,
+  },
+  {
+    id: 'hosting',
+    label: 'Hosting incluido',
+    tooltip: 'Alojamiento web de alta velocidad y confiable',
+    price: 150,
+  },
+  {
+    id: 'dominio',
+    label: 'Dominio personalizado',
+    tooltip: 'Registro y configuración de tu dominio propio',
+    price: 50,
+  },
+  {
+    id: 'integracionExterna',
+    label: 'Integración con sistemas externos',
+    tooltip: 'Conecta tu sitio con CRM, ERP u otras plataformas',
+    price: 600,
+  },
+];
