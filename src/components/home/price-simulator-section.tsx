@@ -70,7 +70,8 @@ export function PriceSimulatorForm() {
     <Container
       id="simulador-precio"
       title="Simulador de precios"
-      description="Obtén un presupuesto personalizado para tu sitio web"
+      description="Obten una visión más clara de lo que
+          necesitas para tu proyecto web"
     >
       <div className="mx-auto w-full max-w-4xl">
         <StepIndicator steps={STEPS} currentStep={currentStep} />

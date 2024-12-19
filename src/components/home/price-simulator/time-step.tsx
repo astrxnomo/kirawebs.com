@@ -50,7 +50,7 @@ export function TimeStep() {
   const { formData, updateFormData } = usePriceSimulator();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 text-center">
       <div className="space-y-4">
         <Label className="text-lg font-medium">Plazo de entrega</Label>
         <div className="space-y-4">

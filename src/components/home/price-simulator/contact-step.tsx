@@ -20,8 +20,14 @@ export function ContactStep() {
 
   const summaryItems = [
     { label: 'Tipo de sitio', value: formData.template || 'No seleccionado' },
-    { label: 'Secciones', value: formData.sections },
-    { label: 'Funcionalidades', value: formData.recommendedFeatures },
+    {
+      label: 'Secciones',
+      value: formData.sections.join(', ') || 'No seleccionadas',
+    },
+    {
+      label: 'Funcionalidades',
+      value: formData.recommendedFeatures.join(', ') || 'No seleccionadas',
+    },
     { label: 'Plazo de entrega', value: `${formData.plazo} días` },
   ];
 
@@ -38,7 +44,6 @@ export function ContactStep() {
       value: formData.integracionExterna ? 'Sí' : 'No',
     },
   ];
-
   return (
     <div className="space-y-6">
       <div className="space-y-2">
@@ -55,7 +60,7 @@ export function ContactStep() {
       </div>
       <div className="space-y-2">
         <Label htmlFor="descripcion">
-          Descripción del Proyecto{' '}
+          Comentario adicional{' '}
           <span className="text-xs text-muted-foreground">(Opcional)</span>
         </Label>
         <Textarea
@@ -123,20 +128,6 @@ export function ContactStep() {
         </div>
       </ShineBorder>
 
-      <div className="space-y-2 rounded-lg border border-border px-4 py-3">
-        <p className="text-sm">
-          <Info
-            className="-mt-0.5 me-3 inline-flex text-primary"
-            size={16}
-            strokeWidth={2}
-            aria-hidden="true"
-          />
-          Con esta simulación, estaremos un paso más cerca de entender tus
-          necesidades y crear el plan perfecto para tu negocio. Al enviarlo, nos
-          pondremos en contacto contigo a la brevedad para discutir los detalles
-          de tu proyecto. Si tienes alguna duda, no dudes en contactarnos.
-        </p>
-      </div>
       <Button
         onClick={() => console.log('Enviar cotización', formData)}
         className="w-full transition-all duration-300 ease-in-out hover:scale-105"
@@ -144,6 +135,21 @@ export function ContactStep() {
       >
         <Mail /> Enviar Simulación
       </Button>
+      <div className="space-y-2 rounded-lg border border-border px-4 py-3">
+        <p className="text-xs">
+          <Info
+            className="-mt-0.5 me-2 inline-flex text-primary"
+            size={16}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+          Con esta herramienta, podrás obtener una visión más clara para tu
+          proyecto web. Una vez completes y envies el formulario, nos pondremos
+          en contacto contigo lo antes posible para afinar los detalles y
+          ayudarte a dar el siguiente paso en el crecimiento de tu negocio. Si
+          tienes alguna inquietud, estamos aquí para ayudarte.
+        </p>
+      </div>
     </div>
   );
 }
