@@ -19,9 +19,9 @@ export function FeaturesStep() {
           <Tooltip key={feature.id}>
             <TooltipTrigger asChild>
               <div
-                className={`flex cursor-pointer items-center space-x-2 rounded-lg border p-4 hover:bg-accent ${
+                className={`relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm shadow-black/5 transition-all duration-200 ease-in-out hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5 ${
                   formData.recommendedFeatures.includes(feature.id)
-                    ? 'bg-accent'
+                    ? 'border-primary bg-primary/5'
                     : ''
                 }`}
                 onClick={() => {
@@ -36,12 +36,19 @@ export function FeaturesStep() {
                 <Checkbox
                   checked={formData.recommendedFeatures.includes(feature.id)}
                   onCheckedChange={() => {}}
+                  className="order-1 after:absolute after:inset-0"
                 />
-                <Label>{feature.label}</Label>
+                <div className="flex grow items-center gap-3">
+                  <div className="grid gap-1">
+                    <Label htmlFor={feature.id} className="font-semibold">
+                      {feature.label}
+                    </Label>
+                  </div>
+                </div>
               </div>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Añade {feature.id.toLowerCase()} a tu sitio web</p>
+              <p>Añade {feature.label.toLowerCase()} a tu sitio web</p>
             </TooltipContent>
           </Tooltip>
         ))}

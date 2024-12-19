@@ -11,11 +11,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import ShineBorder from '@/components/ui/shine-border';
 import { Textarea } from '@/components/ui/textarea';
-import { calcularPrecio } from '@/utils/price-simulator';
+import { calculatePrice } from '@/utils/price-simulator';
 
 import { usePriceSimulator } from './price-simulator-provider';
 
-export function ContactStep() {
+export function ResumeStep() {
   const { formData, updateFormData } = usePriceSimulator();
 
   const summaryItems = [
@@ -71,7 +71,7 @@ export function ContactStep() {
         />
       </div>
 
-      <ShineBorder className="w-full p-0" color="#0058CC" borderWidth={2}>
+      <ShineBorder className="w-full p-0" color="#0058CC" borderWidth={3}>
         <div className="w-full space-y-2 rounded-lg bg-accent/50 p-6">
           <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
           <Accordion type="single" collapsible className="w-full">
@@ -84,7 +84,7 @@ export function ContactStep() {
                   {summaryItems.map(item => (
                     <li key={item.label} className="flex justify-between">
                       <span>{item.label}:</span>
-                      <span className="text-right font-medium">
+                      <span className="text-right font-medium text-muted-foreground">
                         {Array.isArray(item.value)
                           ? item.value.join(', ') || 'Ninguna'
                           : item.value.toString()}
@@ -103,7 +103,7 @@ export function ContactStep() {
                   {additionalServices.map(service => (
                     <li key={service.label} className="flex justify-between">
                       <span>{service.label}:</span>
-                      <span className="text-right font-medium">
+                      <span className="text-right font-medium text-muted-foreground">
                         {Array.isArray(service.value)
                           ? service.value.join(', ') || 'Ninguna'
                           : service.value.toString()}
@@ -115,10 +115,10 @@ export function ContactStep() {
             </AccordionItem>
           </Accordion>
           <div className="pt-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xl font-semibold">Precio estimado:</span>
+            <div className="flex flex-col items-center justify-between md:flex-row">
+              <span className="text-xl font-semibold">Precio estimado</span>
               <span className="text-3xl font-bold">
-                ${calcularPrecio(formData)}
+                ${calculatePrice(formData)}
               </span>
             </div>
             <p className="mt-2 text-xs text-muted-foreground">

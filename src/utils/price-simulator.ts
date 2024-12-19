@@ -7,34 +7,39 @@ interface FormData {
   [key: string]: any;
 }
 
-export const calcularPrecio = (formData: FormData) => {
-  let precioBase = 100_000;
+export const calculatePrice = (formData: FormData) => {
+  let price = 1_000_000;
 
   // Tipo de sitio
   const template = templates.find(t => t.id === formData.template);
   if (template) {
-    precioBase += template.basePrice;
+    price += template.basePrice;
   }
 
   // Número de páginas
   if (formData.paginas && Array.isArray(formData.paginas)) {
-    precioBase += formData.paginas.length * 100;
+    price += formData.paginas.length * 100;
   }
 
   // Funcionalidades adicionales
   formData.recommendedFeatures.forEach((function_: string) => {
     const feature = features.find(f => f.id === function_);
     if (feature) {
-      precioBase += feature.price;
+      price += feature.price;
     }
   });
 
   // Servicios adicionales
   additionalServices.forEach(service => {
     if (formData[service.id]) {
-      precioBase += service.price;
+      price += service.price;
     }
   });
 
-  return precioBase;
+  return new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
 };

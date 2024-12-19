@@ -12,12 +12,12 @@ import {
 import { useState } from 'react';
 
 import Container from '@/components/home/container';
-import { ContactStep } from '@/components/home/price-simulator/contact-step';
 import { FeaturesStep } from '@/components/home/price-simulator/features-step';
+import { ResumeStep } from '@/components/home/price-simulator/resume-step';
 import { SectionsStep } from '@/components/home/price-simulator/sections-steps';
+import { ServicesStep } from '@/components/home/price-simulator/services-step';
 import { StepIndicator } from '@/components/home/price-simulator/step-indicator';
 import { TemplatesStep } from '@/components/home/price-simulator/templates-step';
-import { TimeStep } from '@/components/home/price-simulator/time-step';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -93,8 +93,8 @@ export function PriceSimulatorForm() {
                     {currentStep === 0 && <TemplatesStep />}
                     {currentStep === 1 && <SectionsStep />}
                     {currentStep === 2 && <FeaturesStep />}
-                    {currentStep === 3 && <TimeStep />}
-                    {currentStep === 4 && <ContactStep />}
+                    {currentStep === 3 && <ServicesStep />}
+                    {currentStep === 4 && <ResumeStep />}
                   </div>
                 </TooltipProvider>
                 <div className="flex w-full justify-between gap-4">

@@ -48,12 +48,11 @@ export function TemplatesStep() {
           </div>
         ))}
       </RadioGroup>
-      <hr />
       <div className="grid grid-cols-2 gap-6">
         {formData.sections.length > 0 && (
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden border-primary bg-primary/5">
             <CardContent className="p-0">
-              <div className="bg-foreground/5 p-3">
+              <div className="p-3">
                 <h3 className="flex items-center gap-2 text-xs font-semibold md:text-sm">
                   <Layout className="size-3 md:size-4" />
                   Secciones
@@ -63,7 +62,7 @@ export function TemplatesStep() {
                 {formData.sections.map((section, index) => (
                   <li
                     key={index}
-                    className="px-2 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
+                    className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
                   >
                     {section}
                   </li>
@@ -74,9 +73,9 @@ export function TemplatesStep() {
         )}
 
         {formData.recommendedFeatures.length > 0 && (
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden border-primary bg-primary/5">
             <CardContent className="p-0">
-              <div className="bg-foreground/5 p-3">
+              <div className="p-3">
                 <h3 className="flex items-center gap-2 text-xs font-semibold md:text-sm">
                   <Star className="size-3 md:size-4" />
                   Características
@@ -86,7 +85,7 @@ export function TemplatesStep() {
                 {formData.recommendedFeatures.map((feature, index) => (
                   <li
                     key={index}
-                    className="px-2 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
+                    className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
                   >
                     {feature}
                   </li>

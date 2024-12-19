@@ -46,7 +46,7 @@ const additionalServices: {
   },
 ];
 
-export function TimeStep() {
+export function ServicesStep() {
   const { formData, updateFormData } = usePriceSimulator();
 
   return (
