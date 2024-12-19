@@ -19,7 +19,7 @@ const stepsData = [
     step: 1,
     title: 'Consulta Inicial',
     description:
-      'Rellena el formulario de cotización para que podamos entender tus necesidades y ofrecerte un estimado del costo de tu página web. Solo ingresa tu correo y envíalo.',
+      'Puedes contactarnos o relizar el simulador para entender tus necesidades y ofrecerte un estimado del costo de tu página web.',
     icon: FileText,
   },
   {
@@ -33,14 +33,14 @@ const stepsData = [
     step: 3,
     title: 'Desarrollo y Ajustes',
     description:
-      'Desarrollamos tu página web y te mantenemos informado durante todo el proceso. Haremos los ajustes necesarios según tus comentarios y preferencias.',
+      'Desarrollamos tu página web y te mantenemos informado para hacer los ajustes necesarios según tus preferencias.',
     icon: Code,
   },
   {
     step: 4,
-    title: 'Lanzamiento y Soporte',
+    title: 'Lanzamiento',
     description:
-      'Lanzamos tu página web y te ofrecemos soporte constante para asegurarnos de que todo funcione a la perfección, incluso después del lanzamiento.',
+      'Lanzamos tu página web y te ofrecemos soporte constante para asegurarnos de que todo funcione a la perfección.',
     icon: Rocket,
   },
 ];
@@ -65,7 +65,7 @@ export function StepsSection() {
               <Card className="h-full p-6">
                 <step.icon className="mb-4 h-6 w-6 text-primary" />
                 <h3 className="mb-2 font-bold">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-[13px] text-muted-foreground">
                   {step.description}
                 </p>
               </Card>

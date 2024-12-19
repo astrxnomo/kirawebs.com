@@ -55,7 +55,7 @@ export function HeroSection() {
           <div>
             <Button
               size="lg"
-              className="transition-transform duration-300 hover:scale-105"
+              className="relative z-0 transition duration-300 after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rounded-lg after:bg-primary hover:scale-105 hover:after:scale-x-125 hover:after:scale-y-150 hover:after:opacity-0 hover:after:transition hover:after:duration-500 active:scale-110"
             >
               {data.buttonText}
               <ArrowRight />
