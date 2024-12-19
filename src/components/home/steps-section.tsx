@@ -26,7 +26,7 @@ const stepsData = [
     step: 2,
     title: 'Propuesta Detallada',
     description:
-      'Te enviaremos una propuesta detallada con el diseño y funcionalidades ideales para tu negocio, adaptada a tus necesidades específicas.',
+      'Estaremos en contacto para realizar una propuesta detallada con el diseño y funcionalidades ideales para tu negocio.',
     icon: Handshake,
   },
   {

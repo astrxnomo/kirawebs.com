@@ -68,7 +68,7 @@ export function TemplatesStep() {
   const { formData, updateFormData } = usePriceSimulator();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <RadioGroup
         className="grid grid-cols-2 gap-4 md:grid-cols-3"
         value={formData.template}
@@ -106,53 +106,52 @@ export function TemplatesStep() {
           ),
         )}
       </RadioGroup>
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card className="overflow-hidden">
-          <CardContent className="p-0">
-            <div className="bg-primary/5 p-2">
-              <h3 className="flex items-center gap-2 text-sm font-semibold">
-                <Layout className="h-4 w-4" />
-                Secciones
-              </h3>
-            </div>
-            {formData.sections.length > 0 ? (
+      <div className="grid grid-cols-2 gap-6">
+        {formData.sections.length > 0 && (
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <div className="bg-foreground/5 p-3">
+                <h3 className="flex items-center gap-2 text-xs font-semibold md:text-sm">
+                  <Layout className="size-3 md:size-4" />
+                  Secciones
+                </h3>
+              </div>
               <ul className="divide-y divide-border">
                 {formData.sections.map((section, index) => (
-                  <li key={index} className="px-4 py-2 text-xs">
+                  <li
+                    key={index}
+                    className="px-2 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
+                  >
                     {section}
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="p-4 text-sm text-muted-foreground">
-                No hay secciones seleccionadas
-              </p>
-            )}
-          </CardContent>
-        </Card>
-        <Card className="overflow-hidden">
-          <CardContent className="p-0">
-            <div className="bg-primary/5 p-2">
-              <h3 className="flex items-center gap-2 text-sm font-semibold">
-                <Star className="h-4 w-4" />
-                Características
-              </h3>
-            </div>
-            {formData.recommendedFeatures.length > 0 ? (
+            </CardContent>
+          </Card>
+        )}
+
+        {formData.recommendedFeatures.length > 0 && (
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <div className="bg-foreground/5 p-3">
+                <h3 className="flex items-center gap-2 text-xs font-semibold md:text-sm">
+                  <Star className="size-3 md:size-4" />
+                  Características
+                </h3>
+              </div>
               <ul className="divide-y divide-border">
                 {formData.recommendedFeatures.map((feature, index) => (
-                  <li key={index} className="px-4 py-2 text-xs">
+                  <li
+                    key={index}
+                    className="px-2 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
+                  >
                     {feature}
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="p-4 text-sm text-muted-foreground">
-                No hay características recomendadas
-              </p>
-            )}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );

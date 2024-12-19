@@ -28,7 +28,7 @@ import {
 } from '@/components/ui/card';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
-import { PriceSimulatorProvider } from './price-simulator-provider';
+import { PriceSimulatorProvider } from './price-simulator/price-simulator-provider';
 
 const STEPS = [
   {
