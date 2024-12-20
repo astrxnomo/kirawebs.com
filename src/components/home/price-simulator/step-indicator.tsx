@@ -13,51 +13,49 @@ export function StepIndicator({
   currentStep: number;
 }) {
   return (
-    <div className="mb-4">
-      <ol className="relative flex w-full items-center justify-center">
-        {steps.map((step, index) => {
-          const Icon = step.icon;
-          const isCompleted = index < currentStep;
-          const isCurrent = index === currentStep;
+    <ol className="relative flex w-full items-center justify-center">
+      {steps.map((step, index) => {
+        const Icon = step.icon;
+        const isCompleted = index < currentStep;
+        const isCurrent = index === currentStep;
 
-          return (
-            <li
-              key={step.name}
-              className="relative flex flex-1 flex-col items-center"
+        return (
+          <li
+            key={step.name}
+            className="relative flex flex-1 flex-col items-center"
+          >
+            <div
+              className={`z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-background transition-all duration-300 ease-in-out ${
+                isCompleted
+                  ? 'border-primary bg-primary text-primary-foreground'
+                  : isCurrent
+                    ? 'border-primary text-primary'
+                    : 'border-muted-foreground text-muted-foreground'
+              } ${isCurrent ? 'scale-110' : ''}`}
             >
-              <div
-                className={`z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-background transition-all duration-300 ease-in-out ${
-                  isCompleted
-                    ? 'border-primary bg-primary text-primary-foreground'
-                    : isCurrent
-                      ? 'border-primary text-primary'
-                      : 'border-muted-foreground text-muted-foreground'
-                } ${isCurrent ? 'scale-110' : ''}`}
-              >
-                {isCompleted ? (
-                  <Check className="h-6 w-6" />
-                ) : (
-                  <Icon className="h-6 w-6" />
-                )}
-              </div>
-              <span
-                className={`mt-2 hidden text-center font-medium sm:text-sm md:block ${
-                  isCurrent ? 'text-primary' : 'text-muted-foreground'
-                }`}
-              >
-                {step.name}
-              </span>
-              {index < steps.length - 1 && (
-                <div
-                  className={`absolute left-1/2 top-6 h-[2px] w-full ${
-                    isCompleted ? 'bg-primary' : 'bg-muted-foreground'
-                  }`}
-                />
+              {isCompleted ? (
+                <Check className="h-6 w-6" />
+              ) : (
+                <Icon className="h-6 w-6" />
               )}
-            </li>
-          );
-        })}
-      </ol>
-    </div>
+            </div>
+            <span
+              className={`mt-2 hidden text-center font-medium sm:text-sm md:block ${
+                isCurrent ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              {step.name}
+            </span>
+            {index < steps.length - 1 && (
+              <div
+                className={`absolute left-1/2 top-6 h-[2px] w-full ${
+                  isCompleted ? 'bg-primary' : 'bg-muted-foreground'
+                }`}
+              />
+            )}
+          </li>
+        );
+      })}
+    </ol>
   );
 }

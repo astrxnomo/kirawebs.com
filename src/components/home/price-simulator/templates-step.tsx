@@ -1,6 +1,6 @@
-import { Layout, Star } from 'lucide-react';
+import { LayoutDashboard, SquareMousePointer } from 'lucide-react';
 
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { templates } from '@/utils/pricing-config';
@@ -11,7 +11,7 @@ export function TemplatesStep() {
   const { formData, updateFormData } = usePriceSimulator();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <RadioGroup
         className="grid grid-cols-2 gap-4 md:grid-cols-3"
         value={formData.template}
@@ -48,17 +48,17 @@ export function TemplatesStep() {
           </div>
         ))}
       </RadioGroup>
-      <div className="grid grid-cols-2 gap-6">
-        {formData.sections.length > 0 && (
-          <Card className="overflow-hidden border-primary bg-primary/5">
-            <CardContent className="p-0">
-              <div className="p-3">
-                <h3 className="flex items-center gap-2 text-xs font-semibold md:text-sm">
-                  <Layout className="size-3 md:size-4" />
-                  Secciones
-                </h3>
-              </div>
-              <ul className="divide-y divide-border">
+      {(formData.sections.length > 0 ||
+        formData.recommendedFeatures.length > 0) && (
+        <>
+          <hr />
+          <Card className="grid grid-cols-2 divide-x border-primary bg-primary/5">
+            <div>
+              <h3 className="flex items-center gap-2 p-3 text-xs font-semibold md:text-sm">
+                <LayoutDashboard className="size-3 md:size-4" />
+                Secciones
+              </h3>
+              <ul className="divide-y">
                 {formData.sections.map((section, index) => (
                   <li
                     key={index}
@@ -68,20 +68,14 @@ export function TemplatesStep() {
                   </li>
                 ))}
               </ul>
-            </CardContent>
-          </Card>
-        )}
+            </div>
 
-        {formData.recommendedFeatures.length > 0 && (
-          <Card className="overflow-hidden border-primary bg-primary/5">
-            <CardContent className="p-0">
-              <div className="p-3">
-                <h3 className="flex items-center gap-2 text-xs font-semibold md:text-sm">
-                  <Star className="size-3 md:size-4" />
-                  Características
-                </h3>
-              </div>
-              <ul className="divide-y divide-border">
+            <div>
+              <h3 className="flex items-center gap-2 p-3 text-xs font-semibold md:text-sm">
+                <SquareMousePointer className="size-3 md:size-4" />
+                Funcionalidades
+              </h3>
+              <ul className="divide-y">
                 {formData.recommendedFeatures.map((feature, index) => (
                   <li
                     key={index}
@@ -91,10 +85,10 @@ export function TemplatesStep() {
                   </li>
                 ))}
               </ul>
-            </CardContent>
+            </div>
           </Card>
-        )}
-      </div>
+        </>
+      )}
     </div>
   );
 }

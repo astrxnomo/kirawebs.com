@@ -1,13 +1,13 @@
 'use client';
 
 import {
+  AppWindow,
   ArrowLeft,
   ArrowRight,
-  Clock,
-  Cog,
-  Layout,
-  Mail,
-  Palette,
+  FileCheck,
+  LayoutDashboard,
+  PackagePlus,
+  SquareMousePointer,
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -33,27 +33,27 @@ import { PriceSimulatorProvider } from './price-simulator/price-simulator-provid
 const STEPS = [
   {
     name: 'Plantillas',
-    icon: Layout,
+    icon: AppWindow,
     description: 'Selecciona una plantilla para tu sitio web',
   },
   {
     name: 'Secciones',
-    icon: Palette,
+    icon: LayoutDashboard,
     description: 'Elige las secciones que tendrá tu sitio web',
   },
   {
     name: 'Funcionalidades',
-    icon: Cog,
+    icon: SquareMousePointer,
     description: 'Selecciona las funcionalidades que necesitas',
   },
   {
-    name: 'Plazos',
-    icon: Clock,
+    name: 'Servicios',
+    icon: PackagePlus,
     description: 'Indica el plazo de entrega deseado',
   },
   {
-    name: 'Contacto',
-    icon: Mail,
+    name: 'Resumen',
+    icon: FileCheck,
     description: 'Proporciona tus datos de contacto',
   },
 ];
@@ -73,7 +73,7 @@ export function PriceSimulatorForm() {
       description="Obten una visión más clara de lo que
           necesitas para tu proyecto web"
     >
-      <div className="mx-auto w-full max-w-4xl">
+      <div className="mx-auto w-full max-w-4xl space-y-4">
         <StepIndicator steps={STEPS} currentStep={currentStep} />
         <Card className="w-full overflow-hidden">
           <CardHeader className="text-center">
@@ -97,7 +97,7 @@ export function PriceSimulatorForm() {
                     {currentStep === 4 && <ResumeStep />}
                   </div>
                 </TooltipProvider>
-                <div className="flex w-full justify-between gap-4">
+                <div className="flex w-full justify-between">
                   {currentStep > 0 && (
                     <Button
                       variant="outline"

@@ -1,12 +1,10 @@
 'use client';
 
 import { Mail } from 'lucide-react';
-import { useState } from 'react';
 
-import { Card } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { cn } from '@/utils/cn';
 
 import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
@@ -28,8 +26,6 @@ const data = {
 };
 
 export function ContactSection() {
-  const [phoneValue, setPhoneValue] = useState('');
-
   return (
     <Container
       id="contact"
@@ -37,86 +33,44 @@ export function ContactSection() {
       description={data.description}
       className="mb-20"
     >
-      <div className="grid gap-8 lg:grid-cols-2">
-        <div>
-          <Card className="p-6">
-            <form className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="input-10">
-                  Email <span className="text-destructive">*</span>
-                </Label>
-                <div className="relative">
-                  <Input
-                    id="input-10"
-                    className="peer pe-9"
-                    placeholder="tu@correo.com"
-                    type="email"
-                  />
-                  <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
-                    <Mail size={16} strokeWidth={2} aria-hidden="true" />
-                  </div>
-                </div>
+      <Card className="mx-auto w-full max-w-2xl overflow-x-auto p-6">
+        <form className="space-y-6">
+          <div className="space-y-2">
+            <Label htmlFor="input-10">
+              Email <span className="text-destructive">*</span>
+            </Label>
+            <div className="relative">
+              <Input
+                id="input-10"
+                className="peer pe-9"
+                placeholder="tu@correo.com"
+                type="email"
+              />
+              <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
+                <Mail size={16} strokeWidth={2} aria-hidden="true" />
               </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="textarea-03">
-                  Descripción <span className="text-destructive">*</span>
-                </Label>
-                <Textarea
-                  id="textarea-03"
-                  placeholder="Escribe una descripción"
-                />
-                <p
-                  className="mt-2 text-xs text-muted-foreground"
-                  role="region"
-                  aria-live="polite"
-                >
-                  Agrega todos los detalles que consideres necesarios
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <Checkbox id="checkbox-07" />
-                <Label htmlFor="checkbox-07">
-                  Acepto la{' '}
-                  <a
-                    className="underline"
-                    href="https://originui.com"
-                    target="_blank"
-                  >
-                    politica de privacidad
-                  </a>{' '}
-                  y el{' '}
-                  <a
-                    className="underline"
-                    href="https://originui.com"
-                    target="_blank"
-                  >
-                    tratamiento de datos
-                  </a>{' '}
-                  <span className="text-destructive">*</span>
-                </Label>
-              </div>
-              <Button type="submit" className="w-full">
-                Enviar
-              </Button>
-            </form>
-          </Card>
-        </div>
-        <Card className="p-6">
-          <div>
-            <iframe
-              src={data.mapSrc}
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-            ></iframe>
+            </div>
           </div>
-        </Card>
-      </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="textarea-03">
+              Descripción <span className="text-destructive">*</span>
+            </Label>
+            <Textarea id="textarea-03" placeholder="Escribe una descripción" />
+            <p
+              className="mt-2 text-xs text-muted-foreground"
+              role="region"
+              aria-live="polite"
+            >
+              Agrega todos los detalles que consideres necesarios
+            </p>
+          </div>
+
+          <Button type="submit" className="w-full">
+            Enviar
+          </Button>
+        </form>
+      </Card>
     </Container>
   );
 }
