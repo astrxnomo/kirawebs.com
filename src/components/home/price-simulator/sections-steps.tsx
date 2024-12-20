@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
@@ -27,32 +28,38 @@ export function SectionsStep() {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="space-y-4">
-        <Label className="text-lg font-medium">Secciónes del sitio</Label>
-        <div className="flex flex-wrap gap-2">
-          {formData.sections.map(section => (
-            <Badge key={section}>
-              {section}
-              <button
-                className="-my-px -me-1.5 -ms-px inline-flex size-5 shrink-0 items-center justify-center rounded-[inherit] p-0 opacity-60 transition-opacity hover:opacity-100"
-                onClick={() => removeSection(section)}
-              >
-                <X size={12} strokeWidth={2} aria-hidden="true" />
-              </button>
-            </Badge>
-          ))}
-        </div>
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="newSection">Añade secciones</Label>
         <div className="flex gap-2">
           <Input
             value={newSection}
             onChange={event => setNewSection(event.target.value)}
-            placeholder="Nueva Sección"
+            placeholder="Nueva Sección (ej. Galería, Blog, Contacto)"
+            className="flex-grow"
           />
           <Button onClick={addSection} type="button">
             <PlusIcon className="h-4 w-4" /> Añadir
           </Button>
         </div>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {formData.sections.map(section => (
+          <Badge
+            key={section}
+            variant="outline"
+            className="rounded-lg border-primary bg-primary/5 px-2 py-1"
+          >
+            {section}
+            <button
+              className="-my-[5px] -me-2 -ms-1 inline-flex size-7 shrink-0 items-center justify-center rounded-[inherit] p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+              onClick={() => removeSection(section)}
+              aria-label="Delete"
+            >
+              <X size={14} strokeWidth={2} aria-hidden="true" />
+            </button>
+          </Badge>
+        ))}
       </div>
     </div>
   );

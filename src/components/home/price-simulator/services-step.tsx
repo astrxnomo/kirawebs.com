@@ -1,13 +1,7 @@
-import { InfoIcon } from 'lucide-react';
-
+import { Card } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
-import { Switch } from '@/components/ui/switch';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 
 import {
   type SimulationPriceFormData,
@@ -16,33 +10,38 @@ import {
 
 const additionalServices: {
   id: keyof SimulationPriceFormData;
-  service: string;
-  tooltip: string;
+  label: string;
+  description: string;
 }[] = [
   {
     id: 'mantenimiento',
-    service: 'Mantenimiento mensual',
-    tooltip: 'Servicio de mantenimiento mensual para tu sitio web.',
+    label: 'Mantenimiento mensual',
+    description:
+      'Actualizaciones regulares y soporte técnico para mantener tu sitio web seguro y actualizado.',
   },
   {
     id: 'seo',
-    service: 'Optimización SEO',
-    tooltip: 'Optimización para motores de búsqueda.',
+    label: 'Optimización SEO',
+    description:
+      'Mejora la visibilidad de tu sitio en los motores de búsqueda para atraer más tráfico orgánico.',
   },
   {
     id: 'hosting',
-    service: 'Hosting incluido',
-    tooltip: 'Servicio de hosting para tu sitio web.',
+    label: 'Hosting incluido',
+    description:
+      'Alojamiento web de alta velocidad y confiable para garantizar el rendimiento de tu sitio.',
   },
   {
     id: 'dominio',
-    service: 'Dominio personalizado',
-    tooltip: 'Dominio personalizado para tu sitio web.',
+    label: 'Dominio personalizado',
+    description:
+      'Registro y configuración de un dominio único que refleje tu marca o negocio.',
   },
   {
     id: 'integracionExterna',
-    service: 'Integración con sistemas externos',
-    tooltip: 'Integración con sistemas externos.',
+    label: 'Integración con sistemas externos',
+    description:
+      'Conecta tu sitio web con CRM, sistemas de pago y otras herramientas externas para mejorar la funcionalidad.',
   },
 ];
 
@@ -50,9 +49,12 @@ export function ServicesStep() {
   const { formData, updateFormData } = usePriceSimulator();
 
   return (
-    <div className="space-y-8 text-center">
+    <div className="space-y-8">
       <div className="space-y-4">
         <Label className="text-lg font-medium">Plazo de entrega</Label>
+        <p className="text-sm text-muted-foreground">
+          Selecciona el plazo de entrega deseado para tu proyecto.
+        </p>
         <div className="space-y-4">
           <Slider
             min={30}
@@ -71,25 +73,33 @@ export function ServicesStep() {
       </div>
       <div className="space-y-4">
         <Label className="text-lg font-medium">Servicios adicionales</Label>
-        <div className="space-y-4">
-          {additionalServices.map(({ id, service, tooltip }) => (
-            <div key={id} className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Label htmlFor={id}>{service}</Label>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <InfoIcon className="h-4 w-4 text-muted-foreground" />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{tooltip}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </div>
-              <Switch
-                id={id}
-                checked={!!formData[id]}
-                onCheckedChange={checked => updateFormData(id, checked)}
+        <p className="text-sm text-muted-foreground">
+          Selecciona los servicios adicionales que deseas incluir en tu
+          proyecto.
+        </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {additionalServices.map(service => (
+            <div
+              key={service.id}
+              className={`relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5 ${
+                formData[service.id] ? 'border-primary bg-primary/5' : ''
+              }`}
+              onClick={() => updateFormData(service.id, !formData[service.id])}
+            >
+              <Checkbox
+                id={service.id}
+                checked={!!formData[service.id]}
+                onCheckedChange={checked => updateFormData(service.id, checked)}
+                className="order-1 after:absolute after:inset-0"
               />
+              <div className="space-y-1">
+                <Label htmlFor={service.id} className="font-semibold">
+                  {service.label}
+                </Label>
+                <p className="text-[10px] text-muted-foreground md:text-xs">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

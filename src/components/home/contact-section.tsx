@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 import { Button } from '../ui/button';
-import { Checkbox } from '../ui/checkbox';
+import ShineBorder from '../ui/shine-border';
 import { Textarea } from '../ui/textarea';
 import Container from './container';
 
@@ -33,8 +33,13 @@ export function ContactSection() {
       description={data.description}
       className="mb-20"
     >
-      <Card className="mx-auto w-full max-w-2xl overflow-x-auto p-6">
-        <form className="space-y-6">
+      <ShineBorder
+        className="mx-auto w-full max-w-3xl p-0"
+        color="#0058CC"
+        borderWidth={3}
+        duration={10}
+      >
+        <form className="w-full space-y-6 rounded-lg border p-8">
           <div className="space-y-2">
             <Label htmlFor="input-10">
               Email <span className="text-destructive">*</span>
@@ -70,7 +75,7 @@ export function ContactSection() {
             Enviar
           </Button>
         </form>
-      </Card>
+      </ShineBorder>
     </Container>
   );
 }

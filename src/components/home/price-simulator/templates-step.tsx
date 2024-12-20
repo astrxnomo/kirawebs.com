@@ -28,7 +28,7 @@ export function TemplatesStep() {
         {templates.map(template => (
           <div
             key={template.id}
-            className="relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm shadow-black/5 transition-all duration-200 ease-in-out hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
+            className="relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
           >
             <RadioGroupItem
               value={template.id}
@@ -54,7 +54,7 @@ export function TemplatesStep() {
           <hr />
           <Card className="grid grid-cols-2 divide-x border-primary bg-primary/5">
             <div>
-              <h3 className="flex items-center gap-2 p-3 text-xs font-semibold md:text-sm">
+              <h3 className="flex items-center gap-1 border-b p-3 text-xs font-semibold md:text-sm">
                 <LayoutDashboard className="size-3 md:size-4" />
                 Secciones
               </h3>
@@ -71,7 +71,7 @@ export function TemplatesStep() {
             </div>
 
             <div>
-              <h3 className="flex items-center gap-2 p-3 text-xs font-semibold md:text-sm">
+              <h3 className="flex items-center gap-1 border-b p-3 text-xs font-semibold md:text-sm">
                 <SquareMousePointer className="size-3 md:size-4" />
                 Funcionalidades
               </h3>

@@ -71,7 +71,12 @@ export function ResumeStep() {
         />
       </div>
 
-      <ShineBorder className="w-full p-0" color="#0058CC" borderWidth={3}>
+      <ShineBorder
+        className="w-full p-0"
+        color="#0058CC"
+        borderWidth={3}
+        duration={6}
+      >
         <div className="w-full space-y-2 rounded-lg bg-accent/50 p-6">
           <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
           <Accordion type="single" collapsible className="w-full">

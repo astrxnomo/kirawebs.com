@@ -39,7 +39,8 @@ const STEPS = [
   {
     name: 'Secciones',
     icon: LayoutDashboard,
-    description: 'Elige las secciones que tendrá tu sitio web',
+    description:
+      'Selecciona o añade las secciones que deseas para tu sitio web. Cada sección representa una página o área importante de tu sitio.',
   },
   {
     name: 'Funcionalidades',
