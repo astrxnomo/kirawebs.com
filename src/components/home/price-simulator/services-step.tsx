@@ -15,7 +15,7 @@ const additionalServices: {
 }[] = [
   {
     id: 'mantenimiento',
-    label: 'Mantenimiento mensual',
+    label: 'Mantenimiento',
     description:
       'Actualizaciones regulares y soporte técnico para mantener tu sitio web seguro y actualizado.',
   },
@@ -77,7 +77,7 @@ export function ServicesStep() {
           Selecciona los servicios adicionales que deseas incluir en tu
           proyecto.
         </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-4">
           {additionalServices.map(service => (
             <div
               key={service.id}
@@ -93,7 +93,7 @@ export function ServicesStep() {
                 className="order-1 after:absolute after:inset-0"
               />
               <div className="space-y-1">
-                <Label htmlFor={service.id} className="font-semibold">
+                <Label htmlFor={service.id} className="text-sm font-semibold">
                   {service.label}
                 </Label>
                 <p className="text-[10px] text-muted-foreground md:text-xs">

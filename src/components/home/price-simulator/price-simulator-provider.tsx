@@ -35,7 +35,7 @@ export const PriceSimulatorProvider: React.FC<{
     template: '',
     sections: [],
     recommendedFeatures: [],
-    plazo: 30,
+    plazo: 60,
     mantenimiento: false,
     seo: false,
     hosting: false,
