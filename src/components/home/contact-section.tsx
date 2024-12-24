@@ -2,7 +2,13 @@
 
 import { Mail } from 'lucide-react';
 
-import { Card, CardContent } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
@@ -33,49 +39,49 @@ export function ContactSection() {
       description={data.description}
       className="mb-20"
     >
-      <ShineBorder
-        className="mx-auto w-full max-w-3xl p-0"
-        color="#0058CC"
-        borderWidth={3}
-        duration={10}
-      >
-        <form className="w-full space-y-6 rounded-lg border p-8">
-          <div className="space-y-2">
-            <Label htmlFor="input-10">
-              Email <span className="text-destructive">*</span>
-            </Label>
-            <div className="relative">
-              <Input
-                id="input-10"
-                className="peer pe-9"
-                placeholder="tu@correo.com"
-                type="email"
-              />
-              <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
-                <Mail size={16} strokeWidth={2} aria-hidden="true" />
+      <Card className="mx-auto w-full max-w-3xl border-2 border-primary">
+        <CardContent className="pt-6">
+          <form className="w-full space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="input-10">
+                Email <span className="text-destructive">*</span>
+              </Label>
+              <div className="relative">
+                <Input
+                  id="input-10"
+                  className="peer pe-9"
+                  placeholder="tu@correo.com"
+                  type="email"
+                />
+                <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
+                  <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="textarea-03">
-              Descripción <span className="text-destructive">*</span>
-            </Label>
-            <Textarea id="textarea-03" placeholder="Escribe una descripción" />
-            <p
-              className="mt-2 text-xs text-muted-foreground"
-              role="region"
-              aria-live="polite"
-            >
-              Agrega todos los detalles que consideres necesarios
-            </p>
-          </div>
+            <div className="space-y-2">
+              <Label htmlFor="textarea-03">
+                Descripción <span className="text-destructive">*</span>
+              </Label>
+              <Textarea
+                id="textarea-03"
+                placeholder="Escribe una descripción"
+              />
+              <p
+                className="mt-2 text-xs text-muted-foreground"
+                role="region"
+                aria-live="polite"
+              >
+                Agrega todos los detalles que consideres necesarios
+              </p>
+            </div>
 
-          <Button type="submit" className="w-full">
-            Enviar
-          </Button>
-        </form>
-      </ShineBorder>
+            <Button type="submit" className="w-full">
+              Enviar
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
     </Container>
   );
 }

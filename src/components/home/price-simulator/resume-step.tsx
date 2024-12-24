@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import ShineBorder from '@/components/ui/shine-border';
@@ -71,67 +72,60 @@ export function ResumeStep() {
         />
       </div>
 
-      <ShineBorder
-        className="w-full p-0"
-        color="#0058CC"
-        borderWidth={3}
-        duration={6}
-      >
-        <div className="w-full space-y-2 rounded-lg bg-accent/50 p-6">
-          <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-sm">
-                Detalles del proyecto
-              </AccordionTrigger>
-              <AccordionContent>
-                <ul className="space-y-2 text-xs">
-                  {summaryItems.map(item => (
-                    <li key={item.label} className="flex justify-between">
-                      <span>{item.label}:</span>
-                      <span className="text-right font-medium text-muted-foreground">
-                        {Array.isArray(item.value)
-                          ? item.value.join(', ') || 'Ninguna'
-                          : item.value.toString()}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-sm">
-                Servicios adicionales
-              </AccordionTrigger>
-              <AccordionContent>
-                <ul className="space-y-2 text-xs">
-                  {additionalServices.map(service => (
-                    <li key={service.label} className="flex justify-between">
-                      <span>{service.label}:</span>
-                      <span className="text-right font-medium text-muted-foreground">
-                        {Array.isArray(service.value)
-                          ? service.value.join(', ') || 'Ninguna'
-                          : service.value.toString()}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-          <div className="pt-4">
-            <div className="flex flex-col items-center justify-between md:flex-row">
-              <span className="text-xl font-semibold">Precio estimado</span>
-              <span className="text-3xl font-bold">
-                ${calculatePrice(formData)}
-              </span>
-            </div>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Este precio es aproximado y puede variar según tus necesidades.
-            </p>
+      <Card className="w-full border-2 border-primary bg-accent/50 p-8">
+        <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-sm">
+              Detalles del proyecto
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul className="space-y-2 text-xs">
+                {summaryItems.map(item => (
+                  <li key={item.label} className="flex justify-between">
+                    <span>{item.label}:</span>
+                    <span className="text-right font-medium text-muted-foreground">
+                      {Array.isArray(item.value)
+                        ? item.value.join(', ') || 'Ninguna'
+                        : item.value.toString()}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger className="text-sm">
+              Servicios adicionales
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul className="space-y-2 text-xs">
+                {additionalServices.map(service => (
+                  <li key={service.label} className="flex justify-between">
+                    <span>{service.label}:</span>
+                    <span className="text-right font-medium text-muted-foreground">
+                      {Array.isArray(service.value)
+                        ? service.value.join(', ') || 'Ninguna'
+                        : service.value.toString()}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <div className="pt-4">
+          <div className="flex flex-col items-center justify-between md:flex-row">
+            <span className="text-xl font-semibold">Precio estimado</span>
+            <span className="text-3xl font-bold">
+              ${calculatePrice(formData)}
+            </span>
           </div>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Este precio es aproximado y puede variar según tus necesidades.
+          </p>
         </div>
-      </ShineBorder>
+      </Card>
 
       <Button
         onClick={() => console.log('Enviar cotización', formData)}
