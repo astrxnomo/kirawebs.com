@@ -38,7 +38,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`${buttonVariants({ variant: 'link' })} flex items-center gap-2 font-semibold text-neutral-900`}
+                className={`${buttonVariants({ variant: 'link' })} flex items-center gap-2 font-semibold text-secondary-foreground`}
               >
                 <item.icon className="h-4 w-4" />
                 {item.label}
@@ -71,7 +71,7 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`${buttonVariants({ variant: 'link' })} flex items-center gap-2 font-semibold text-neutral-900`}
+                    className={`${buttonVariants({ variant: 'link' })} flex items-center gap-2 font-semibold text-secondary-foreground`}
                   >
                     <item.icon className="h-4 w-4" />
                     {item.label}
