@@ -15,7 +15,7 @@ const data = {
   id: 'hero',
   title: 'Tu web, sin complicaciones ni secretos',
   description:
-    'Con tecnologías modernas y un enfoque transparente, creamos páginas web fáciles de gestionar, para que tú solo te dediques a lo que más importa: hacer crecer tu negocio.',
+    'Con tecnologías modernas y un enfoque transparente, creamos páginas web a medida, para que tú solo te dediques a lo que más importa: hacer crecer tu negocio.',
   buttonText: 'Conseguir mi web',
   previewImages: [
     {
@@ -43,7 +43,7 @@ const data = {
 
 export function HeroSection() {
   return (
-    <Container id={data.id} className="py-10 md:py-24">
+    <Container id={data.id} className="py-8 md:pt-16">
       <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-14">
         <div className="flex-1 space-y-4 text-center lg:text-left">
           <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
