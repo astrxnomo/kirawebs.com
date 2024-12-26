@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { buttonVariants } from '../ui/button';
+
 export function Footer() {
   return (
-    <footer className="mt-24 bg-muted/50">
-      <div className="mx-auto w-full max-w-screen-lg p-4 md:py-8">
-        <div className="sm:flex sm:items-center sm:justify-between">
+    <footer className="mt-24 bg-muted/50 p-8">
+      <div className="mx-auto w-full max-w-screen-lg">
+        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <Link href="/">
             <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
               <Image src="/logo.svg" alt="Logo" width={30} height={30} />
@@ -14,19 +16,19 @@ export function Footer() {
               </span>
             </div>
           </Link>
-          <ul className="mb-6 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mb-0">
+          <ul className="flex items-center text-sm font-semibold">
             <li>
-              <a
+              <Link
                 href="/privacy-policy"
-                className="me-4 hover:underline md:me-6"
+                className={`${buttonVariants({ variant: 'link' })}`}
               >
                 Política de Privacidad
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-        <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
-        <span className="block text-sm text-gray-500 dark:text-gray-400 sm:text-center">
+        <hr className="my-6" />
+        <span className="text-sm text-muted-foreground">
           © {new Date().getFullYear()}{' '}
           <a href="https://kirawebs.com/" className="hover:underline">
             Kirawebs
