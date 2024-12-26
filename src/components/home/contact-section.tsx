@@ -1,28 +1,14 @@
-'use client';
+import { Check, Mail } from 'lucide-react';
 
-import { format } from 'date-fns';
-import { CalendarIcon, Check, Mail, MoveRight } from 'lucide-react';
-import { useState } from 'react';
-
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar } from '@/components/ui/calendar';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import { Textarea } from '@/components/ui/textarea';
-import { cn } from '@/utils/cn';
 
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent } from '../ui/card';
+import { Textarea } from '../ui/textarea';
 import Container from './container';
 
 export const ContactSection = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-
   return (
     <Container id="contact">
       <div className="grid w-full max-w-5xl lg:grid-cols-2">
