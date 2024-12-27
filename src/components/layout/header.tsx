@@ -24,7 +24,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="header-animate fixed top-0 z-50 w-full">
+    <header className="fixed z-50 mx-auto w-full bg-background/70 p-2 backdrop-blur-[10px]">
       <div className="container mx-auto px-6 lg:px-28">
         <div className="flex h-16 items-center justify-between">
           <Link href="/">
@@ -64,7 +64,7 @@ export function Header() {
           </button>
         </div>
         {isMenuOpen && (
-          <div className="border-b bg-background p-4 md:hidden">
+          <div className="border-b bg-background/70 p-4 md:hidden">
             <nav className="flex flex-col">
               <div className="flex flex-col items-start">
                 {navItems.map(item => (
