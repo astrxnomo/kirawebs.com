@@ -2,6 +2,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
@@ -35,11 +36,19 @@ export default function RootLayout({
     <html
       lang="es"
       className={`min-h-full ${inter.className} ${poppins.variable}`}
+      suppressHydrationWarning
     >
-      <body className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[#000000] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)] dark:[background-size:20px_20px]">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
