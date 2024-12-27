@@ -17,7 +17,9 @@ export default function Container({
         {(title || description) && (
           <div className="text-center">
             {title && (
-              <h2 className="text-4xl font-bold tracking-tighter">{title}</h2>
+              <h2 className="text-4xl font-bold tracking-tighter md:text-5xl">
+                {title}
+              </h2>
             )}
             {description && (
               <p className="mt-4 text-muted-foreground">{description}</p>

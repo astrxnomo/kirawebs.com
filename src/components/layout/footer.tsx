@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { buttonVariants } from '../ui/button';
+import { ThemeSwitcher } from '../ui/theme-switcher';
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-muted/50 p-8">
+    <footer className="mt-24 bg-primary-foreground p-8">
       <div className="mx-auto w-full max-w-screen-lg">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <Link href="/">
@@ -28,13 +29,16 @@ export function Footer() {
           </ul>
         </div>
         <hr className="my-6" />
-        <span className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()}{' '}
-          <a href="https://kirawebs.com/" className="hover:underline">
-            Kirawebs
-          </a>
-          . Todos los derechos reservados.
-        </span>
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()}{' '}
+            <a href="https://kirawebs.com/" className="hover:underline">
+              Kirawebs
+            </a>
+            . Todos los derechos reservados.
+          </span>
+          <ThemeSwitcher />
+        </div>
       </div>
     </footer>
   );
