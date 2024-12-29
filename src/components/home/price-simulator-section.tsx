@@ -69,7 +69,7 @@ export function PriceSimulatorForm() {
 
   return (
     <Container
-      id="simulador-precio"
+      id="price-simulator"
       title="Simulador de precios"
       description="Obten una visión más clara de lo que
           necesitas para tu proyecto web"

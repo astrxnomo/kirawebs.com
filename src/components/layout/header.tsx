@@ -1,23 +1,60 @@
 'use client';
 
 import {
+  AppWindow,
   Briefcase,
+  Calculator,
+  Cloud,
   DollarSign,
+  LayoutPanelLeft,
   Mail,
   Menu,
   MessageCircle,
+  Speech,
   X,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Button, buttonVariants } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
+import { cn } from '@/utils/cn';
 
 const navItems = [
   { href: '#proyectos', label: 'Proyectos', icon: Briefcase },
-  { href: '#simulador-precio', label: 'Precios', icon: DollarSign },
   { href: '#testimonios', label: 'Testimonios', icon: MessageCircle },
+];
+
+const services = [
+  {
+    title: 'Desarrollo Web',
+    href: '',
+    description: 'Sitios web personalizados adaptados a tus necesidades.',
+    icon: AppWindow,
+  },
+  {
+    title: 'Asesorías',
+    href: '',
+    description: 'Asesoría para mejorar o crear tus proyectos tecnológicos.',
+    icon: Speech,
+  },
+  {
+    title: 'Soluciones Cloud (Pronto)',
+    href: '',
+    description:
+      'Infraestructura y servicios en la nube escalables y seguros con AWS.',
+    icon: Cloud,
+    active: false,
+  },
 ];
 
 export function Header() {
@@ -34,16 +71,87 @@ export function Header() {
             </div>
           </Link>
           <nav className="hidden gap-1 md:flex">
-            {navItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`${buttonVariants({ variant: 'link' })} flex items-center gap-2 font-semibold text-secondary-foreground`}
-              >
-                <item.icon className="h-4 w-4" />
-                {item.label}
-              </Link>
-            ))}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent">
+                    <span className="flex items-center gap-2">
+                      <LayoutPanelLeft className="h-4 w-4" />
+                      Servicios
+                    </span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-6">
+                      {services.map(service => (
+                        <ListItem
+                          key={service.title}
+                          title={service.title}
+                          href={service.href}
+                          icon={service.icon}
+                          active={service.active}
+                        >
+                          {service.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent">
+                    <span className="flex items-center gap-2">
+                      <DollarSign className="h-4 w-4" />
+                      Precios
+                    </span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                      <li className="row-span-3">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            href="#price-simulator"
+                          >
+                            <Calculator className="h-6 w-6" />
+                            <div className="mb-2 mt-4 text-lg font-medium">
+                              Simulador
+                            </div>
+                            <p className="text-sm leading-tight text-muted-foreground">
+                              Obtén una visión clara de tu proyecto web.
+                              Completa el formulario según tus necesidades y te
+                              daremos un precio aproximado.
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <ListItem href="#price-simulator" title="Simulador">
+                        Obtén una visión clara de tu proyecto web. Completa el
+                        formulario según tus necesidades y te daremos un precio
+                        aproximado.
+                      </ListItem>
+                      <ListItem href="#contact" title="Contacto">
+                        Ponte en contacto con nosotros para más información y
+                        consultas.
+                      </ListItem>
+                      <ListItem href="#faqs" title="Preguntas Frecuentes">
+                        Encuentra respuestas a las preguntas más comunes sobre
+                        nuestros servicios.
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                {navItems.map(item => (
+                  <NavigationMenuItem key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`${buttonVariants({ variant: 'ghost' })}`}
+                    >
+                      <item.icon className="h-4 w-4" />
+                      {item.label}
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </nav>
           <div className="hidden items-center md:flex">
             <Link href="#contact">
@@ -63,36 +171,143 @@ export function Header() {
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
+
         {isMenuOpen && (
-          <div className="p-4 md:hidden">
-            <nav className="flex flex-col">
-              <div className="flex flex-col items-start">
-                {navItems.map(item => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`${buttonVariants({ variant: 'link' })} flex items-center gap-2 font-semibold text-secondary-foreground`}
-                  >
-                    <item.icon className="h-4 w-4" />
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-              <div className="flex flex-col space-y-2 pt-4">
-                <Link href="#contact">
-                  <Button
-                    className="w-full transition-transform duration-300 hover:scale-105"
-                    size="sm"
-                  >
-                    <Mail strokeWidth={2.5} />
-                    Contactar
-                  </Button>
+          <nav className="p-4 md:hidden">
+            <NavigationMenu>
+              <NavigationMenuList className="flex flex-col items-start">
+                <NavigationMenuItem className="w-full justify-center">
+                  <NavigationMenuTrigger className="bg-transparent">
+                    <span className="flex items-center justify-center gap-2">
+                      <LayoutPanelLeft className="h-4 w-4" />
+                      Servicios
+                    </span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[350px] gap-3 p-6">
+                      {services.map(service => (
+                        <ListItem
+                          key={service.title}
+                          title={service.title}
+                          href={service.href}
+                          icon={service.icon}
+                          active={service.active}
+                        >
+                          {service.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full justify-center">
+                  <NavigationMenuTrigger className="bg-transparent">
+                    <span className="flex items-center gap-2">
+                      <DollarSign className="h-4 w-4" />
+                      Precios
+                    </span>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[350px] grid-cols-1 gap-3 p-6">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            href="#price-simulator"
+                          >
+                            <Calculator className="h-6 w-6" />
+                            <div className="mb-2 mt-4 text-lg font-medium">
+                              Simulador
+                            </div>
+                            <p className="text-sm leading-tight text-muted-foreground">
+                              Obtener una visión clara de tu proyecto web. Haz
+                              el formulario acorde tus necesidades y te daremos
+                              un precio aproximado
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <ListItem href="#price-simulator" title="Simulador">
+                        Obtén una visión clara de tu proyecto web. Completa el
+                        formulario según tus necesidades y te daremos un precio
+                        aproximado.
+                      </ListItem>
+                      <ListItem href="#contact" title="Contacto">
+                        Ponte en contacto con nosotros para más información y
+                        consultas.
+                      </ListItem>
+                      <ListItem href="#faqs" title="Preguntas Frecuentes">
+                        Encuentra respuestas a las preguntas más comunes sobre
+                        nuestros servicios.
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <div className="flex flex-col items-start">
+              {navItems.map(item => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`${buttonVariants({ variant: 'ghost' })}`}
+                >
+                  <item.icon className="h-4 w-4" />
+                  {item.label}
                 </Link>
-              </div>
-            </nav>
-          </div>
+              ))}
+            </div>
+            <div className="flex flex-col space-y-2 pt-4">
+              <Link href="#contact">
+                <Button
+                  className="w-full transition-transform duration-300 hover:scale-105"
+                  size="sm"
+                >
+                  <Mail strokeWidth={2.5} />
+                  Contactar
+                </Button>
+              </Link>
+            </div>
+          </nav>
         )}
       </div>
     </header>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'> & {
+    icon?: React.ElementType;
+    active?: boolean;
+  }
+>(
+  (
+    { className, title, children, icon: Icon, active = true, ...props },
+    ref,
+  ) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              className,
+              !active && 'pointer-events-none opacity-50',
+            )}
+            {...props}
+          >
+            <div className="flex items-center gap-2 text-sm font-medium leading-none">
+              {Icon && <Icon className="h-4 w-4" />}
+              {title}
+            </div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              {children}
+            </p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  },
+);
+ListItem.displayName = 'ListItem';
