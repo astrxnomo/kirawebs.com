@@ -38,7 +38,7 @@ export default function RootLayout({
       className={`min-h-full ${inter.className} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <body className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[#000000] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)] dark:[background-size:20px_20px]">
+      <body className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)]">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
