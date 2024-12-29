@@ -70,7 +70,7 @@ export function Header() {
               <span className="text-lg font-extrabold text-primary">Kira</span>
             </div>
           </Link>
-          <nav className="hidden gap-1 md:flex">
+          <nav className="hidden md:flex">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -140,13 +140,14 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 {navItems.map(item => (
-                  <NavigationMenuItem key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={`${buttonVariants({ variant: 'ghost' })}`}
-                    >
-                      <item.icon className="h-4 w-4" />
-                      {item.label}
+                  <NavigationMenuItem className="w-full" key={item.href}>
+                    <Link href={item.href}>
+                      <NavigationMenuLink
+                        className={`${buttonVariants({ variant: 'ghost' })}`}
+                      >
+                        <item.icon className="h-4 w-4" />
+                        {item.label}
+                      </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
                 ))}
@@ -173,12 +174,12 @@ export function Header() {
         </div>
 
         {isMenuOpen && (
-          <nav className="p-4 md:hidden">
+          <nav className="p-2 md:hidden">
             <NavigationMenu>
-              <NavigationMenuList className="flex flex-col items-start">
+              <NavigationMenuList className="flex flex-col gap-2">
                 <NavigationMenuItem className="w-full justify-center">
                   <NavigationMenuTrigger className="bg-transparent">
-                    <span className="flex items-center justify-center gap-2">
+                    <span className="flex items-center gap-2">
                       <LayoutPanelLeft className="h-4 w-4" />
                       Servicios
                     </span>
@@ -242,20 +243,21 @@ export function Header() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                {navItems.map(item => (
+                  <NavigationMenuItem className="w-full" key={item.href}>
+                    <Link href={item.href}>
+                      <NavigationMenuLink
+                        className={`${buttonVariants({ variant: 'ghost' })}`}
+                      >
+                        <item.icon className="h-4 w-4" />
+                        {item.label}
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
               </NavigationMenuList>
             </NavigationMenu>
-            <div className="flex flex-col items-start">
-              {navItems.map(item => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`${buttonVariants({ variant: 'ghost' })}`}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+
             <div className="flex flex-col space-y-2 pt-4">
               <Link href="#contact">
                 <Button
