@@ -2,14 +2,15 @@
 
 import {
   AppWindow,
-  Briefcase,
   Calculator,
   Cloud,
   DollarSign,
+  Folders,
   LayoutPanelLeft,
+  Library,
   Mail,
   Menu,
-  MessageCircle,
+  MessageSquareQuote,
   Speech,
   X,
 } from 'lucide-react';
@@ -25,13 +26,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/utils/cn';
 
 const navItems = [
-  { href: '#proyectos', label: 'Proyectos', icon: Briefcase },
-  { href: '#testimonios', label: 'Testimonios', icon: MessageCircle },
+  { href: '#proyectos', label: 'Proyectos', icon: Folders },
+  { href: '#testimonios', label: 'Testimonios', icon: MessageSquareQuote },
 ];
 
 const services = [
@@ -76,7 +76,7 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent">
                     <span className="flex items-center gap-2">
-                      <LayoutPanelLeft className="h-4 w-4" />
+                      <Library className="h-4 w-4" />
                       Servicios
                     </span>
                   </NavigationMenuTrigger>
@@ -174,7 +174,7 @@ export function Header() {
         </div>
 
         {isMenuOpen && (
-          <nav className="p-2 md:hidden">
+          <nav className="md:hidden">
             <NavigationMenu>
               <NavigationMenuList className="flex flex-col gap-2">
                 <NavigationMenuItem className="w-full justify-center">
