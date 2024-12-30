@@ -22,7 +22,7 @@ export function ProgressTabs({
           <div key={step} className="flex flex-col items-center">
             <div
               className={cn(
-                'z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 bg-background',
+                'z-10 flex h-10 w-10 items-center justify-center rounded border-2 bg-background',
                 currentStep > index
                   ? 'border-primary bg-primary text-primary-foreground'
                   : currentStep === index

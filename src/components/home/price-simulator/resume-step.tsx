@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import ShineBorder from '@/components/ui/shine-border';
 import { Textarea } from '@/components/ui/textarea';
 import { calculatePrice } from '@/utils/price-simulator';
 
@@ -134,7 +133,7 @@ export function ResumeStep() {
       >
         <Mail /> Enviar Simulación
       </Button>
-      <div className="space-y-2 rounded-lg border border-border px-4 py-3">
+      <div className="space-y-2 rounded border border-border px-4 py-3">
         <p className="text-xs">
           <Info
             className="-mt-0.5 me-2 inline-flex text-primary"

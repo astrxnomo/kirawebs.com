@@ -64,7 +64,7 @@ export function StepsSection() {
               key={step.title}
               className="flex w-full items-center lg:flex-col lg:items-center lg:px-4"
             >
-              <div className="mr-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground lg:mb-4">
+              <div className="mr-4 flex h-12 w-12 shrink-0 items-center justify-center rounded bg-primary text-lg font-bold text-primary-foreground lg:mb-4">
                 {step.step}
               </div>
               <Card>

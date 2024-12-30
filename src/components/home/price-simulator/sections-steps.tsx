@@ -48,11 +48,11 @@ export function SectionsStep() {
           <Badge
             key={section}
             variant="outline"
-            className="rounded-lg border-primary bg-primary/5 px-2 py-1"
+            className="rounded border-primary bg-primary/5 px-2 py-1"
           >
             {section}
             <button
-              className="-my-[5px] -me-2 -ms-1 inline-flex size-7 shrink-0 items-center justify-center rounded-[inherit] p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+              className="-my-[5px] -me-2 -ms-1 inline-flex size-7 shrink-0 items-center justify-center rounded p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
               onClick={() => removeSection(section)}
               aria-label="Delete"
             >

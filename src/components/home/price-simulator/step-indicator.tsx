@@ -25,7 +25,7 @@ export function StepIndicator({
             className="relative flex flex-1 flex-col items-center"
           >
             <div
-              className={`z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-background transition-all duration-300 ease-in-out ${
+              className={`z-10 flex h-12 w-12 items-center justify-center rounded border-2 bg-background transition-all duration-300 ease-in-out ${
                 isCompleted
                   ? 'border-primary bg-primary text-primary-foreground'
                   : isCurrent

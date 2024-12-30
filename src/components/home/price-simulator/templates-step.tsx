@@ -28,7 +28,7 @@ export function TemplatesStep() {
         {templates.map(template => (
           <div
             key={template.id}
-            className="relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
+            className="relative flex w-full items-start gap-2 rounded border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
           >
             <RadioGroupItem
               value={template.id}

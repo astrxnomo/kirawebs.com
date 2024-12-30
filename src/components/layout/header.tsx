@@ -108,7 +108,7 @@ export function Header() {
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="#price-simulator"
                           >
                             <Calculator className="h-6 w-6" />
@@ -141,7 +141,7 @@ export function Header() {
                 </NavigationMenuItem>
                 {navItems.map(item => (
                   <NavigationMenuItem className="w-full" key={item.href}>
-                    <Link href={item.href}>
+                    <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={`${buttonVariants({ variant: 'ghost' })}`}
                       >
@@ -212,7 +212,7 @@ export function Header() {
                       <li>
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="#price-simulator"
                           >
                             <Calculator className="h-6 w-6" />
@@ -245,7 +245,7 @@ export function Header() {
                 </NavigationMenuItem>
                 {navItems.map(item => (
                   <NavigationMenuItem className="w-full" key={item.href}>
-                    <Link href={item.href}>
+                    <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={`${buttonVariants({ variant: 'ghost' })}`}
                       >
@@ -293,7 +293,7 @@ const ListItem = React.forwardRef<
           <a
             ref={ref}
             className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              'block select-none space-y-1 rounded p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
               className,
               !active && 'pointer-events-none opacity-50',
             )}
