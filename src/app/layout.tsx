@@ -41,7 +41,7 @@ export default function RootLayout({
       <head>
         <script
           src="https://analytics.ahrefs.com/analytics.js"
-          data-key="p69hfR6vzM0HlUiDJW6wEA"
+          data-key="xD+P5nM2R6bSyazQv6TWtQ"
           async
         ></script>
       </head>
