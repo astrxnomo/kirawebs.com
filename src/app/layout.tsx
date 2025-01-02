@@ -38,6 +38,13 @@ export default function RootLayout({
       className={`min-h-full ${inter.className} ${poppins.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="xD+P5nM2R6bSyazQv6TWtQ"
+          async
+        ></script>
+      </head>
       <body className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)]">
         <ThemeProvider
           attribute="class"
