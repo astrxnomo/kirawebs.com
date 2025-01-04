@@ -55,7 +55,12 @@ export const ContactSection = () => {
 
         <Card className="mx-auto w-full max-w-lg">
           <CardContent className="pt-6">
-            <form className="w-full space-y-6">
+            <form
+              className="w-full space-y-6"
+              action="https://send.pageclip.co/FPk2ADT0drpl6kGDfqut3iszADjKfCeP/contact-form"
+              method="POST"
+              data-pageclip-form="YOUR_FORM_NAME"
+            >
               <div className="space-y-2">
                 <Label htmlFor="input-10">
                   Email <span className="text-destructive">*</span>
@@ -66,6 +71,8 @@ export const ContactSection = () => {
                     className="peer pe-9"
                     placeholder="tu@correo.com"
                     type="email"
+                    name="email"
+                    required
                   />
                   <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
                     <Mail size={16} strokeWidth={2} aria-hidden="true" />
@@ -80,6 +87,8 @@ export const ContactSection = () => {
                 <Textarea
                   id="textarea-03"
                   placeholder="Escribe una descripción"
+                  name="descripcion"
+                  required
                 />
                 <p
                   className="mt-2 text-xs text-muted-foreground"
@@ -90,7 +99,7 @@ export const ContactSection = () => {
                 </p>
               </div>
 
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="pageclip-form__submit w-full">
                 Enviar
               </Button>
             </form>

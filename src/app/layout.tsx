@@ -2,6 +2,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
+import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 
 import { Footer } from '@/components/layout/footer';
@@ -39,11 +40,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script
+        <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="xD+P5nM2R6bSyazQv6TWtQ"
           async
-        ></script>
+        />
       </head>
       <body className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)]">
         <ThemeProvider
@@ -56,6 +57,11 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
+        <Script
+          src="https://s.pageclip.co/v1/pageclip.js"
+          charSet="utf8"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );
