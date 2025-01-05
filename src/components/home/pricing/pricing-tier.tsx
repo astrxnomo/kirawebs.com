@@ -1,5 +1,3 @@
-import { MoveRight, PhoneCall } from 'lucide-react';
-
 import { Button } from '@/components/ui/button';
 
 interface PricingCardProps {
@@ -24,11 +22,9 @@ export function PricingTier({
       <p className="text-xs text-muted-foreground md:text-sm">{description}</p>
       <p className="mt-3 flex flex-col gap-2 text-xl xl:flex-row xl:items-center">
         <span className="text-xl font-medium md:text-4xl">{price}</span>
-        <span className="text-xs text-muted-foreground md:text-sm">
-          {pricePeriod}
-        </span>
+        <span className="text-xs text-muted-foreground md:text-sm">{pricePeriod}</span>
       </p>
-      <div className="flex-grow"></div>
+      <div className="grow"></div>
       <Button className="mt-4">{buttonText}</Button>
     </div>
   );

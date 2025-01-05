@@ -19,24 +19,16 @@ const data = {
   buttonText: 'Conseguir mi web',
   previewImages: [
     {
-      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      src: 'https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/eventify-8RwssdeZe87q6kesjPtLZEIOASfQhz.webp',
       alt: 'Project Preview 1',
     },
     {
-      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      src: 'https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/pequenglish-Ny7BFUHfKL431yUoJsQa9iW9rbErjI.webp',
       alt: 'Project Preview 2',
     },
     {
-      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
+      src: 'https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/kirawebs-ReUiZXrVRyZJRaeQxM1GrQz85jQPRI.webp',
       alt: 'Project Preview 3',
-    },
-    {
-      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-      alt: 'Project Preview 4',
-    },
-    {
-      src: 'https://img.notionusercontent.com/s3/prod-files-secure%2Fa96fc2d8-c2ff-4207-8f8b-ead87ec386fa%2F1fb2535d-0593-4a7e-b0f7-e7131e12eb0c%2Favatar.webp/size/w=2000?exp=1733883968&sig=ma7QWaJIVNsCwajiTI0o_FkWD4HGU-CMaZq3sbUrWPg',
-      alt: 'Project Preview 5',
     },
   ],
 };
@@ -49,13 +41,11 @@ export function HeroSection() {
           <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
             {data.title}
           </h1>
-          <p className="max-w-prose text-muted-foreground">
-            {data.description}
-          </p>
+          <p className="max-w-prose text-muted-foreground">{data.description}</p>
           <div>
             <Button
               size="lg"
-              className="relative z-0 transition duration-300 after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rounded after:bg-primary hover:scale-105 hover:after:scale-x-125 hover:after:scale-y-150 hover:after:opacity-0 hover:after:transition hover:after:duration-500 active:scale-110"
+              className="relative z-0 transition duration-300 after:absolute after:left-0 after:top-0 after:-z-10 after:size-full after:rounded after:bg-primary hover:scale-105 hover:after:scale-x-125 hover:after:scale-y-150 hover:after:opacity-0 hover:after:transition hover:after:duration-500 active:scale-110"
             >
               {data.buttonText}
               <ArrowRight />
@@ -77,12 +67,7 @@ export function HeroSection() {
             {data.previewImages.map((image, index) => (
               <SwiperSlide key={index} className="rounded shadow-2xl">
                 <div className="aspect-video">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={image.src} alt={image.alt} fill className="object-cover" />
                 </div>
               </SwiperSlide>
             ))}

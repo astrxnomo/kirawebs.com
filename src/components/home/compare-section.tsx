@@ -54,11 +54,9 @@ export function CompareSection() {
             ))}
           </div>
           <div className="flex flex-1 divide-x divide-border">
-            {data.comparisons.map(comparison => (
+            {data.comparisons.map((comparison) => (
               <div key={comparison.name} className="flex-1 p-4">
-                <h3 className="mb-4 text-center font-medium lg:text-lg">
-                  {comparison.name}
-                </h3>
+                <h3 className="mb-4 text-center font-medium lg:text-lg">{comparison.name}</h3>
                 {comparison.features.map((hasFeature, index) => (
                   <div
                     key={`${comparison.name}-${index}`}
@@ -68,9 +66,9 @@ export function CompareSection() {
                     )}
                   >
                     {hasFeature ? (
-                      <Check className="h-4 w-4 text-primary" />
+                      <Check className="size-4 text-primary" />
                     ) : (
-                      <Minus className="h-4 w-4 text-muted-foreground" />
+                      <Minus className="size-4 text-muted-foreground" />
                     )}
                   </div>
                 ))}

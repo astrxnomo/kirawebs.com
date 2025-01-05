@@ -10,11 +10,7 @@ interface ProgressTabsProps {
   className?: string;
 }
 
-export function ProgressTabs({
-  steps,
-  currentStep,
-  className,
-}: ProgressTabsProps) {
+export function ProgressTabs({ steps, currentStep, className }: ProgressTabsProps) {
   return (
     <div className={cn('w-full', className)}>
       <div className="relative flex justify-between">
@@ -30,11 +26,7 @@ export function ProgressTabs({
                     : 'border-muted-foreground text-muted-foreground',
               )}
             >
-              {currentStep > index ? (
-                <Check className="h-6 w-6" />
-              ) : (
-                <span>{index + 1}</span>
-              )}
+              {currentStep > index ? <Check className="size-6" /> : <span>{index + 1}</span>}
             </div>
             <span
               className={cn(

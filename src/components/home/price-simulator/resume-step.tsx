@@ -54,19 +54,18 @@ export function ResumeStep() {
           id="email"
           type="email"
           value={formData.email}
-          onChange={event => updateFormData('email', event.target.value)}
+          onChange={(event) => updateFormData('email', event.target.value)}
           placeholder="Ingresa tu correo electrónico"
         />
       </div>
       <div className="space-y-2">
         <Label htmlFor="descripcion">
-          Comentario adicional{' '}
-          <span className="text-xs text-muted-foreground">(Opcional)</span>
+          Comentario adicional <span className="text-xs text-muted-foreground">(Opcional)</span>
         </Label>
         <Textarea
           id="descripcion"
           value={formData.descripcion}
-          onChange={event => updateFormData('descripcion', event.target.value)}
+          onChange={(event) => updateFormData('descripcion', event.target.value)}
           placeholder="Cuéntanos más sobre tu proyecto..."
         />
       </div>
@@ -75,12 +74,10 @@ export function ResumeStep() {
         <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="text-sm">
-              Detalles del proyecto
-            </AccordionTrigger>
+            <AccordionTrigger className="text-sm">Detalles del proyecto</AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 text-xs">
-                {summaryItems.map(item => (
+                {summaryItems.map((item) => (
                   <li key={item.label} className="flex justify-between">
                     <span>{item.label}:</span>
                     <span className="text-right font-medium text-muted-foreground">
@@ -94,12 +91,10 @@ export function ResumeStep() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className="text-sm">
-              Servicios adicionales
-            </AccordionTrigger>
+            <AccordionTrigger className="text-sm">Servicios adicionales</AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 text-xs">
-                {additionalServices.map(service => (
+                {additionalServices.map((service) => (
                   <li key={service.label} className="flex justify-between">
                     <span>{service.label}:</span>
                     <span className="text-right font-medium text-muted-foreground">
@@ -116,9 +111,7 @@ export function ResumeStep() {
         <div className="pt-4">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <span className="text-xl font-semibold">Precio estimado</span>
-            <span className="text-3xl font-bold">
-              ${calculatePrice(formData)}
-            </span>
+            <span className="text-3xl font-bold">${calculatePrice(formData)}</span>
           </div>
           <p className="mt-2 text-xs text-muted-foreground">
             Este precio es aproximado y puede variar según tus necesidades.
@@ -141,10 +134,9 @@ export function ResumeStep() {
             strokeWidth={2}
             aria-hidden="true"
           />
-          Con esta herramienta, podrás obtener una visión más clara para tu
-          proyecto web. Una vez completes y envies el formulario, nos pondremos
-          en contacto contigo lo antes posible para afinar los detalles y
-          ayudarte a dar el siguiente paso en el crecimiento de tu negocio. Si
+          Con esta herramienta, podrás obtener una visión más clara para tu proyecto web. Una vez
+          completes y envies el formulario, nos pondremos en contacto contigo lo antes posible para
+          afinar los detalles y ayudarte a dar el siguiente paso en el crecimiento de tu negocio. Si
           tienes alguna inquietud, estamos aquí para ayudarte.
         </p>
       </div>

@@ -24,9 +24,7 @@ interface PriceSimulatorContextProps {
   updateFormData: UpdateFormDataFunction;
 }
 
-const PriceSimulatorContext = createContext<
-  PriceSimulatorContextProps | undefined
->(undefined);
+const PriceSimulatorContext = createContext<PriceSimulatorContextProps | undefined>(undefined);
 
 export const PriceSimulatorProvider: React.FC<{
   children: React.ReactNode;
@@ -46,7 +44,7 @@ export const PriceSimulatorProvider: React.FC<{
   });
 
   const updateFormData: UpdateFormDataFunction = (field, value) => {
-    setFormData(previous => ({ ...previous, [field]: value }));
+    setFormData((previous) => ({ ...previous, [field]: value }));
   };
 
   return (
@@ -59,9 +57,7 @@ export const PriceSimulatorProvider: React.FC<{
 export const usePriceSimulator = () => {
   const context = useContext(PriceSimulatorContext);
   if (!context) {
-    throw new Error(
-      'usePriceSimulator must be used within a PriceSimulatorProvider',
-    );
+    throw new Error('usePriceSimulator must be used within a PriceSimulatorProvider');
   }
   return context;
 };

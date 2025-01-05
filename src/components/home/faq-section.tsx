@@ -48,7 +48,7 @@ export function FAQSection() {
         className="mx-auto w-full max-w-3xl space-y-2"
         defaultValue="3"
       >
-        {data.faqs.map(item => (
+        {data.faqs.map((item) => (
           <AccordionItem
             value={item.id}
             key={item.id}

@@ -5,13 +5,7 @@ interface Step {
   icon: React.ElementType;
 }
 
-export function StepIndicator({
-  steps,
-  currentStep,
-}: {
-  steps: Step[];
-  currentStep: number;
-}) {
+export function StepIndicator({ steps, currentStep }: { steps: Step[]; currentStep: number }) {
   return (
     <ol className="relative flex w-full items-center justify-center">
       {steps.map((step, index) => {
@@ -20,12 +14,9 @@ export function StepIndicator({
         const isCurrent = index === currentStep;
 
         return (
-          <li
-            key={step.name}
-            className="relative flex flex-1 flex-col items-center"
-          >
+          <li key={step.name} className="relative flex flex-1 flex-col items-center">
             <div
-              className={`z-10 flex h-12 w-12 items-center justify-center rounded border-2 bg-background transition-all duration-300 ease-in-out ${
+              className={`z-10 flex size-12 items-center justify-center rounded border-2 bg-background transition-all duration-300 ease-in-out ${
                 isCompleted
                   ? 'border-primary bg-primary text-primary-foreground'
                   : isCurrent
@@ -33,11 +24,7 @@ export function StepIndicator({
                     : 'border-muted-foreground text-muted-foreground'
               } ${isCurrent ? 'scale-110' : ''}`}
             >
-              {isCompleted ? (
-                <Check className="h-6 w-6" />
-              ) : (
-                <Icon className="h-6 w-6" />
-              )}
+              {isCompleted ? <Check className="size-6" /> : <Icon className="size-6" />}
             </div>
             <span
               className={`mt-2 hidden text-center font-medium sm:text-sm md:block ${

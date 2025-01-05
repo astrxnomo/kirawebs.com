@@ -1,12 +1,7 @@
 import { Code, FileText, Handshake, PhoneCall, Rocket } from 'lucide-react';
 
 import Container from '@/components/home/container';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-} from '@/components/ui/card';
+import { Card, CardDescription, CardHeader } from '@/components/ui/card';
 
 const data = {
   id: 'steps',
@@ -59,12 +54,12 @@ export function StepsSection() {
           aria-hidden="true"
         />
         <div className="relative z-10 flex flex-col space-y-8 lg:flex-row lg:justify-between lg:space-y-0">
-          {stepsData.map(step => (
+          {stepsData.map((step) => (
             <div
               key={step.title}
               className="flex w-full items-center lg:flex-col lg:items-center lg:px-4"
             >
-              <div className="mr-4 flex h-12 w-12 shrink-0 items-center justify-center rounded bg-primary text-lg font-bold text-primary-foreground lg:mb-4">
+              <div className="mr-4 flex size-12 shrink-0 items-center justify-center rounded bg-primary text-lg font-bold text-primary-foreground lg:mb-4">
                 {step.step}
               </div>
               <Card>
@@ -72,9 +67,7 @@ export function StepsSection() {
                   <step.icon className="mb-2 text-primary" />
                   <h3 className="font-bold">{step.title}</h3>
                   <CardDescription>
-                    <p className="text-[13px] text-muted-foreground">
-                      {step.description}
-                    </p>
+                    <p className="text-[13px] text-muted-foreground">{step.description}</p>
                   </CardDescription>
                 </CardHeader>
               </Card>

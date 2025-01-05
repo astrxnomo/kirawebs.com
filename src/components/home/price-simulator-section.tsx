@@ -19,13 +19,7 @@ import { ServicesStep } from '@/components/home/price-simulator/services-step';
 import { StepIndicator } from '@/components/home/price-simulator/step-indicator';
 import { TemplatesStep } from '@/components/home/price-simulator/templates-step';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
 import { PriceSimulatorProvider } from './price-simulator/price-simulator-provider';
@@ -62,25 +56,20 @@ const STEPS = [
 export function PriceSimulatorForm() {
   const [currentStep, setCurrentStep] = useState(0);
 
-  const handleNext = () =>
-    setCurrentStep(previous => Math.min(previous + 1, STEPS.length - 1));
-  const handlePrevious = () =>
-    setCurrentStep(previous => Math.max(previous - 1, 0));
+  const handleNext = () => setCurrentStep((previous) => Math.min(previous + 1, STEPS.length - 1));
+  const handlePrevious = () => setCurrentStep((previous) => Math.max(previous - 1, 0));
 
   return (
     <Container
       id="price-simulator"
       title="Simulador de precios"
-      description="Obten una visión más clara de lo que
-          necesitas para tu proyecto web"
+      description="Obten una visión más clara de lo que necesitas para tu proyecto web"
     >
       <div className="mx-auto w-full max-w-4xl space-y-4">
         <StepIndicator steps={STEPS} currentStep={currentStep} />
         <Card className="w-full overflow-hidden">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">
-              {STEPS[currentStep].name}
-            </CardTitle>
+            <CardTitle className="text-2xl font-bold">{STEPS[currentStep].name}</CardTitle>
             <CardDescription>{STEPS[currentStep].description}</CardDescription>
           </CardHeader>
           <CardContent>
@@ -105,7 +94,7 @@ export function PriceSimulatorForm() {
                       onClick={handlePrevious}
                       className="transition-transform duration-300 ease-in-out hover:-translate-x-1"
                     >
-                      <ArrowLeft className="mr-2 h-4 w-4" /> Anterior
+                      <ArrowLeft className="mr-2 size-4" /> Anterior
                     </Button>
                   )}
                   {currentStep < STEPS.length - 1 && (
@@ -113,7 +102,7 @@ export function PriceSimulatorForm() {
                       onClick={handleNext}
                       className="transition-transform duration-300 ease-in-out hover:translate-x-1"
                     >
-                      Siguiente <ArrowRight className="ml-2 h-4 w-4" />
+                      Siguiente <ArrowRight className="ml-2 size-4" />
                     </Button>
                   )}
                 </div>

@@ -12,17 +12,12 @@ export function Footer() {
           <Link href="/">
             <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
               <Image src="/logo.svg" alt="Logo" width={30} height={30} />
-              <span className="text-lg font-extrabold text-primary">
-                KiraWebs
-              </span>
+              <span className="text-lg font-extrabold text-primary">KiraWebs</span>
             </div>
           </Link>
           <ul className="flex items-center text-sm font-semibold">
             <li>
-              <Link
-                href="/privacy-policy"
-                className={`${buttonVariants({ variant: 'link' })}`}
-              >
+              <Link href="/privacy-policy" className={`${buttonVariants({ variant: 'link' })}`}>
                 Política de Privacidad
               </Link>
             </li>

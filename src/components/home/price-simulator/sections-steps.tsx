@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
@@ -23,7 +22,7 @@ export function SectionsStep() {
   const removeSection = (section: string) => {
     updateFormData(
       'sections',
-      formData.sections.filter(s => s !== section),
+      formData.sections.filter((s) => s !== section),
     );
   };
 
@@ -34,17 +33,17 @@ export function SectionsStep() {
         <div className="flex gap-2">
           <Input
             value={newSection}
-            onChange={event => setNewSection(event.target.value)}
+            onChange={(event) => setNewSection(event.target.value)}
             placeholder="Nueva Sección (ej. Galería, Blog, Contacto)"
-            className="flex-grow"
+            className="grow"
           />
           <Button onClick={addSection} type="button">
-            <PlusIcon className="h-4 w-4" /> Añadir
+            <PlusIcon className="size-4" /> Añadir
           </Button>
         </div>
       </div>
       <div className="flex flex-wrap gap-2">
-        {formData.sections.map(section => (
+        {formData.sections.map((section) => (
           <Badge
             key={section}
             variant="outline"
@@ -52,7 +51,7 @@ export function SectionsStep() {
           >
             {section}
             <button
-              className="-my-[5px] -me-2 -ms-1 inline-flex size-7 shrink-0 items-center justify-center rounded p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
+              className="-my-1 -me-2 -ms-1 inline-flex size-7 shrink-0 items-center justify-center rounded p-0 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70"
               onClick={() => removeSection(section)}
               aria-label="Delete"
             >

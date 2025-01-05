@@ -1,8 +1,9 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
+import { Inter, Poppins } from 'next/font/google';
+import Script from 'next/script';
 
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
@@ -18,8 +19,7 @@ export const metadata: Metadata = {
   title: 'Kira - Agencia de Desarrollo Web Profesional',
   description:
     'Transformamos ideas en experiencias digitales excepcionales. Desarrollo web profesional que impulsa resultados.',
-  keywords:
-    'desarrollo web, agencia digital, diseño web, e-commerce, aplicaciones web',
+  keywords: 'desarrollo web, agencia digital, diseño web, e-commerce, aplicaciones web',
   openGraph: {
     title: 'Kira - Agencia de Desarrollo Web Profesional',
     description: 'Transformamos ideas en experiencias digitales excepcionales',
@@ -27,18 +27,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="es"
       className={`min-h-full ${inter.className} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <body className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)]">
+      <head>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="xD+P5nM2R6bSyazQv6TWtQ"
+          async
+        />
+      </head>
+      <body className="absolute inset-0 -z-10 size-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#020808_1px,#00091d_1px)]">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -49,6 +52,11 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
+        <Script
+          src="https://s.pageclip.co/v1/pageclip.js"
+          charSet="utf8"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );

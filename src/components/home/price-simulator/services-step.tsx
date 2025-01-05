@@ -1,18 +1,14 @@
-import { Card } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 
-import {
-  type SimulationPriceFormData,
-  usePriceSimulator,
-} from './price-simulator-provider';
+import { type SimulationPriceFormData, usePriceSimulator } from './price-simulator-provider';
 
-const additionalServices: {
+const additionalServices: Array<{
   id: keyof SimulationPriceFormData;
   label: string;
   description: string;
-}[] = [
+}> = [
   {
     id: 'mantenimiento',
     label: 'Mantenimiento',
@@ -34,8 +30,7 @@ const additionalServices: {
   {
     id: 'dominio',
     label: 'Dominio personalizado',
-    description:
-      'Registro y configuración de un dominio único que refleje tu marca o negocio.',
+    description: 'Registro y configuración de un dominio único que refleje tu marca o negocio.',
   },
   {
     id: 'integracionExterna',
@@ -61,7 +56,9 @@ export function ServicesStep() {
             max={90}
             step={1}
             value={[formData.plazo]}
-            onValueChange={value => updateFormData('plazo', value[0])}
+            onValueChange={(value) => {
+              updateFormData('plazo', value[0]);
+            }}
             className="mt-2"
           />
           <div className="flex justify-between text-sm text-muted-foreground">
@@ -74,22 +71,32 @@ export function ServicesStep() {
       <div className="space-y-4">
         <Label className="text-lg font-medium">Servicios adicionales</Label>
         <p className="text-sm text-muted-foreground">
-          Selecciona los servicios adicionales que deseas incluir en tu
-          proyecto.
+          Selecciona los servicios adicionales que deseas incluir en tu proyecto.
         </p>
         <div className="grid grid-cols-2 gap-4">
-          {additionalServices.map(service => (
+          {additionalServices.map((service) => (
             <div
               key={service.id}
+              role="button"
+              tabIndex={0}
               className={`relative flex w-full items-start gap-2 rounded border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5 ${
                 formData[service.id] ? 'border-primary bg-primary/5' : ''
               }`}
-              onClick={() => updateFormData(service.id, !formData[service.id])}
+              onClick={() => {
+                updateFormData(service.id, !formData[service.id]);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  updateFormData(service.id, !formData[service.id]);
+                }
+              }}
             >
               <Checkbox
                 id={service.id}
                 checked={!!formData[service.id]}
-                onCheckedChange={checked => updateFormData(service.id, checked)}
+                onCheckedChange={(checked) => {
+                  updateFormData(service.id, checked);
+                }}
                 className="order-1 after:absolute after:inset-0"
               />
               <div className="space-y-1">

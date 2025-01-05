@@ -14,13 +14,11 @@ export function PricingFeature({ feature, plans }: PricingFeatureProps) {
       {plans.map((plan, index) => (
         <div key={index} className="flex justify-center px-6 py-1 md:py-4">
           {plan === 'check' ? (
-            <Check className="h-4 w-4 text-primary" />
+            <Check className="size-4 text-primary" />
           ) : plan === 'minus' ? (
-            <Minus className="h-4 w-4 text-muted-foreground" />
+            <Minus className="size-4 text-muted-foreground" />
           ) : (
-            <span className="text-xs text-muted-foreground md:text-sm">
-              {plan}
-            </span>
+            <span className="text-xs text-muted-foreground md:text-sm">{plan}</span>
           )}
         </div>
       ))}

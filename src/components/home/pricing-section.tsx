@@ -7,16 +7,14 @@ import Container from './container';
 const pricingPlans = [
   {
     title: 'Esencial',
-    description:
-      'Página web simple y funcional para negocios pequeños y emprendedores.',
+    description: 'Página web simple y funcional para negocios pequeños y emprendedores.',
     price: '$600K',
     pricePeriod: '/ unico pago',
     buttonText: 'Comprar',
   },
   {
     title: 'Pro',
-    description:
-      'Página web profesional en línea con diseño optimizado y dinámico.',
+    description: 'Página web profesional en línea con diseño optimizado y dinámico.',
     price: '$1.2M',
     pricePeriod: '/ unico pago',
 
@@ -24,8 +22,7 @@ const pricingPlans = [
   },
   {
     title: 'Premium',
-    description:
-      'Paginas web personalizada con soporte técnico y diseño avanzado a medida.',
+    description: 'Paginas web personalizada con soporte técnico y diseño avanzado a medida.',
     price: '$---',
     pricePeriod: '',
     buttonText: 'Negociar',

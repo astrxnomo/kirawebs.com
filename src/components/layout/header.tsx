@@ -2,14 +2,15 @@
 
 import {
   AppWindow,
-  Briefcase,
   Calculator,
   Cloud,
   DollarSign,
+  Folders,
   LayoutPanelLeft,
+  Library,
   Mail,
   Menu,
-  MessageCircle,
+  MessageSquareQuote,
   Speech,
   X,
 } from 'lucide-react';
@@ -25,13 +26,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/utils/cn';
 
 const navItems = [
-  { href: '#proyectos', label: 'Proyectos', icon: Briefcase },
-  { href: '#testimonios', label: 'Testimonios', icon: MessageCircle },
+  { href: '#proyectos', label: 'Proyectos', icon: Folders },
+  { href: '#testimonios', label: 'Testimonios', icon: MessageSquareQuote },
 ];
 
 const services = [
@@ -50,8 +50,7 @@ const services = [
   {
     title: 'Soluciones Cloud (Pronto)',
     href: '',
-    description:
-      'Infraestructura y servicios en la nube escalables y seguros con AWS.',
+    description: 'Infraestructura y servicios en la nube escalables y seguros con AWS.',
     icon: Cloud,
     active: false,
   },
@@ -76,13 +75,13 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent">
                     <span className="flex items-center gap-2">
-                      <LayoutPanelLeft className="h-4 w-4" />
+                      <Library className="size-4" />
                       Servicios
                     </span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-6">
-                      {services.map(service => (
+                      {services.map((service) => (
                         <ListItem
                           key={service.title}
                           title={service.title}
@@ -99,7 +98,7 @@ export function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent">
                     <span className="flex items-center gap-2">
-                      <DollarSign className="h-4 w-4" />
+                      <DollarSign className="size-4" />
                       Precios
                     </span>
                   </NavigationMenuTrigger>
@@ -108,44 +107,36 @@ export function Header() {
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex size-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="#price-simulator"
                           >
-                            <Calculator className="h-6 w-6" />
-                            <div className="mb-2 mt-4 text-lg font-medium">
-                              Simulador
-                            </div>
+                            <Calculator className="size-6" />
+                            <div className="mb-2 mt-4 text-lg font-medium">Simulador</div>
                             <p className="text-sm leading-tight text-muted-foreground">
-                              Obtén una visión clara de tu proyecto web.
-                              Completa el formulario según tus necesidades y te
-                              daremos un precio aproximado.
+                              Obtén una visión clara de tu proyecto web. Completa el formulario
+                              según tus necesidades y te daremos un precio aproximado.
                             </p>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <ListItem href="#price-simulator" title="Simulador">
-                        Obtén una visión clara de tu proyecto web. Completa el
-                        formulario según tus necesidades y te daremos un precio
-                        aproximado.
+                        Obtén una visión clara de tu proyecto web. Completa el formulario según tus
+                        necesidades y te daremos un precio aproximado.
                       </ListItem>
                       <ListItem href="#contact" title="Contacto">
-                        Ponte en contacto con nosotros para más información y
-                        consultas.
+                        Ponte en contacto con nosotros para más información y consultas.
                       </ListItem>
                       <ListItem href="#faqs" title="Preguntas Frecuentes">
-                        Encuentra respuestas a las preguntas más comunes sobre
-                        nuestros servicios.
+                        Encuentra respuestas a las preguntas más comunes sobre nuestros servicios.
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                {navItems.map(item => (
+                {navItems.map((item) => (
                   <NavigationMenuItem className="w-full" key={item.href}>
                     <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={`${buttonVariants({ variant: 'ghost' })}`}
-                      >
-                        <item.icon className="h-4 w-4" />
+                      <NavigationMenuLink className={`${buttonVariants({ variant: 'ghost' })}`}>
+                        <item.icon className="size-4" />
                         {item.label}
                       </NavigationMenuLink>
                     </Link>
@@ -156,37 +147,31 @@ export function Header() {
           </nav>
           <div className="hidden items-center md:flex">
             <Link href="#contact">
-              <Button
-                className="transition-transform duration-300 hover:scale-105"
-                size="sm"
-              >
+              <Button className="transition-transform duration-300 hover:scale-105" size="sm">
                 <Mail strokeWidth={2.5} />
                 Contactar
               </Button>
             </Link>
           </div>
-          <button
-            className="text-primary md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="text-primary md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
 
         {isMenuOpen && (
-          <nav className="p-2 md:hidden">
+          <nav className="md:hidden">
             <NavigationMenu>
               <NavigationMenuList className="flex flex-col gap-2">
                 <NavigationMenuItem className="w-full justify-center">
                   <NavigationMenuTrigger className="bg-transparent">
                     <span className="flex items-center gap-2">
-                      <LayoutPanelLeft className="h-4 w-4" />
+                      <LayoutPanelLeft className="size-4" />
                       Servicios
                     </span>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[350px] gap-3 p-6">
-                      {services.map(service => (
+                      {services.map((service) => (
                         <ListItem
                           key={service.title}
                           title={service.title}
@@ -203,7 +188,7 @@ export function Header() {
                 <NavigationMenuItem className="w-full justify-center">
                   <NavigationMenuTrigger className="bg-transparent">
                     <span className="flex items-center gap-2">
-                      <DollarSign className="h-4 w-4" />
+                      <DollarSign className="size-4" />
                       Precios
                     </span>
                   </NavigationMenuTrigger>
@@ -212,44 +197,36 @@ export function Header() {
                       <li>
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex size-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="#price-simulator"
                           >
-                            <Calculator className="h-6 w-6" />
-                            <div className="mb-2 mt-4 text-lg font-medium">
-                              Simulador
-                            </div>
+                            <Calculator className="size-6" />
+                            <div className="mb-2 mt-4 text-lg font-medium">Simulador</div>
                             <p className="text-sm leading-tight text-muted-foreground">
-                              Obtener una visión clara de tu proyecto web. Haz
-                              el formulario acorde tus necesidades y te daremos
-                              un precio aproximado
+                              Obtener una visión clara de tu proyecto web. Haz el formulario acorde
+                              tus necesidades y te daremos un precio aproximado
                             </p>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <ListItem href="#price-simulator" title="Simulador">
-                        Obtén una visión clara de tu proyecto web. Completa el
-                        formulario según tus necesidades y te daremos un precio
-                        aproximado.
+                        Obtén una visión clara de tu proyecto web. Completa el formulario según tus
+                        necesidades y te daremos un precio aproximado.
                       </ListItem>
                       <ListItem href="#contact" title="Contacto">
-                        Ponte en contacto con nosotros para más información y
-                        consultas.
+                        Ponte en contacto con nosotros para más información y consultas.
                       </ListItem>
                       <ListItem href="#faqs" title="Preguntas Frecuentes">
-                        Encuentra respuestas a las preguntas más comunes sobre
-                        nuestros servicios.
+                        Encuentra respuestas a las preguntas más comunes sobre nuestros servicios.
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                {navItems.map(item => (
+                {navItems.map((item) => (
                   <NavigationMenuItem className="w-full" key={item.href}>
                     <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={`${buttonVariants({ variant: 'ghost' })}`}
-                      >
-                        <item.icon className="h-4 w-4" />
+                      <NavigationMenuLink className={`${buttonVariants({ variant: 'ghost' })}`}>
+                        <item.icon className="size-4" />
                         {item.label}
                       </NavigationMenuLink>
                     </Link>
@@ -282,34 +259,27 @@ const ListItem = React.forwardRef<
     icon?: React.ElementType;
     active?: boolean;
   }
->(
-  (
-    { className, title, children, icon: Icon, active = true, ...props },
-    ref,
-  ) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <a
-            ref={ref}
-            className={cn(
-              'block select-none space-y-1 rounded p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-              className,
-              !active && 'pointer-events-none opacity-50',
-            )}
-            {...props}
-          >
-            <div className="flex items-center gap-2 text-sm font-medium leading-none">
-              {Icon && <Icon className="h-4 w-4" />}
-              {title}
-            </div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          </a>
-        </NavigationMenuLink>
-      </li>
-    );
-  },
-);
+>(({ className, title, children, icon: Icon, active = true, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            'block select-none space-y-1 rounded p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            className,
+            !active && 'pointer-events-none opacity-50',
+          )}
+          {...props}
+        >
+          <div className="flex items-center gap-2 text-sm font-medium leading-none">
+            {Icon && <Icon className="size-4" />}
+            {title}
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
 ListItem.displayName = 'ListItem';

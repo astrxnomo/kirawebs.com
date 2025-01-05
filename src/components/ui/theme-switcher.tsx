@@ -25,7 +25,7 @@ export default function ThemeSwitcher() {
         <Switch
           id="switch-13"
           checked={theme === 'light'}
-          onCheckedChange={checked => {
+          onCheckedChange={(checked) => {
             setTheme(checked ? 'light' : 'dark');
           }}
           className="peer absolute inset-0 h-[inherit] w-auto data-[state=unchecked]:bg-input/50 [&_span]:z-10 [&_span]:h-full [&_span]:w-1/2 [&_span]:transition-transform [&_span]:duration-300 [&_span]:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] data-[state=checked]:[&_span]:translate-x-full rtl:data-[state=checked]:[&_span]:-translate-x-full"

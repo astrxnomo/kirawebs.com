@@ -12,10 +12,7 @@ export const templates = [
     label: 'Emprendedor',
     sections: ['Acerca de', 'Servicios', 'Contacto'],
     description: 'Ideal para pequeños negocios y emprendimientos',
-    recommendedFeatures: [
-      'Formulario de contacto',
-      'Integración con redes sociales',
-    ],
+    recommendedFeatures: ['Formulario de contacto', 'Integración con redes sociales'],
     basePrice: 300_000,
   },
   {
@@ -23,11 +20,7 @@ export const templates = [
     label: 'Corporativo',
     sections: ['Historia', 'Servicios', 'Contacto'],
     description: 'Ideal para empresas y corporaciones',
-    recommendedFeatures: [
-      'Formulario de contacto',
-      'Galería de imágenes',
-      'Blog integrado',
-    ],
+    recommendedFeatures: ['Formulario de contacto', 'Galería de imágenes', 'Blog integrado'],
     basePrice: 400_000,
   },
   {
@@ -55,11 +48,7 @@ export const templates = [
     label: 'Tienda',
     sections: ['Inicio', 'Productos', 'Contacto'],
     description: 'Ideal para tiendas en línea y e-commerce',
-    recommendedFeatures: [
-      'Carrito de compras',
-      'Sistema de búsqueda avanzado',
-      'Chat en vivo',
-    ],
+    recommendedFeatures: ['Carrito de compras', 'Sistema de búsqueda avanzado', 'Chat en vivo'],
     basePrice: 500_000,
   },
 ];

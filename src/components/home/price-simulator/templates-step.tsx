@@ -16,16 +16,13 @@ export function TemplatesStep() {
         className="grid grid-cols-2 gap-4 md:grid-cols-3"
         value={formData.template}
         onValueChange={(value: string) => {
-          const template = templates.find(t => t.id === value);
+          const template = templates.find((t) => t.id === value);
           updateFormData('template', value);
           updateFormData('sections', template?.sections || []);
-          updateFormData(
-            'recommendedFeatures',
-            template?.recommendedFeatures || [],
-          );
+          updateFormData('recommendedFeatures', template?.recommendedFeatures || []);
         }}
       >
-        {templates.map(template => (
+        {templates.map((template) => (
           <div
             key={template.id}
             className="relative flex w-full items-start gap-2 rounded border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
@@ -48,8 +45,7 @@ export function TemplatesStep() {
           </div>
         ))}
       </RadioGroup>
-      {(formData.sections.length > 0 ||
-        formData.recommendedFeatures.length > 0) && (
+      {(formData.sections.length > 0 || formData.recommendedFeatures.length > 0) && (
         <>
           <hr />
           <Card className="grid grid-cols-2 divide-x border-primary bg-primary/5">
@@ -60,10 +56,7 @@ export function TemplatesStep() {
               </h3>
               <ul className="divide-y">
                 {formData.sections.map((section, index) => (
-                  <li
-                    key={index}
-                    className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
-                  >
+                  <li key={index} className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs">
                     {section}
                   </li>
                 ))}
@@ -77,10 +70,7 @@ export function TemplatesStep() {
               </h3>
               <ul className="divide-y">
                 {formData.recommendedFeatures.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
-                  >
+                  <li key={index} className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs">
                     {feature}
                   </li>
                 ))}
