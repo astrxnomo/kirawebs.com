@@ -93,7 +93,7 @@ export const ContactSection = () => {
                 </p>
               </div>
 
-              <Button type="submit" className="pageclip-form__submit w-full">
+              <Button type="submit" className="w-full">
                 Enviar
               </Button>
             </form>
