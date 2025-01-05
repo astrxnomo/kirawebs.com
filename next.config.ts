@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['img.notionusercontent.com'],
+    domains: ['xsnn3yjlik38vz3y.public.blob.vercel-storage.com'],
   },
 };
 
