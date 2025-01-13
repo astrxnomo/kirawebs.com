@@ -1,33 +1,39 @@
-import './globals.css';
+import "./globals.css"
 
-import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
-import { Inter, Poppins } from 'next/font/google';
-import Script from 'next/script';
+import { ThemeProvider } from "next-themes"
+import { Inter, Poppins } from "next/font/google"
+import Script from "next/script"
 
-import { Footer } from '@/components/layout/footer';
-import { Header } from '@/components/layout/header';
+import { Footer } from "@/components/layout/footer"
+import { Header } from "@/components/layout/header"
 
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from "next"
+
+const inter = Inter({ subsets: ["latin"] })
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
-});
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+})
 
 export const metadata: Metadata = {
-  title: 'Kira - Agencia de Desarrollo Web Profesional',
+  title: "Kira - Agencia de Desarrollo Web Profesional",
   description:
-    'Transformamos ideas en experiencias digitales excepcionales. Desarrollo web profesional que impulsa resultados.',
-  keywords: 'desarrollo web, agencia digital, diseño web, e-commerce, aplicaciones web',
+    "Transformamos ideas en experiencias digitales excepcionales. Desarrollo web profesional que impulsa resultados.",
+  keywords:
+    "desarrollo web, agencia digital, diseño web, e-commerce, aplicaciones web",
   openGraph: {
-    title: 'Kira - Agencia de Desarrollo Web Profesional',
-    description: 'Transformamos ideas en experiencias digitales excepcionales',
-    images: ['/og-image.jpg'],
+    title: "Kira - Agencia de Desarrollo Web Profesional",
+    description: "Transformamos ideas en experiencias digitales excepcionales",
+    images: ["/og-image.jpg"],
   },
-};
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html
       lang="es"
@@ -59,5 +65,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </body>
     </html>
-  );
+  )
 }

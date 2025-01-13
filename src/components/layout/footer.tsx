@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image"
+import Link from "next/link"
 
-import { buttonVariants } from '../ui/button';
-import ThemeSwitcher from '../ui/theme-switcher';
+import { buttonVariants } from "../ui/button"
+import ThemeSwitcher from "../ui/theme-switcher"
 
 export function Footer() {
   return (
@@ -12,12 +12,17 @@ export function Footer() {
           <Link href="/">
             <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
               <Image src="/logo.svg" alt="Logo" width={30} height={30} />
-              <span className="text-lg font-extrabold text-primary">KiraWebs</span>
+              <span className="text-lg font-extrabold text-primary">
+                KiraWebs
+              </span>
             </div>
           </Link>
           <ul className="flex items-center text-sm font-semibold">
             <li>
-              <Link href="/privacy-policy" className={`${buttonVariants({ variant: 'link' })}`}>
+              <Link
+                href="/privacy-policy"
+                className={`${buttonVariants({ variant: "link" })}`}
+              >
                 Política de Privacidad
               </Link>
             </li>
@@ -26,7 +31,7 @@ export function Footer() {
         <hr className="my-6" />
         <div className="flex items-center justify-between">
           <span className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()}{' '}
+            © {new Date().getFullYear()}{" "}
             <a href="https://kirawebs.com/" className="hover:underline">
               Kirawebs
             </a>
@@ -36,5 +41,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

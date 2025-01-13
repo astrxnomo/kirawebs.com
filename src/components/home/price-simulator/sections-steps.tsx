@@ -1,30 +1,30 @@
-import { PlusIcon, X } from 'lucide-react';
-import { useState } from 'react';
+import { PlusIcon, X } from "lucide-react"
+import { useState } from "react"
 
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
-import { usePriceSimulator } from './price-simulator-provider';
+import { usePriceSimulator } from "./price-simulator-provider"
 
 export function SectionsStep() {
-  const { formData, updateFormData } = usePriceSimulator();
-  const [newSection, setNewSection] = useState('');
+  const { formData, updateFormData } = usePriceSimulator()
+  const [newSection, setNewSection] = useState("")
 
   const addSection = () => {
     if (newSection && !formData.sections.includes(newSection)) {
-      updateFormData('sections', [...formData.sections, newSection]);
-      setNewSection('');
+      updateFormData("sections", [...formData.sections, newSection])
+      setNewSection("")
     }
-  };
+  }
 
   const removeSection = (section: string) => {
     updateFormData(
-      'sections',
+      "sections",
       formData.sections.filter((s) => s !== section),
-    );
-  };
+    )
+  }
 
   return (
     <div className="space-y-4">
@@ -61,5 +61,5 @@ export function SectionsStep() {
         ))}
       </div>
     </div>
-  );
+  )
 }

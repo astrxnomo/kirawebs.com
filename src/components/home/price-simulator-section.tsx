@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import {
   AppWindow,
@@ -8,56 +8,64 @@ import {
   LayoutDashboard,
   PackagePlus,
   SquareMousePointer,
-} from 'lucide-react';
-import { useState } from 'react';
+} from "lucide-react"
+import { useState } from "react"
 
-import Container from '@/components/home/container';
-import { FeaturesStep } from '@/components/home/price-simulator/features-step';
-import { ResumeStep } from '@/components/home/price-simulator/resume-step';
-import { SectionsStep } from '@/components/home/price-simulator/sections-steps';
-import { ServicesStep } from '@/components/home/price-simulator/services-step';
-import { StepIndicator } from '@/components/home/price-simulator/step-indicator';
-import { TemplatesStep } from '@/components/home/price-simulator/templates-step';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { TooltipProvider } from '@/components/ui/tooltip';
+import Container from "@/components/home/container"
+import { FeaturesStep } from "@/components/home/price-simulator/features-step"
+import { ResumeStep } from "@/components/home/price-simulator/resume-step"
+import { SectionsStep } from "@/components/home/price-simulator/sections-steps"
+import { ServicesStep } from "@/components/home/price-simulator/services-step"
+import { StepIndicator } from "@/components/home/price-simulator/step-indicator"
+import { TemplatesStep } from "@/components/home/price-simulator/templates-step"
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
-import { PriceSimulatorProvider } from './price-simulator/price-simulator-provider';
+import { PriceSimulatorProvider } from "./price-simulator/price-simulator-provider"
 
 const STEPS = [
   {
-    name: 'Plantillas',
+    name: "Plantillas",
     icon: AppWindow,
-    description: 'Selecciona una plantilla para tu sitio web',
+    description: "Selecciona una plantilla para tu sitio web",
   },
   {
-    name: 'Secciones',
+    name: "Secciones",
     icon: LayoutDashboard,
     description:
-      'Selecciona o añade las secciones que deseas para tu sitio web. Cada sección representa una página o área importante de tu sitio.',
+      "Selecciona o añade las secciones que deseas para tu sitio web. Cada sección representa una página o área importante de tu sitio.",
   },
   {
-    name: 'Funcionalidades',
+    name: "Funcionalidades",
     icon: SquareMousePointer,
-    description: 'Selecciona las funcionalidades que necesitas',
+    description: "Selecciona las funcionalidades que necesitas",
   },
   {
-    name: 'Servicios',
+    name: "Servicios",
     icon: PackagePlus,
-    description: 'Indica el plazo de entrega deseado',
+    description: "Indica el plazo de entrega deseado",
   },
   {
-    name: 'Resumen',
+    name: "Resumen",
     icon: FileCheck,
-    description: 'Proporciona tus datos de contacto',
+    description: "Proporciona tus datos de contacto",
   },
-];
+]
 
 export function PriceSimulatorForm() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0)
 
-  const handleNext = () => setCurrentStep((previous) => Math.min(previous + 1, STEPS.length - 1));
-  const handlePrevious = () => setCurrentStep((previous) => Math.max(previous - 1, 0));
+  const handleNext = () =>
+    setCurrentStep((previous) => Math.min(previous + 1, STEPS.length - 1))
+  const handlePrevious = () =>
+    setCurrentStep((previous) => Math.max(previous - 1, 0))
 
   return (
     <Container
@@ -69,7 +77,9 @@ export function PriceSimulatorForm() {
         <StepIndicator steps={STEPS} currentStep={currentStep} />
         <Card className="w-full overflow-hidden">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">{STEPS[currentStep].name}</CardTitle>
+            <CardTitle className="text-2xl font-bold">
+              {STEPS[currentStep].name}
+            </CardTitle>
             <CardDescription>{STEPS[currentStep].description}</CardDescription>
           </CardHeader>
           <CardContent>
@@ -112,5 +122,5 @@ export function PriceSimulatorForm() {
         </Card>
       </div>
     </Container>
-  );
+  )
 }

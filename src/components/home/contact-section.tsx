@@ -1,12 +1,12 @@
-import { Check, Mail } from 'lucide-react';
+import { Check, Mail } from "lucide-react"
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
-import { Card, CardContent } from '../ui/card';
-import { Textarea } from '../ui/textarea';
-import Container from './container';
+import { Card, CardContent } from "../ui/card"
+import { Textarea } from "../ui/textarea"
+import Container from "./container"
 
 export const ContactSection = () => {
   return (
@@ -14,10 +14,12 @@ export const ContactSection = () => {
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <h2 className="text-4xl font-bold tracking-tighter md:text-5xl">Contáctanos</h2>
+            <h2 className="text-4xl font-bold tracking-tighter md:text-5xl">
+              Contáctanos
+            </h2>
             <p className="mt-4 text-muted-foreground">
-              Estamos aquí para ayudarte. Completa el formulario para ponerte en contacto con
-              nosotros.
+              Estamos aquí para ayudarte. Completa el formulario para ponerte en
+              contacto con nosotros.
             </p>
           </div>
           <div className="flex flex-col gap-3 px-10">
@@ -88,7 +90,11 @@ export const ContactSection = () => {
                   name="descripcion"
                   required
                 />
-                <p className="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
+                <p
+                  className="mt-2 text-xs text-muted-foreground"
+                  role="region"
+                  aria-live="polite"
+                >
                   Agrega todos los detalles que consideres necesarios
                 </p>
               </div>
@@ -101,5 +107,5 @@ export const ContactSection = () => {
         </Card>
       </div>
     </Container>
-  );
-};
+  )
+}

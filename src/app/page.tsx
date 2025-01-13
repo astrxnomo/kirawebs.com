@@ -1,9 +1,9 @@
-import { CompareSection } from '@/components/home/compare-section';
-import { ContactSection } from '@/components/home/contact-section';
-import { FAQSection } from '@/components/home/faq-section';
-import { HeroSection } from '@/components/home/hero-section';
-import { PriceSimulatorForm } from '@/components/home/price-simulator-section';
-import { StepsSection } from '@/components/home/steps-section';
+import { CompareSection } from "@/components/home/compare-section"
+import { ContactSection } from "@/components/home/contact-section"
+import { FAQSection } from "@/components/home/faq-section"
+import { HeroSection } from "@/components/home/hero-section"
+import { PriceSimulatorForm } from "@/components/home/price-simulator-section"
+import { StepsSection } from "@/components/home/steps-section"
 
 export default function Home() {
   return (
@@ -12,10 +12,9 @@ export default function Home() {
       {/* <ServicesSection /> */}
       <StepsSection />
       <CompareSection />
-      {/* <PricingSection /> */}
       <PriceSimulatorForm />
       <FAQSection />
       <ContactSection />
     </div>
-  );
+  )
 }

@@ -1,14 +1,14 @@
-import { LayoutDashboard, SquareMousePointer } from 'lucide-react';
+import { LayoutDashboard, SquareMousePointer } from "lucide-react"
 
-import { Card } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { templates } from '@/utils/pricing-config';
+import { Card } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { templates } from "@/utils/pricing-config"
 
-import { usePriceSimulator } from './price-simulator-provider';
+import { usePriceSimulator } from "./price-simulator-provider"
 
 export function TemplatesStep() {
-  const { formData, updateFormData } = usePriceSimulator();
+  const { formData, updateFormData } = usePriceSimulator()
 
   return (
     <div className="space-y-4">
@@ -16,10 +16,13 @@ export function TemplatesStep() {
         className="grid grid-cols-2 gap-4 md:grid-cols-3"
         value={formData.template}
         onValueChange={(value: string) => {
-          const template = templates.find((t) => t.id === value);
-          updateFormData('template', value);
-          updateFormData('sections', template?.sections || []);
-          updateFormData('recommendedFeatures', template?.recommendedFeatures || []);
+          const template = templates.find((t) => t.id === value)
+          updateFormData("template", value)
+          updateFormData("sections", template?.sections ?? [])
+          updateFormData(
+            "recommendedFeatures",
+            template?.recommendedFeatures ?? [],
+          )
         }}
       >
         {templates.map((template) => (
@@ -45,7 +48,8 @@ export function TemplatesStep() {
           </div>
         ))}
       </RadioGroup>
-      {(formData.sections.length > 0 || formData.recommendedFeatures.length > 0) && (
+      {(formData.sections.length > 0 ||
+        formData.recommendedFeatures.length > 0) && (
         <>
           <hr />
           <Card className="grid grid-cols-2 divide-x border-primary bg-primary/5">
@@ -56,7 +60,10 @@ export function TemplatesStep() {
               </h3>
               <ul className="divide-y">
                 {formData.sections.map((section, index) => (
-                  <li key={index} className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs">
+                  <li
+                    key={index}
+                    className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
+                  >
                     {section}
                   </li>
                 ))}
@@ -70,7 +77,10 @@ export function TemplatesStep() {
               </h3>
               <ul className="divide-y">
                 {formData.recommendedFeatures.map((feature, index) => (
-                  <li key={index} className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs">
+                  <li
+                    key={index}
+                    className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
+                  >
                     {feature}
                   </li>
                 ))}
@@ -80,5 +90,5 @@ export function TemplatesStep() {
         </>
       )}
     </div>
-  );
+  )
 }

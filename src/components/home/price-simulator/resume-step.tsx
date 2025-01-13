@@ -1,49 +1,49 @@
-import { Info, Mail } from 'lucide-react';
+import { Info, Mail } from "lucide-react"
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { calculatePrice } from '@/utils/price-simulator';
+} from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { calculatePrice } from "@/utils/price-simulator"
 
-import { usePriceSimulator } from './price-simulator-provider';
+import { usePriceSimulator } from "./price-simulator-provider"
 
 export function ResumeStep() {
-  const { formData, updateFormData } = usePriceSimulator();
+  const { formData, updateFormData } = usePriceSimulator()
 
   const summaryItems = [
-    { label: 'Tipo de sitio', value: formData.template || 'No seleccionado' },
+    { label: "Tipo de sitio", value: formData.template || "No seleccionado" },
     {
-      label: 'Secciones',
-      value: formData.sections.join(', ') || 'No seleccionadas',
+      label: "Secciones",
+      value: formData.sections.join(", ") || "No seleccionadas",
     },
     {
-      label: 'Funcionalidades',
-      value: formData.recommendedFeatures.join(', ') || 'No seleccionadas',
+      label: "Funcionalidades",
+      value: formData.recommendedFeatures.join(", ") || "No seleccionadas",
     },
-    { label: 'Plazo de entrega', value: `${formData.plazo} días` },
-  ];
+    { label: "Plazo de entrega", value: `${formData.plazo} días` },
+  ]
 
   const additionalServices = [
     {
-      label: 'Mantenimiento mensual',
-      value: formData.mantenimiento ? 'Sí' : 'No',
+      label: "Mantenimiento mensual",
+      value: formData.mantenimiento ? "Sí" : "No",
     },
-    { label: 'Optimización SEO', value: formData.seo ? 'Sí' : 'No' },
-    { label: 'Hosting incluido', value: formData.hosting ? 'Sí' : 'No' },
-    { label: 'Dominio personalizado', value: formData.dominio ? 'Sí' : 'No' },
+    { label: "Optimización SEO", value: formData.seo ? "Sí" : "No" },
+    { label: "Hosting incluido", value: formData.hosting ? "Sí" : "No" },
+    { label: "Dominio personalizado", value: formData.dominio ? "Sí" : "No" },
     {
-      label: 'Integración con sistemas externos',
-      value: formData.integracionExterna ? 'Sí' : 'No',
+      label: "Integración con sistemas externos",
+      value: formData.integracionExterna ? "Sí" : "No",
     },
-  ];
+  ]
   return (
     <div className="space-y-6">
       <div className="space-y-2">
@@ -54,18 +54,21 @@ export function ResumeStep() {
           id="email"
           type="email"
           value={formData.email}
-          onChange={(event) => updateFormData('email', event.target.value)}
+          onChange={(event) => updateFormData("email", event.target.value)}
           placeholder="Ingresa tu correo electrónico"
         />
       </div>
       <div className="space-y-2">
         <Label htmlFor="descripcion">
-          Comentario adicional <span className="text-xs text-muted-foreground">(Opcional)</span>
+          Comentario adicional{" "}
+          <span className="text-xs text-muted-foreground">(Opcional)</span>
         </Label>
         <Textarea
           id="descripcion"
           value={formData.descripcion}
-          onChange={(event) => updateFormData('descripcion', event.target.value)}
+          onChange={(event) =>
+            updateFormData("descripcion", event.target.value)
+          }
           placeholder="Cuéntanos más sobre tu proyecto..."
         />
       </div>
@@ -74,7 +77,9 @@ export function ResumeStep() {
         <h3 className="text-lg font-bold">Resumen del Proyecto</h3>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="text-sm">Detalles del proyecto</AccordionTrigger>
+            <AccordionTrigger className="text-sm">
+              Detalles del proyecto
+            </AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 text-xs">
                 {summaryItems.map((item) => (
@@ -82,7 +87,7 @@ export function ResumeStep() {
                     <span>{item.label}:</span>
                     <span className="text-right font-medium text-muted-foreground">
                       {Array.isArray(item.value)
-                        ? item.value.join(', ') || 'Ninguna'
+                        ? item.value.join(", ") || "Ninguna"
                         : item.value.toString()}
                     </span>
                   </li>
@@ -91,7 +96,9 @@ export function ResumeStep() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className="text-sm">Servicios adicionales</AccordionTrigger>
+            <AccordionTrigger className="text-sm">
+              Servicios adicionales
+            </AccordionTrigger>
             <AccordionContent>
               <ul className="space-y-2 text-xs">
                 {additionalServices.map((service) => (
@@ -99,7 +106,7 @@ export function ResumeStep() {
                     <span>{service.label}:</span>
                     <span className="text-right font-medium text-muted-foreground">
                       {Array.isArray(service.value)
-                        ? service.value.join(', ') || 'Ninguna'
+                        ? service.value.join(", ") || "Ninguna"
                         : service.value.toString()}
                     </span>
                   </li>
@@ -111,7 +118,9 @@ export function ResumeStep() {
         <div className="pt-4">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <span className="text-xl font-semibold">Precio estimado</span>
-            <span className="text-3xl font-bold">${calculatePrice(formData)}</span>
+            <span className="text-3xl font-bold">
+              ${calculatePrice(formData)}
+            </span>
           </div>
           <p className="mt-2 text-xs text-muted-foreground">
             Este precio es aproximado y puede variar según tus necesidades.
@@ -120,7 +129,7 @@ export function ResumeStep() {
       </Card>
 
       <Button
-        onClick={() => console.log('Enviar cotización', formData)}
+        onClick={() => console.log("Enviar cotización", formData)}
         className="w-full transition-all duration-300 ease-in-out hover:scale-105"
         size="lg"
       >
@@ -134,12 +143,13 @@ export function ResumeStep() {
             strokeWidth={2}
             aria-hidden="true"
           />
-          Con esta herramienta, podrás obtener una visión más clara para tu proyecto web. Una vez
-          completes y envies el formulario, nos pondremos en contacto contigo lo antes posible para
-          afinar los detalles y ayudarte a dar el siguiente paso en el crecimiento de tu negocio. Si
+          Con esta herramienta, podrás obtener una visión más clara para tu
+          proyecto web. Una vez completes y envies el formulario, nos pondremos
+          en contacto contigo lo antes posible para afinar los detalles y
+          ayudarte a dar el siguiente paso en el crecimiento de tu negocio. Si
           tienes alguna inquietud, estamos aquí para ayudarte.
         </p>
       </div>
     </div>
-  );
+  )
 }

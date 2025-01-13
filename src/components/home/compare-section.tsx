@@ -1,38 +1,38 @@
-import { Check, Minus } from 'lucide-react';
+import { Check, Minus } from "lucide-react"
 
-import { Card } from '@/components/ui/card';
-import { cn } from '@/utils/cn';
+import { Card } from "@/components/ui/card"
+import { cn } from "@/utils/cn"
 
-import Container from './container';
+import Container from "./container"
 
 const data = {
-  id: 'compare',
-  title: 'Por Qué Elegirnos',
-  description: 'Comparación de características y servicios',
+  id: "compare",
+  title: "Por Qué Elegirnos",
+  description: "Comparación de características y servicios",
   features: [
-    'Precios Competitivos',
-    'Facilidad de Uso',
-    'Tecnologías Modernas',
-    'Alto Rendimiento',
-    'Seguridad',
-    'Soporte 24/7',
-    'Personalización',
+    "Precios Competitivos",
+    "Facilidad de Uso",
+    "Tecnologías Modernas",
+    "Alto Rendimiento",
+    "Seguridad",
+    "Soporte 24/7",
+    "Personalización",
   ],
   comparisons: [
     {
-      name: 'Kira',
+      name: "Kira",
       features: [true, true, true, true, true, true, true],
     },
     {
-      name: 'WordPress',
+      name: "WordPress",
       features: [true, true, false, false, true, true, true],
     },
     {
-      name: 'Agencias',
+      name: "Agencias",
       features: [true, true, false, true, false, false, false],
     },
   ],
-};
+}
 
 export function CompareSection() {
   return (
@@ -45,8 +45,8 @@ export function CompareSection() {
               <div
                 key={feature}
                 className={cn(
-                  'py-3 text-xs lg:text-[15px]',
-                  index !== 0 && 'border-t border-border',
+                  "py-3 text-xs lg:text-[15px]",
+                  index !== 0 && "border-t border-border",
                 )}
               >
                 {feature}
@@ -56,13 +56,15 @@ export function CompareSection() {
           <div className="flex flex-1 divide-x divide-border">
             {data.comparisons.map((comparison) => (
               <div key={comparison.name} className="flex-1 p-4">
-                <h3 className="mb-4 text-center font-medium lg:text-lg">{comparison.name}</h3>
+                <h3 className="mb-4 text-center font-medium lg:text-lg">
+                  {comparison.name}
+                </h3>
                 {comparison.features.map((hasFeature, index) => (
                   <div
                     key={`${comparison.name}-${index}`}
                     className={cn(
-                      'flex items-center justify-center py-3',
-                      index !== 0 && 'border-t border-border',
+                      "flex items-center justify-center py-3",
+                      index !== 0 && "border-t border-border",
                     )}
                   >
                     {hasFeature ? (
@@ -78,5 +80,5 @@ export function CompareSection() {
         </div>
       </Card>
     </Container>
-  );
+  )
 }

@@ -1,37 +1,37 @@
-'use client';
+"use client"
 
-import 'swiper/css';
-import 'swiper/css/effect-cards';
+import "swiper/css"
+import "swiper/css/effect-cards"
 
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import { Autoplay, EffectCards } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { ArrowRight } from "lucide-react"
+import Image from "next/image"
+import { Autoplay, EffectCards } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
 
-import Container from '@/components/home/container';
-import { Button } from '@/components/ui/button';
+import Container from "@/components/home/container"
+import { Button } from "@/components/ui/button"
 
 const data = {
-  id: 'hero',
-  title: 'Tu web, sin complicaciones ni secretos',
+  id: "hero",
+  title: "Tu web, sin complicaciones ni secretos",
   description:
-    'Con tecnologías modernas y un enfoque transparente, creamos páginas web a medida, para que tú solo te dediques a lo que más importa: hacer crecer tu negocio.',
-  buttonText: 'Conseguir mi web',
+    "Con tecnologías modernas y un enfoque transparente, creamos páginas web a medida, para que tú solo te dediques a lo que más importa: hacer crecer tu negocio.",
+  buttonText: "Conseguir mi web",
   previewImages: [
     {
-      src: 'https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/eventify-8RwssdeZe87q6kesjPtLZEIOASfQhz.webp',
-      alt: 'Project Preview 1',
+      src: "https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/eventify-8RwssdeZe87q6kesjPtLZEIOASfQhz.webp",
+      alt: "Project Preview 1",
     },
     {
-      src: 'https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/pequenglish-Ny7BFUHfKL431yUoJsQa9iW9rbErjI.webp',
-      alt: 'Project Preview 2',
+      src: "https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/pequenglish-Ny7BFUHfKL431yUoJsQa9iW9rbErjI.webp",
+      alt: "Project Preview 2",
     },
     {
-      src: 'https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/kirawebs-ReUiZXrVRyZJRaeQxM1GrQz85jQPRI.webp',
-      alt: 'Project Preview 3',
+      src: "https://xsnn3yjlik38vz3y.public.blob.vercel-storage.com/projects/kirawebs-ReUiZXrVRyZJRaeQxM1GrQz85jQPRI.webp",
+      alt: "Project Preview 3",
     },
   ],
-};
+}
 
 export function HeroSection() {
   return (
@@ -41,7 +41,9 @@ export function HeroSection() {
           <h1 className="text-5xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
             {data.title}
           </h1>
-          <p className="max-w-prose text-muted-foreground">{data.description}</p>
+          <p className="max-w-prose text-muted-foreground">
+            {data.description}
+          </p>
           <div>
             <Button
               size="lg"
@@ -54,7 +56,7 @@ export function HeroSection() {
         </div>
         <div className="w-full max-w-sm flex-1 p-5 md:max-w-xl">
           <Swiper
-            effect={'cards'}
+            effect={"cards"}
             grabCursor={true}
             modules={[EffectCards, Autoplay]}
             className="w-full"
@@ -67,7 +69,12 @@ export function HeroSection() {
             {data.previewImages.map((image, index) => (
               <SwiperSlide key={index} className="rounded shadow-2xl">
                 <div className="aspect-video">
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </SwiperSlide>
             ))}
@@ -75,5 +82,5 @@ export function HeroSection() {
         </div>
       </div>
     </Container>
-  );
+  )
 }

@@ -1,47 +1,51 @@
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
-import { Slider } from '@/components/ui/slider';
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
+import { Slider } from "@/components/ui/slider"
 
-import { type SimulationPriceFormData, usePriceSimulator } from './price-simulator-provider';
+import {
+  type SimulationPriceFormData,
+  usePriceSimulator,
+} from "./price-simulator-provider"
 
 const additionalServices: Array<{
-  id: keyof SimulationPriceFormData;
-  label: string;
-  description: string;
+  id: keyof SimulationPriceFormData
+  label: string
+  description: string
 }> = [
   {
-    id: 'mantenimiento',
-    label: 'Mantenimiento',
+    id: "mantenimiento",
+    label: "Mantenimiento",
     description:
-      'Actualizaciones regulares y soporte técnico para mantener tu sitio web seguro y actualizado.',
+      "Actualizaciones regulares y soporte técnico para mantener tu sitio web seguro y actualizado.",
   },
   {
-    id: 'seo',
-    label: 'Optimización SEO',
+    id: "seo",
+    label: "Optimización SEO",
     description:
-      'Mejora la visibilidad de tu sitio en los motores de búsqueda para atraer más tráfico orgánico.',
+      "Mejora la visibilidad de tu sitio en los motores de búsqueda para atraer más tráfico orgánico.",
   },
   {
-    id: 'hosting',
-    label: 'Hosting incluido',
+    id: "hosting",
+    label: "Hosting incluido",
     description:
-      'Alojamiento web de alta velocidad y confiable para garantizar el rendimiento de tu sitio.',
+      "Alojamiento web de alta velocidad y confiable para garantizar el rendimiento de tu sitio.",
   },
   {
-    id: 'dominio',
-    label: 'Dominio personalizado',
-    description: 'Registro y configuración de un dominio único que refleje tu marca o negocio.',
+    id: "dominio",
+    label: "Dominio personalizado",
+    description:
+      "Registro y configuración de un dominio único que refleje tu marca o negocio.",
   },
   {
-    id: 'integracionExterna',
-    label: 'Integración con sistemas externos',
+    id: "integracionExterna",
+    label: "Integración con sistemas externos",
     description:
-      'Conecta tu sitio web con CRM, sistemas de pago y otras herramientas externas para mejorar la funcionalidad.',
+      "Conecta tu sitio web con CRM, sistemas de pago y otras herramientas externas para mejorar la funcionalidad.",
   },
-];
+]
 
 export function ServicesStep() {
-  const { formData, updateFormData } = usePriceSimulator();
+  const { formData, updateFormData } = usePriceSimulator()
 
   return (
     <div className="space-y-8">
@@ -57,7 +61,7 @@ export function ServicesStep() {
             step={1}
             value={[formData.plazo]}
             onValueChange={(value) => {
-              updateFormData('plazo', value[0]);
+              updateFormData("plazo", value[0])
             }}
             className="mt-2"
           />
@@ -71,7 +75,8 @@ export function ServicesStep() {
       <div className="space-y-4">
         <Label className="text-lg font-medium">Servicios adicionales</Label>
         <p className="text-sm text-muted-foreground">
-          Selecciona los servicios adicionales que deseas incluir en tu proyecto.
+          Selecciona los servicios adicionales que deseas incluir en tu
+          proyecto.
         </p>
         <div className="grid grid-cols-2 gap-4">
           {additionalServices.map((service) => (
@@ -80,14 +85,14 @@ export function ServicesStep() {
               role="button"
               tabIndex={0}
               className={`relative flex w-full items-start gap-2 rounded border border-input p-4 shadow-sm hover:shadow-md has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5 ${
-                formData[service.id] ? 'border-primary bg-primary/5' : ''
+                formData[service.id] ? "border-primary bg-primary/5" : ""
               }`}
               onClick={() => {
-                updateFormData(service.id, !formData[service.id]);
+                updateFormData(service.id, !formData[service.id])
               }}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  updateFormData(service.id, !formData[service.id]);
+                if (e.key === "Enter" || e.key === " ") {
+                  updateFormData(service.id, !formData[service.id])
                 }
               }}
             >
@@ -95,7 +100,7 @@ export function ServicesStep() {
                 id={service.id}
                 checked={!!formData[service.id]}
                 onCheckedChange={(checked) => {
-                  updateFormData(service.id, checked);
+                  updateFormData(service.id, checked)
                 }}
                 className="order-1 after:absolute after:inset-0"
               />
@@ -112,5 +117,5 @@ export function ServicesStep() {
         </div>
       </div>
     </div>
-  );
+  )
 }

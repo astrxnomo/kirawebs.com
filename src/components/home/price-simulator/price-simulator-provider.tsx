@@ -1,36 +1,38 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react"
 
 export type SimulationPriceFormData = {
-  template: string;
-  sections: string[];
-  recommendedFeatures: string[];
-  plazo: number;
-  mantenimiento: boolean;
-  seo: boolean;
-  hosting: boolean;
-  dominio: boolean;
-  integracionExterna: boolean;
-  email: string;
-  descripcion: string;
-};
+  template: string
+  sections: string[]
+  recommendedFeatures: string[]
+  plazo: number
+  mantenimiento: boolean
+  seo: boolean
+  hosting: boolean
+  dominio: boolean
+  integracionExterna: boolean
+  email: string
+  descripcion: string
+}
 
 type UpdateFormDataFunction = <K extends keyof SimulationPriceFormData>(
   field: K,
   value: SimulationPriceFormData[K],
-) => void;
+) => void
 
 interface PriceSimulatorContextProps {
-  formData: SimulationPriceFormData;
-  updateFormData: UpdateFormDataFunction;
+  formData: SimulationPriceFormData
+  updateFormData: UpdateFormDataFunction
 }
 
-const PriceSimulatorContext = createContext<PriceSimulatorContextProps | undefined>(undefined);
+const PriceSimulatorContext = createContext<
+  PriceSimulatorContextProps | undefined
+>(undefined)
 
 export const PriceSimulatorProvider: React.FC<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }> = ({ children }) => {
   const [formData, setFormData] = useState<SimulationPriceFormData>({
-    template: '',
+    template: "",
     sections: [],
     recommendedFeatures: [],
     plazo: 60,
@@ -39,25 +41,27 @@ export const PriceSimulatorProvider: React.FC<{
     hosting: false,
     dominio: false,
     integracionExterna: false,
-    email: '',
-    descripcion: '',
-  });
+    email: "",
+    descripcion: "",
+  })
 
   const updateFormData: UpdateFormDataFunction = (field, value) => {
-    setFormData((previous) => ({ ...previous, [field]: value }));
-  };
+    setFormData((previous) => ({ ...previous, [field]: value }))
+  }
 
   return (
     <PriceSimulatorContext.Provider value={{ formData, updateFormData }}>
       {children}
     </PriceSimulatorContext.Provider>
-  );
-};
+  )
+}
 
 export const usePriceSimulator = () => {
-  const context = useContext(PriceSimulatorContext);
+  const context = useContext(PriceSimulatorContext)
   if (!context) {
-    throw new Error('usePriceSimulator must be used within a PriceSimulatorProvider');
+    throw new Error(
+      "usePriceSimulator must be used within a PriceSimulatorProvider",
+    )
   }
-  return context;
-};
+  return context
+}
