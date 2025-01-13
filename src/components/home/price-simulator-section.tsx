@@ -78,9 +78,9 @@ export function PriceSimulatorForm() {
         <Card className="w-full overflow-hidden">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold">
-              {STEPS[currentStep].name}
+              {STEPS[currentStep]?.name}
             </CardTitle>
-            <CardDescription>{STEPS[currentStep].description}</CardDescription>
+            <CardDescription>{STEPS[currentStep]?.description}</CardDescription>
           </CardHeader>
           <CardContent>
             <PriceSimulatorProvider>

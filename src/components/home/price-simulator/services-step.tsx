@@ -61,7 +61,9 @@ export function ServicesStep() {
             step={1}
             value={[formData.plazo]}
             onValueChange={(value) => {
-              updateFormData("plazo", value[0])
+              if (value[0] !== undefined) {
+                updateFormData("plazo", value[0])
+              }
             }}
             className="mt-2"
           />
