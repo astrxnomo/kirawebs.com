@@ -37,7 +37,19 @@ export function Footer() {
             </a>
             . Todos los derechos reservados.
           </span>
+          <div className="flex items-center gap-4">
+            <span className="text-sm text-muted-foreground">
+              Develop by{" "}
+              <a
+                href="https://felipego.com"
+                className="text-muted-foreground/90 font-semibold hover:underline"
+              >
+                felipego.com
+              </a>
+            </span>
+
           <ThemeSwitcher />
+          </div>
         </div>
       </div>
     </footer>
