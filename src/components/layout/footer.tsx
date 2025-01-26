@@ -42,13 +42,12 @@ export function Footer() {
               Develop by{" "}
               <a
                 href="https://felipego.com"
-                className="text-muted-foreground/90 font-semibold hover:underline"
+                className="font-semibold text-muted-foreground/90 hover:underline"
               >
                 felipego.com
               </a>
             </span>
-
-          <ThemeSwitcher />
+            <ThemeSwitcher />
           </div>
         </div>
       </div>
