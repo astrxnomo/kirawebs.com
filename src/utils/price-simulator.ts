@@ -16,7 +16,7 @@ interface FormData {
 }
 
 export const calculatePrice = (formData: FormData) => {
-  let price = 1_000_000
+  let price = 0
 
   const template = templates.find((t) => t.id === formData.template)
   if (template) {
