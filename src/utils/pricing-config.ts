@@ -43,10 +43,10 @@ export const templates = [
     basePrice: 300_000,
   },
   {
-    id: "personal",
-    label: "Personal",
-    sections: ["Servicios", "Proyectos", "Acerca de", "Contacto"],
-    description: "Ideal para portafolios personales y freelancers",
+    id: "portafolio",
+    label: "Portafolio",
+    sections: ["Inicio", "Experiencia", "Proyectos", "Contacto"],
+    description: "Ideal para mostrar tus trabajos y proyectos",
     recommendedFeatures: ["Galería de imágenes", "Formulario de contacto"],
     basePrice: 150_000,
   },
@@ -93,16 +93,16 @@ export const additionalServices = [
 
 export const features = [
   {
-    id: "Formulario de contacto",
+    id: "formulario_contacto",
     label: "Formulario de contacto",
     price: 50_000,
   },
-  { id: "Galería de imágenes", label: "Galería de imágenes", price: 10_000 },
+  { id: "galeria_imagenes", label: "Galería de imágenes", price: 10_000 },
   { id: "Blog integrado", label: "Blog integrado", price: 120_000 },
   {
-    id: "Integración con redes sociales",
+    id: "integracion_redes",
     label: "Integración con redes sociales",
     price: 50_000,
   },
-  { id: "Multiidioma", label: "Multiidioma", price: 450 },
+  { id: "idiomas", label: "Soportar Idiomas", price: 120_000 },
 ]
