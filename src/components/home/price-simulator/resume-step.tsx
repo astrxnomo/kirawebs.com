@@ -1,10 +1,10 @@
 import { Info, Mail } from "lucide-react"
 
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -88,7 +88,7 @@ export function ResumeStep() {
                     <span className="text-right font-medium text-muted-foreground">
                       {Array.isArray(item.value)
                         ? item.value.map(String).join(", ")
-                        : item.value.toString()}
+                        : item.value}
                     </span>
                   </li>
                 ))}
