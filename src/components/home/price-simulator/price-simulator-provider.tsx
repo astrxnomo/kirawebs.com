@@ -3,15 +3,21 @@ import React, { createContext, useContext, useState } from "react"
 export type SimulationPriceFormData = {
   template: string
   sections: string[]
-  recommendedFeatures: string[]
+  recommendedFeatures: {
+    id: string
+    label: string
+    price: number
+  }[]
   plazo: number
-  mantenimiento: boolean
-  seo: boolean
-  hosting: boolean
-  dominio: boolean
-  integracionExterna: boolean
+  services: {
+    id: string
+    label: string
+    description: string
+    price: number
+  }[]
   email: string
   descripcion: string
+  [key: string]: unknown
 }
 
 type UpdateFormDataFunction = <K extends keyof SimulationPriceFormData>(
@@ -36,11 +42,7 @@ export const PriceSimulatorProvider: React.FC<{
     sections: [],
     recommendedFeatures: [],
     plazo: 60,
-    mantenimiento: false,
-    seo: false,
-    hosting: false,
-    dominio: false,
-    integracionExterna: false,
+    services: [],
     email: "",
     descripcion: "",
   })

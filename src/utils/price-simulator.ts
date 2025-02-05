@@ -1,22 +1,9 @@
-import { additionalServices, features, templates } from "./pricing-config"
+import { type SimulationPriceFormData } from "@/components/home/price-simulator/price-simulator-provider"
 
-interface FormData {
-  template: string
-  sections?: string[]
-  recommendedFeatures: string[]
-  plazo: number
-  mantenimiento: boolean
-  seo: boolean
-  hosting: boolean
-  dominio: boolean
-  integracionExterna: boolean
-  email: string
-  descripcion: string
-  [key: string]: unknown
-}
+import { features, services, templates } from "./pricing-config"
 
-export const calculatePrice = (formData: FormData) => {
-  let price = 0
+export const calculatePrice = (formData: SimulationPriceFormData) => {
+  let price = 100_000
 
   const template = templates.find((t) => t.id === formData.template)
   if (template) {
@@ -27,39 +14,20 @@ export const calculatePrice = (formData: FormData) => {
     price += formData.sections.length * 100
   }
 
-  formData.recommendedFeatures.forEach((function_: string) => {
-    const feature = features.find((f) => f.id === function_)
-    if (feature) {
-      price += feature.price
+  formData.recommendedFeatures.forEach((feature) => {
+    const foundFeature = features.find((f) => f.id === feature.id)
+    if (foundFeature) {
+      price += foundFeature.price
     }
   })
 
-  // Servicios adicionales
-  additionalServices.forEach((service) => {
+  price -= formData.plazo * 800
+
+  services.forEach((service) => {
     if (formData[service.id]) {
       price += service.price
     }
   })
-
-  // Considerar el plazo
-  price += formData.plazo * 50
-
-  // Considerar servicios adicionales específicos
-  if (formData.mantenimiento) {
-    price += 200_000
-  }
-  if (formData.seo) {
-    price += 150_000
-  }
-  if (formData.hosting) {
-    price += 100_000
-  }
-  if (formData.dominio) {
-    price += 50_000
-  }
-  if (formData.integracionExterna) {
-    price += 300_000
-  }
 
   return new Intl.NumberFormat("es-ES", {
     style: "currency",

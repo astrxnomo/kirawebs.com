@@ -1,48 +1,9 @@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
+import { services } from "@/utils/pricing-config"
 
-import {
-  type SimulationPriceFormData,
-  usePriceSimulator,
-} from "./price-simulator-provider"
-
-const additionalServices: Array<{
-  id: keyof SimulationPriceFormData
-  label: string
-  description: string
-}> = [
-  {
-    id: "mantenimiento",
-    label: "Mantenimiento",
-    description:
-      "Actualizaciones regulares y soporte técnico para mantener tu sitio web seguro y actualizado.",
-  },
-  {
-    id: "seo",
-    label: "Optimización SEO",
-    description:
-      "Mejora la visibilidad de tu sitio en los motores de búsqueda para atraer más tráfico orgánico.",
-  },
-  {
-    id: "hosting",
-    label: "Hosting incluido",
-    description:
-      "Alojamiento web de alta velocidad y confiable para garantizar el rendimiento de tu sitio.",
-  },
-  {
-    id: "dominio",
-    label: "Dominio personalizado",
-    description:
-      "Registro y configuración de un dominio único que refleje tu marca o negocio.",
-  },
-  {
-    id: "integracionExterna",
-    label: "Integración con sistemas externos",
-    description:
-      "Conecta tu sitio web con CRM, sistemas de pago y otras herramientas externas para mejorar la funcionalidad.",
-  },
-]
+import { usePriceSimulator } from "./price-simulator-provider"
 
 export function ServicesStep() {
   const { formData, updateFormData } = usePriceSimulator()
@@ -81,7 +42,7 @@ export function ServicesStep() {
           proyecto.
         </p>
         <div className="grid grid-cols-2 gap-4">
-          {additionalServices.map((service) => (
+          {services.map((service) => (
             <div
               key={service.id}
               role="button"

@@ -1,108 +1,138 @@
 export const templates = [
   {
-    id: "sencilla",
-    label: "Sencilla",
-    sections: [],
-    description: "Ideal para sitios web simples y directos",
-    recommendedFeatures: [],
+    id: "basico",
+    label: "Básico",
+    sections: ["Inicio", "Acerca de", "Servicios", "Productos", "Contacto"],
+    description:
+      "Perfecto para todo tipo de negocios que buscan una presencia en línea simple y efectiva.",
+    recommendedFeatures: [
+      "Formulario de Contacto",
+      "Galería de Imágenes y Videos",
+      "Integración con Redes Sociales",
+    ],
     basePrice: 100_000,
   },
   {
     id: "emprendedor",
     label: "Emprendedor",
-    sections: ["Acerca de", "Servicios", "Contacto"],
-    description: "Ideal para pequeños negocios y emprendimientos",
+    sections: ["Inicio", "Acerca de", "Servicios", "Contacto"],
+    description:
+      "Diseñado para pequeños negocios y emprendedores que buscan destacar sus servicios y conectarse con sus clientes.",
     recommendedFeatures: [
-      "Formulario de contacto",
-      "Integración con redes sociales",
+      "Formulario de Contacto",
+      "Integración con Redes Sociales",
+      "Galería de Imágenes y Videos",
     ],
-    basePrice: 200_000,
+    basePrice: 100_000,
   },
   {
     id: "corporativo",
     label: "Corporativo",
-    sections: ["Historia", "Servicios", "Contacto"],
-    description: "Ideal para empresas y corporaciones",
+    sections: ["Inicio", "Historia", "Servicios", "Equipo", "Contacto"],
+    description:
+      "Ideal para empresas que necesitan un sitio web profesional para presentar su historia, servicios y equipo.",
     recommendedFeatures: [
-      "Formulario de contacto",
-      "Galería de imágenes",
-      "Blog integrado",
+      "Blog Integrado",
+      "Galería de Imágenes y Videos",
+      "Formulario de Contacto",
+      "Optimización SEO Avanzada",
     ],
-    basePrice: 250_000,
+    basePrice: 150_000,
   },
   {
     id: "blog",
     label: "Blog",
-    sections: ["Acerca de", "Contacto"],
-    description: "Ideal para bloggers y creadores de contenido",
+    sections: ["Inicio", "Acerca de", "Blog", "Contacto"],
+    description:
+      "Especialmente diseñado para bloggers y creadores de contenido que desean compartir sus ideas y conectar con su audiencia.",
     recommendedFeatures: [
-      "Blog integrado",
-      "Sistema de búsqueda avanzado",
-      "Integración con redes sociales",
+      "Blog Integrado",
+      "Integración con Redes Sociales",
+      "Chat en Vivo",
+      "Optimización SEO Avanzada",
     ],
-    basePrice: 300_000,
+    basePrice: 200_000,
   },
   {
     id: "portafolio",
     label: "Portafolio",
-    sections: ["Inicio", "Experiencia", "Proyectos", "Contacto"],
-    description: "Ideal para mostrar tus trabajos y proyectos",
-    recommendedFeatures: ["Galería de imágenes", "Formulario de contacto"],
+    sections: ["Inicio", "Experiencia", "Proyectos", "Testimonios", "Contacto"],
+    description:
+      "Perfecto para profesionales creativos que desean mostrar su trabajo y atraer nuevos clientes.",
+    recommendedFeatures: [
+      "Galería de Imágenes y Videos",
+      "Formulario de Contacto",
+      "Diseño Personalizado",
+      "Integración con Redes Sociales",
+    ],
+    basePrice: 100_000,
+  },
+  {
+    id: "evento",
+    label: "Evento",
+    sections: ["Inicio", "Información", "Programa", "Registro", "Contacto"],
+    description:
+      "Diseñado para eventos y conferencias que necesitan una plataforma para promocionar su evento y gestionar inscripciones.",
+    recommendedFeatures: [
+      "Formulario de Contacto",
+      "Galería de Imágenes y Videos",
+      "Integración con Redes Sociales",
+      "Optimización SEO Avanzada",
+    ],
     basePrice: 150_000,
   },
-  // {
-  //   id: "tienda",
-  //   label: "Tienda",
-  //   sections: ["Inicio", "Productos", "Contacto"],
-  //   description: "Ideal para tiendas en línea y e-commerce",
-  //   recommendedFeatures: [
-  //     "Carrito de compras",
-  //     "Sistema de búsqueda avanzado",
-  //     "Chat en vivo",
-  //   ],
-  //   basePrice: 500_000,
-  // },
 ]
 
-export const additionalServices = [
+export const services = [
   {
     id: "mantenimiento",
-    label: "Mantenimiento mensual",
-    tooltip: "Incluye actualizaciones y soporte técnico",
-    price: 0,
+    label: "Mantenimiento y Soporte",
+    description:
+      "Servicio mensual que incluye actualizaciones, backups y soporte técnico para mantener tu sitio funcionando sin problemas.",
+    price: 200_000, // Precio mensual en COP
   },
   {
     id: "seo",
-    label: "Optimización SEO",
-    tooltip: "Mejora la visibilidad de tu sitio en los motores de búsqueda",
-    price: 50_000,
+    label: "Optimización SEO Avanzada",
+    description:
+      "Mejora el posicionamiento de tu sitio en los motores de búsqueda para atraer más tráfico orgánico.",
+    price: 50_000, // Precio único en COP
   },
   {
     id: "hosting",
-    label: "Hosting incluido",
-    tooltip: "Alojamiento web de alta velocidad y confiable",
-    price: 150,
+    label: "Hosting Premium",
+    description:
+      "Alojamiento web de alta velocidad, seguridad mejorada y soporte 24/7 para garantizar el máximo rendimiento.",
+    price: 50_000,
   },
   {
     id: "dominio",
-    label: "Dominio personalizado",
-    tooltip: "Registro y configuración de tu dominio propio",
-    price: 0,
+    label: "Registro de Dominio",
+    description:
+      "Registro y configuración de un dominio personalizado para tu sitio web.",
+    price: 30_000,
   },
 ]
 
 export const features = [
   {
-    id: "formulario_contacto",
-    label: "Formulario de contacto",
-    price: 50_000,
+    id: "Formulario de Contacto",
+    price: 100_000,
   },
-  { id: "galeria_imagenes", label: "Galería de imágenes", price: 10_000 },
-  { id: "Blog integrado", label: "Blog integrado", price: 120_000 },
   {
-    id: "integracion_redes",
-    label: "Integración con redes sociales",
+    id: "Galería de Imágenes y Videos",
     price: 50_000,
   },
-  { id: "idiomas", label: "Soportar Idiomas", price: 120_000 },
+  {
+    id: "Blog Integrado",
+    price: 100_000,
+  },
+  {
+    id: "Integración con Redes Sociales",
+    price: 500_000,
+  },
+  {
+    id: "Soporte para Múltiples Idiomas",
+    price: 100_000,
+  },
 ]

@@ -13,7 +13,7 @@ export function TemplatesStep() {
   return (
     <div className="space-y-4">
       <RadioGroup
-        className="grid grid-cols-2 gap-4 md:grid-cols-3"
+        className="grid gap-4 md:grid-cols-3"
         value={formData.template}
         onValueChange={(value: string) => {
           const template = templates.find((t) => t.id === value)

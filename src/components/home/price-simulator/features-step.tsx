@@ -56,14 +56,14 @@ export function FeaturesStep() {
                 <div className="flex grow items-center gap-3">
                   <div className="grid gap-1">
                     <Label htmlFor={feature.id} className="font-semibold">
-                      {feature.label}
+                      {feature.id}
                     </Label>
                   </div>
                 </div>
               </div>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Añade {feature.label.toLowerCase()} a tu sitio web</p>
+              <p>Añade {feature.id.toLowerCase()} a tu sitio web</p>
             </TooltipContent>
           </Tooltip>
         ))}

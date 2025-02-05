@@ -34,7 +34,8 @@ const STEPS = [
   {
     name: "Plantillas",
     icon: AppWindow,
-    description: "Selecciona una plantilla para tu sitio web",
+    description:
+      "Selecciona la plantilla que más se ajuste a tus necesidades. Cada plantilla incluye un diseño y funcionalidades recomendadas.",
   },
   {
     name: "Secciones",

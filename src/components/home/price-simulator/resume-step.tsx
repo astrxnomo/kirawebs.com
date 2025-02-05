@@ -26,7 +26,7 @@ export function ResumeStep() {
     },
     {
       label: "Funcionalidades",
-      value: formData.recommendedFeatures.join(", ") || "No seleccionadas",
+      value: formData.recommendedFeatures || "Ninguna",
     },
     { label: "Plazo de entrega", value: `${formData.plazo} días` },
   ]
@@ -87,7 +87,7 @@ export function ResumeStep() {
                     <span>{item.label}:</span>
                     <span className="text-right font-medium text-muted-foreground">
                       {Array.isArray(item.value)
-                        ? item.value.join(", ") || "Ninguna"
+                        ? item.value.map(String).join(", ")
                         : item.value.toString()}
                     </span>
                   </li>
