@@ -5,11 +5,7 @@ export const templates = [
     sections: ["Inicio", "Acerca de", "Servicios", "Productos", "Contacto"],
     description:
       "Perfecto para todo tipo de negocios que buscan una presencia en línea simple y efectiva.",
-    features: [
-      "Formulario de Contacto",
-      "Galería de Imágenes y Videos",
-      "Integración con Redes Sociales",
-    ],
+    features: ["contact_form", "gallery", "social_media_integration"],
     basePrice: 100_000,
   },
   {
@@ -18,11 +14,7 @@ export const templates = [
     sections: ["Inicio", "Acerca de", "Servicios", "Contacto"],
     description:
       "Diseñado para pequeños negocios y emprendedores que buscan destacar sus servicios y conectarse con sus clientes.",
-    features: [
-      "Formulario de Contacto",
-      "Integración con Redes Sociales",
-      "Galería de Imágenes y Videos",
-    ],
+    features: ["contact_form", "social_media_integration", "gallery"],
     basePrice: 100_000,
   },
   {
@@ -31,12 +23,7 @@ export const templates = [
     sections: ["Inicio", "Historia", "Servicios", "Equipo", "Contacto"],
     description:
       "Ideal para empresas que necesitan un sitio web profesional para presentar su historia, servicios y equipo.",
-    features: [
-      "Blog Integrado",
-      "Galería de Imágenes y Videos",
-      "Formulario de Contacto",
-      "Optimización SEO Avanzada",
-    ],
+    features: ["blog", "gallery", "contact_form", "seo_optimization"],
     basePrice: 150_000,
   },
   {
@@ -46,10 +33,10 @@ export const templates = [
     description:
       "Especialmente diseñado para bloggers y creadores de contenido que desean compartir sus ideas y conectar con su audiencia.",
     features: [
-      "Blog Integrado",
-      "Integración con Redes Sociales",
-      "Chat en Vivo",
-      "Optimización SEO Avanzada",
+      "blog",
+      "social_media_integration",
+      "live_chat",
+      "seo_optimization",
     ],
     basePrice: 200_000,
   },
@@ -60,10 +47,10 @@ export const templates = [
     description:
       "Perfecto para profesionales creativos que desean mostrar su trabajo y atraer nuevos clientes.",
     features: [
-      "Galería de Imágenes y Videos",
-      "Formulario de Contacto",
-      "Diseño Personalizado",
-      "Integración con Redes Sociales",
+      "gallery",
+      "contact_form",
+      "custom_design",
+      "social_media_integration",
     ],
     basePrice: 100_000,
   },
@@ -74,10 +61,10 @@ export const templates = [
     description:
       "Diseñado para eventos y conferencias que necesitan una plataforma para promocionar su evento y gestionar inscripciones.",
     features: [
-      "Formulario de Contacto",
-      "Galería de Imágenes y Videos",
-      "Integración con Redes Sociales",
-      "Optimización SEO Avanzada",
+      "contact_form",
+      "gallery",
+      "social_media_integration",
+      "seo_optimization",
     ],
     basePrice: 150_000,
   },
@@ -89,14 +76,14 @@ export const services = [
     label: "Mantenimiento y Soporte",
     description:
       "Servicio mensual que incluye actualizaciones, backups y soporte técnico para mantener tu sitio funcionando sin problemas.",
-    price: 200_000, // Precio mensual en COP
+    price: 200_000,
   },
   {
     id: "seo",
     label: "Optimización SEO Avanzada",
     description:
       "Mejora el posicionamiento de tu sitio en los motores de búsqueda para atraer más tráfico orgánico.",
-    price: 50_000, // Precio único en COP
+    price: 50_000,
   },
   {
     id: "hosting",
@@ -116,23 +103,28 @@ export const services = [
 
 export const features = [
   {
-    id: "Formulario de Contacto",
+    id: "contact_form",
+    label: "Formulario de Contacto",
     price: 100_000,
   },
   {
-    id: "Galería de Imágenes y Videos",
+    id: "gallery",
+    label: "Galería de Imágenes y Videos",
     price: 50_000,
   },
   {
-    id: "Blog Integrado",
+    id: "blog",
+    label: "Blog Integrado",
     price: 100_000,
   },
   {
-    id: "Integración con Redes Sociales",
-    price: 500_000,
+    id: "social_media_integration",
+    label: "Integración con Redes Sociales",
+    price: 50_000,
   },
   {
-    id: "Soporte para Múltiples Idiomas",
+    id: "multi_language_support",
+    label: "Soporte para Múltiples Idiomas",
     price: 100_000,
   },
 ]

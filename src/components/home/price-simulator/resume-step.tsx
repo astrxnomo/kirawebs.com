@@ -26,7 +26,11 @@ export function ResumeStep() {
     },
     {
       label: "Funcionalidades",
-      value: formData.features || "Ninguna",
+      value: Array.isArray(formData.features)
+        ? formData.features
+            .map((feature: { label: string }) => feature.label)
+            .join(", ")
+        : "Ninguna",
     },
     { label: "Plazo de entrega", value: `${formData.plazo} días` },
   ]

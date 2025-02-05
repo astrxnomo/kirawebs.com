@@ -3,7 +3,7 @@ import { LayoutDashboard, SquareMousePointer } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { templates } from "@/utils/pricing-config"
+import { features, templates } from "@/utils/pricing-config"
 
 import { usePriceSimulator } from "./price-simulator-provider"
 
@@ -21,11 +21,14 @@ export function TemplatesStep() {
           updateFormData("sections", template?.sections ?? [])
           updateFormData(
             "features",
-            template?.features.map((feature) => ({
-              id: feature,
-              label: feature,
-              price: 0,
-            })) ?? [],
+            template?.features.map((featureId) => {
+              const feature = features.find((f) => f.id === featureId)
+              return {
+                id: featureId,
+                label: feature?.label ?? featureId,
+                price: feature?.price ?? 0,
+              }
+            }) ?? [],
           )
         }}
       >
@@ -79,9 +82,9 @@ export function TemplatesStep() {
                 Funcionalidades
               </h3>
               <ul className="divide-y">
-                {formData.features.map((feature, index) => (
+                {formData.features.map((feature) => (
                   <li
-                    key={index}
+                    key={feature.id}
                     className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
                   >
                     {feature.label}
