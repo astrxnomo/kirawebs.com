@@ -1,10 +1,10 @@
 import { Info, Mail } from "lucide-react"
 
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -26,7 +26,7 @@ export function ResumeStep() {
     },
     {
       label: "Funcionalidades",
-      value: formData.recommendedFeatures || "Ninguna",
+      value: formData.features || "Ninguna",
     },
     { label: "Plazo de entrega", value: `${formData.plazo} días` },
   ]

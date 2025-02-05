@@ -14,7 +14,7 @@ export const calculatePrice = (formData: SimulationPriceFormData) => {
     price += formData.sections.length * 100
   }
 
-  formData.recommendedFeatures.forEach((feature) => {
+  formData.features.forEach((feature) => {
     const foundFeature = features.find((f) => f.id === feature.id)
     if (foundFeature) {
       price += foundFeature.price

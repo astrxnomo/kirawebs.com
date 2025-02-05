@@ -5,7 +5,7 @@ export const templates = [
     sections: ["Inicio", "Acerca de", "Servicios", "Productos", "Contacto"],
     description:
       "Perfecto para todo tipo de negocios que buscan una presencia en línea simple y efectiva.",
-    recommendedFeatures: [
+    features: [
       "Formulario de Contacto",
       "Galería de Imágenes y Videos",
       "Integración con Redes Sociales",
@@ -18,7 +18,7 @@ export const templates = [
     sections: ["Inicio", "Acerca de", "Servicios", "Contacto"],
     description:
       "Diseñado para pequeños negocios y emprendedores que buscan destacar sus servicios y conectarse con sus clientes.",
-    recommendedFeatures: [
+    features: [
       "Formulario de Contacto",
       "Integración con Redes Sociales",
       "Galería de Imágenes y Videos",
@@ -31,7 +31,7 @@ export const templates = [
     sections: ["Inicio", "Historia", "Servicios", "Equipo", "Contacto"],
     description:
       "Ideal para empresas que necesitan un sitio web profesional para presentar su historia, servicios y equipo.",
-    recommendedFeatures: [
+    features: [
       "Blog Integrado",
       "Galería de Imágenes y Videos",
       "Formulario de Contacto",
@@ -45,7 +45,7 @@ export const templates = [
     sections: ["Inicio", "Acerca de", "Blog", "Contacto"],
     description:
       "Especialmente diseñado para bloggers y creadores de contenido que desean compartir sus ideas y conectar con su audiencia.",
-    recommendedFeatures: [
+    features: [
       "Blog Integrado",
       "Integración con Redes Sociales",
       "Chat en Vivo",
@@ -59,7 +59,7 @@ export const templates = [
     sections: ["Inicio", "Experiencia", "Proyectos", "Testimonios", "Contacto"],
     description:
       "Perfecto para profesionales creativos que desean mostrar su trabajo y atraer nuevos clientes.",
-    recommendedFeatures: [
+    features: [
       "Galería de Imágenes y Videos",
       "Formulario de Contacto",
       "Diseño Personalizado",
@@ -73,7 +73,7 @@ export const templates = [
     sections: ["Inicio", "Información", "Programa", "Registro", "Contacto"],
     description:
       "Diseñado para eventos y conferencias que necesitan una plataforma para promocionar su evento y gestionar inscripciones.",
-    recommendedFeatures: [
+    features: [
       "Formulario de Contacto",
       "Galería de Imágenes y Videos",
       "Integración con Redes Sociales",

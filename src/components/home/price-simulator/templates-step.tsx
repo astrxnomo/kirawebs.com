@@ -20,8 +20,12 @@ export function TemplatesStep() {
           updateFormData("template", value)
           updateFormData("sections", template?.sections ?? [])
           updateFormData(
-            "recommendedFeatures",
-            template?.recommendedFeatures ?? [],
+            "features",
+            template?.features.map((feature) => ({
+              id: feature,
+              label: feature,
+              price: 0,
+            })) ?? [],
           )
         }}
       >
@@ -48,8 +52,7 @@ export function TemplatesStep() {
           </div>
         ))}
       </RadioGroup>
-      {(formData.sections.length > 0 ||
-        formData.recommendedFeatures.length > 0) && (
+      {(formData.sections.length > 0 || formData.features.length > 0) && (
         <>
           <hr />
           <Card className="grid grid-cols-2 divide-x border-primary bg-primary/5">
@@ -76,12 +79,12 @@ export function TemplatesStep() {
                 Funcionalidades
               </h3>
               <ul className="divide-y">
-                {formData.recommendedFeatures.map((feature, index) => (
+                {formData.features.map((feature, index) => (
                   <li
                     key={index}
                     className="px-3 py-1 text-[10px] md:px-4 md:py-2 md:text-xs"
                   >
-                    {feature}
+                    {feature.label}
                   </li>
                 ))}
               </ul>

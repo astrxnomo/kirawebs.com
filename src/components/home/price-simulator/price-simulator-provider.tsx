@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from "react"
 export type SimulationPriceFormData = {
   template: string
   sections: string[]
-  recommendedFeatures: {
+  features: {
     id: string
     label: string
     price: number
@@ -40,7 +40,7 @@ export const PriceSimulatorProvider: React.FC<{
   const [formData, setFormData] = useState<SimulationPriceFormData>({
     template: "",
     sections: [],
-    recommendedFeatures: [],
+    features: [],
     plazo: 60,
     services: [],
     email: "",

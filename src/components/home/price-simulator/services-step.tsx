@@ -53,11 +53,6 @@ export function ServicesStep() {
               onClick={() => {
                 updateFormData(service.id, !formData[service.id])
               }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  updateFormData(service.id, !formData[service.id])
-                }
-              }}
             >
               <Checkbox
                 id={service.id}
