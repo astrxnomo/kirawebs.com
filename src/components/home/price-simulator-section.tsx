@@ -26,7 +26,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { TooltipProvider } from "@/components/ui/tooltip"
 
 import { PriceSimulatorProvider } from "./price-simulator/price-simulator-provider"
 
@@ -46,17 +45,19 @@ const STEPS = [
   {
     name: "Funcionalidades",
     icon: SquareMousePointer,
-    description: "Selecciona las funcionalidades que necesitas",
+    description: "Selecciona las funcionalidades que necesitas.",
   },
   {
     name: "Servicios",
     icon: PackagePlus,
-    description: "Indica el plazo de entrega deseado",
+    description:
+      "Indica el plazo de entrega deseado y selecciona servicios adicionales.",
   },
   {
     name: "Resumen",
     icon: FileCheck,
-    description: "Proporciona tus datos de contacto",
+    description:
+      "Puedes enviarnos tu simulación y te contactaremos para continuar con el proceso y afinar detalles.",
   },
 ]
 
@@ -72,7 +73,7 @@ export function PriceSimulatorForm() {
     <Container
       id="price-simulator"
       title="Simulador de precios"
-      description="Obten una visión más clara de lo que necesitas para tu proyecto web"
+      description="Obtén una estimación aproximada del costo de tu sitio web en minutos"
     >
       <div className="mx-auto w-full max-w-4xl space-y-4">
         <StepIndicator steps={STEPS} currentStep={currentStep} />
@@ -89,15 +90,13 @@ export function PriceSimulatorForm() {
                 key={currentStep}
                 className="flex flex-col items-center justify-between gap-6 duration-200 animate-in slide-in-from-bottom-5"
               >
-                <TooltipProvider>
-                  <div className="w-full">
-                    {currentStep === 0 && <TemplatesStep />}
-                    {currentStep === 1 && <SectionsStep />}
-                    {currentStep === 2 && <FeaturesStep />}
-                    {currentStep === 3 && <ServicesStep />}
-                    {currentStep === 4 && <ResumeStep />}
-                  </div>
-                </TooltipProvider>
+                <div className="w-full">
+                  {currentStep === 0 && <TemplatesStep />}
+                  {currentStep === 1 && <SectionsStep />}
+                  {currentStep === 2 && <FeaturesStep />}
+                  {currentStep === 3 && <ServicesStep />}
+                  {currentStep === 4 && <ResumeStep />}
+                </div>
                 <div className="flex w-full justify-between">
                   {currentStep > 0 && (
                     <Button

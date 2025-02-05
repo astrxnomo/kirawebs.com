@@ -12,7 +12,7 @@ export const ContactSection = () => {
   return (
     <Container id="contact">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col justify-center gap-5">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <h2 className="text-4xl font-bold tracking-tighter md:text-5xl">
               Contáctanos

@@ -58,6 +58,9 @@ export function TemplatesStep() {
       {(formData.sections.length > 0 || formData.features.length > 0) && (
         <>
           <hr />
+          <h3 className="text-center text-base">
+            Recomendaciones de plantilla
+          </h3>
           <Card className="grid grid-cols-2 divide-x border-primary bg-primary/5">
             <div>
               <h3 className="flex items-center gap-1 border-b p-3 text-xs font-semibold md:text-sm">

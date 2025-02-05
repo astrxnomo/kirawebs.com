@@ -10,7 +10,7 @@ const data = {
   title: "Por Qué Elegirnos",
   description: "Comparación de características y servicios",
   features: [
-    "Precios Competitivos",
+    "Precios Asequibles",
     "Facilidad de Uso",
     "Tecnologías Modernas",
     "Alto Rendimiento",
@@ -25,11 +25,11 @@ const data = {
     },
     {
       name: "WordPress",
-      features: [true, true, false, false, true, true, true],
+      features: [true, true, false, false, false, false, true],
     },
     {
       name: "Agencias",
-      features: [true, true, false, true, false, false, false],
+      features: [false, true, false, true, false, true, false],
     },
   ],
 }

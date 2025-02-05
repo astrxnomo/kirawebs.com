@@ -19,7 +19,12 @@ export function ResumeStep() {
   const { formData, updateFormData } = usePriceSimulator()
 
   const summaryItems = [
-    { label: "Tipo de sitio", value: formData.template || "No seleccionado" },
+    {
+      label: "Tipo de sitio",
+      value:
+        formData.template.charAt(0).toLocaleUpperCase() +
+          formData.template.slice(1) || "No seleccionado",
+    },
     {
       label: "Secciones",
       value: formData.sections.join(", ") || "No seleccionadas",

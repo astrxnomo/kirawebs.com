@@ -1,22 +1,18 @@
-"use client"
-
 import {
   AppWindow,
   Calculator,
   Cloud,
   DollarSign,
   Folders,
-  LayoutPanelLeft,
   Library,
   Mail,
   Menu,
   MessageSquareQuote,
   Speech,
-  X,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useState } from "react"
+import React from "react"
 
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
@@ -29,12 +25,15 @@ import {
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/utils/cn"
 
+import { ScrollArea } from "../ui/scroll-area"
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
+
 const navItems = [
   { href: "#proyectos", label: "Proyectos", icon: Folders },
   { href: "#testimonios", label: "Testimonios", icon: MessageSquareQuote },
 ]
 
-const services = [
+const serviceNav = [
   {
     title: "Desarrollo Web",
     href: "",
@@ -54,6 +53,31 @@ const services = [
       "Infraestructura y servicios en la nube escalables y seguros con AWS.",
     icon: Cloud,
     active: false,
+  },
+]
+
+const pricesNav = [
+  {
+    title: "Simulador",
+    href: "#price-simulator",
+    description:
+      "Obtén una visión clara de tu proyecto web. Completa el formulario según tus necesidades y te daremos un precio aproximado.",
+    icon: Calculator,
+    isMain: true,
+  },
+  {
+    title: "Contacto",
+    href: "#contact",
+    description:
+      "Ponte en contacto con nosotros para más información y consultas.",
+    icon: Mail,
+  },
+  {
+    title: "Preguntas Frecuentes",
+    href: "#faqs",
+    description:
+      "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios.",
+    icon: Library,
   },
 ]
 
@@ -96,8 +120,6 @@ const ListItem = React.forwardRef<
 ListItem.displayName = "ListItem"
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
   return (
     <header className="fixed z-50 mx-auto w-full p-2 backdrop-blur-lg">
       <div className="container mx-auto px-6 lg:px-28">
@@ -120,13 +142,13 @@ export function Header() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-6">
-                      {services.map((service) => (
+                      {serviceNav.map((service) => (
                         <ListItem
                           key={service.title}
-                          title={service.title}
                           href={service.href}
+                          title={service.title}
                           icon={service.icon}
-                          active={service.active}
+                          active={service.active !== false}
                         >
                           {service.description}
                         </ListItem>
@@ -177,6 +199,7 @@ export function Header() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+
                 {navItems.map((item) => (
                   <NavigationMenuItem className="w-full" key={item.href}>
                     <Link href={item.href} legacyBehavior passHref>
@@ -203,112 +226,72 @@ export function Header() {
               </Button>
             </Link>
           </div>
-          <button
-            className="text-primary md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <nav className="md:hidden">
-            <NavigationMenu>
-              <NavigationMenuList className="flex flex-col gap-2">
-                <NavigationMenuItem className="w-full justify-center">
-                  <NavigationMenuTrigger className="bg-transparent">
-                    <span className="flex items-center gap-2">
-                      <LayoutPanelLeft className="size-4" />
-                      Servicios
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+              <div className="flex h-16 items-center">
+                <Link href="/">
+                  <div className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+                    <Image src="/logo.svg" alt="Logo" width={30} height={30} />
+                    <span className="text-lg font-extrabold text-primary">
+                      Kira
                     </span>
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[350px] gap-3 p-6">
-                      {services.map((service) => (
-                        <ListItem
-                          key={service.title}
-                          title={service.title}
-                          href={service.href}
-                          icon={service.icon}
-                          active={service.active}
+                  </div>
+                </Link>
+              </div>
+              <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10">
+                <div className="flex flex-col space-y-4">
+                  <div>
+                    <h4 className="mb-2 text-sm font-semibold">Servicios</h4>
+                    {serviceNav.map((item) => (
+                      <Link key={item.title} href={item.href}>
+                        <Button
+                          variant="ghost"
+                          className="w-full justify-start"
                         >
-                          {service.description}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="w-full justify-center">
-                  <NavigationMenuTrigger className="bg-transparent">
-                    <span className="flex items-center gap-2">
-                      <DollarSign className="size-4" />
-                      Precios
-                    </span>
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[350px] grid-cols-1 gap-3 p-6">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            className="flex size-full select-none flex-col justify-end rounded bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                            href="#price-simulator"
-                          >
-                            <Calculator className="size-6" />
-                            <div className="mb-2 mt-4 text-lg font-medium">
-                              Simulador
-                            </div>
-                            <p className="text-sm leading-tight text-muted-foreground">
-                              Obtener una visión clara de tu proyecto web. Haz
-                              el formulario acorde tus necesidades y te daremos
-                              un precio aproximado
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <ListItem href="#price-simulator" title="Simulador">
-                        Obtén una visión clara de tu proyecto web. Completa el
-                        formulario según tus necesidades y te daremos un precio
-                        aproximado.
-                      </ListItem>
-                      <ListItem href="#contact" title="Contacto">
-                        Ponte en contacto con nosotros para más información y
-                        consultas.
-                      </ListItem>
-                      <ListItem href="#faqs" title="Preguntas Frecuentes">
-                        Encuentra respuestas a las preguntas más comunes sobre
-                        nuestros servicios.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                {navItems.map((item) => (
-                  <NavigationMenuItem className="w-full" key={item.href}>
-                    <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={`${buttonVariants({ variant: "ghost" })}`}
-                      >
-                        <item.icon className="size-4" />
+                          <item.icon className="mr-2 h-4 w-4" />
+                          {item.title}
+                        </Button>
+                      </Link>
+                    ))}
+                  </div>
+                  <hr />
+                  <div>
+                    <h4 className="mb-2 text-sm font-semibold">Precios</h4>
+                    {pricesNav.map((item) => (
+                      <Link key={item.title} href={item.href}>
+                        <Button
+                          variant="ghost"
+                          className="w-full justify-start"
+                        >
+                          {item.icon && <item.icon className="mr-2 h-4 w-4" />}
+                          {item.title}
+                        </Button>
+                      </Link>
+                    ))}
+                  </div>
+                  <hr />
+                  {navItems.map((item) => (
+                    <Link key={item.href} href={item.href}>
+                      <Button variant="ghost" className="w-full justify-start">
+                        <item.icon className="mr-2 h-4 w-4" />
                         {item.label}
-                      </NavigationMenuLink>
+                      </Button>
                     </Link>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            <div className="flex flex-col space-y-2 pt-4">
-              <Link href="#contact">
-                <Button
-                  className="w-full transition-transform duration-300 hover:scale-105"
-                  size="sm"
-                >
-                  <Mail strokeWidth={2.5} />
-                  Contactar
-                </Button>
-              </Link>
-            </div>
-          </nav>
-        )}
+                  ))}
+                  <Link href="#contact">
+                    <Button className="w-full">Contactar</Button>
+                  </Link>
+                </div>
+              </ScrollArea>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   )
