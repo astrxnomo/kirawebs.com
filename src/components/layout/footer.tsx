@@ -29,25 +29,24 @@ export function Footer() {
           </ul>
         </div>
         <hr className="my-6" />
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()}{" "}
-            <a href="https://kirawebs.com/" className="hover:underline">
-              Kirawebs
-            </a>
-            . Todos los derechos reservados.
-          </span>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">
-              Develop by{" "}
-              <a
-                href="https://felipego.com"
-                className="font-semibold text-muted-foreground/90 hover:underline"
-              >
-                felipego.com
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <span className="text-center text-sm text-muted-foreground">
+              © {new Date().getFullYear()}{" "}
+              <a href="https://kirawebs.com/" className="hover:underline">
+                Kirawebs
               </a>
             </span>
             <ThemeSwitcher />
+          </div>
+          <div className="text-center text-sm text-muted-foreground">
+            Develop by{" "}
+            <a
+              href="https://felipego.com"
+              className="font-semibold text-muted-foreground/90 hover:underline"
+            >
+              felipego.com
+            </a>
           </div>
         </div>
       </div>
