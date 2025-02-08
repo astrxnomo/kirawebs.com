@@ -1,14 +1,24 @@
-import { Check, Mail } from "lucide-react"
+"use client"
 
+import { Check, LoaderCircle, Mail } from "lucide-react"
+import { useActionState } from "react"
+
+import { sendEmail } from "@/app/actions"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
-import { Card, CardContent } from "../ui/card"
-import { Textarea } from "../ui/textarea"
 import Container from "./container"
 
-export const ContactSection = () => {
+const initialState = {
+  message: "",
+}
+
+export function ContactSection() {
+  const [state, formAction, isPending] = useActionState(sendEmail, initialState)
+
   return (
     <Container id="contact">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
@@ -57,7 +67,7 @@ export const ContactSection = () => {
           <CardContent className="pt-6">
             <form
               className="w-full space-y-6"
-              action="https://send.pageclip.co/FPk2ADT0drpl6kGDfqut3iszADjKfCeP/contact-form"
+              action={formAction}
               method="POST"
               data-pageclip-form="YOUR_FORM_NAME"
             >
@@ -87,7 +97,7 @@ export const ContactSection = () => {
                 <Textarea
                   id="textarea-03"
                   placeholder="Escribe una descripción"
-                  name="descripcion"
+                  name="description"
                   required
                 />
                 <p
@@ -99,9 +109,14 @@ export const ContactSection = () => {
                 </p>
               </div>
 
-              <Button type="submit" className="w-full">
-                Enviar
+              <Button type="submit" className="w-full" disabled={isPending}>
+                {isPending ? (
+                  <LoaderCircle className="animate-spin" />
+                ) : (
+                  "Enviar"
+                )}
               </Button>
+              <p>{state?.message}</p>
             </form>
           </CardContent>
         </Card>
