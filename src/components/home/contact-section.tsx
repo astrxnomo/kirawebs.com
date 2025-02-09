@@ -124,9 +124,20 @@ export function ContactSection() {
 
               <Button type="submit" className="w-full" disabled={isPending}>
                 {isPending ? (
-                  <LoaderCircle className="animate-spin" />
+                  <>
+                    <LoaderCircle
+                      className="animate-spin"
+                      size={16}
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
+                    Enviando...
+                  </>
                 ) : (
-                  "Enviar"
+                  <>
+                    <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                    Enviar
+                  </>
                 )}
               </Button>
 
