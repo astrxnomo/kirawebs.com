@@ -27,7 +27,7 @@ export function ContactForm() {
 
   return (
     <Card className="mx-auto w-full max-w-lg">
-      <CardContent className="pt-6">
+      <CardContent>
         <form className="w-full space-y-6" action={formAction}>
           <div className="space-y-2">
             <Label htmlFor="input-10">
