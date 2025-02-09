@@ -54,7 +54,7 @@ export function TemplatesStep() {
                 <p className="text-[10px] text-muted-foreground md:text-xs">
                   {template.description}
                 </p>
-                <span className="flex items-center gap-1 rounded bg-primary/15 px-2 py-1 text-[10px]">
+                <span className="flex items-center gap-1 rounded bg-primary/10 px-2 py-1 text-[10px]">
                   <UserRoundSearch className="m-0.5 size-3.5" />
                   {template.suggested}
                 </span>
