@@ -58,11 +58,6 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
-        <Script
-          src="https://s.pageclip.co/v1/pageclip.js"
-          charSet="utf8"
-          strategy="beforeInteractive"
-        />
       </body>
     </html>
   )

@@ -1,9 +1,15 @@
 "use client"
 
-import { Check, LoaderCircle, Mail } from "lucide-react"
-import { useActionState } from "react"
+import {
+  Check,
+  CircleAlert,
+  CircleCheck,
+  LoaderCircle,
+  Mail,
+} from "lucide-react"
+import { useActionState, useState } from "react"
 
-import { sendEmail } from "@/app/actions"
+import { sendEmail } from "@/app/actions/contact"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -12,12 +18,20 @@ import { Textarea } from "@/components/ui/textarea"
 
 import Container from "./container"
 
-const initialState = {
-  message: "",
-}
-
 export function ContactSection() {
-  const [state, formAction, isPending] = useActionState(sendEmail, initialState)
+  const [state, formAction, isPending] = useActionState(sendEmail, {
+    success: false,
+    title: "",
+    details: "",
+  })
+  const [formData, setFormData] = useState({ email: "", description: "" })
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   return (
     <Container id="contact">
@@ -65,12 +79,7 @@ export function ContactSection() {
 
         <Card className="mx-auto w-full max-w-lg">
           <CardContent className="pt-6">
-            <form
-              className="w-full space-y-6"
-              action={formAction}
-              method="POST"
-              data-pageclip-form="YOUR_FORM_NAME"
-            >
+            <form className="w-full space-y-6" action={formAction}>
               <div className="space-y-2">
                 <Label htmlFor="input-10">
                   Email <span className="text-destructive">*</span>
@@ -82,6 +91,8 @@ export function ContactSection() {
                     placeholder="tu@correo.com"
                     type="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                   />
                   <div className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-muted-foreground/80 peer-disabled:opacity-50">
@@ -98,6 +109,8 @@ export function ContactSection() {
                   id="textarea-03"
                   placeholder="Escribe una descripción"
                   name="description"
+                  value={formData.description}
+                  onChange={handleChange}
                   required
                 />
                 <p
@@ -116,7 +129,40 @@ export function ContactSection() {
                   "Enviar"
                 )}
               </Button>
-              <p>{state?.message}</p>
+
+              {state?.title && (
+                <div
+                  className={`rounded-lg border px-4 py-3 ${
+                    state.success ? "border-primary" : "border-destructive"
+                  }`}
+                >
+                  <div className="flex gap-3">
+                    {state.success ? (
+                      <CircleCheck
+                        className="mt-0.5 shrink-0 text-primary"
+                        size={16}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <CircleAlert
+                        className="mt-0.5 shrink-0 text-destructive"
+                        size={16}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                    )}
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-medium">{state.title}</p>
+                      {state.details && (
+                        <p className="text-sm text-muted-foreground">
+                          {state.details}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </form>
           </CardContent>
         </Card>
