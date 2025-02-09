@@ -38,6 +38,16 @@ export function FeaturesStep() {
               handleFeatureChange(feature.id, isChecked)
             }}
           >
+            <div className="flex grow items-center gap-3">
+              <div className="grid gap-1">
+                <Label htmlFor={feature.id} className="font-semibold">
+                  {feature.label}
+                </Label>
+                <p className="text-[10px] text-muted-foreground md:text-xs">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
             <Checkbox
               id={feature.id}
               checked={formData.features.some((f) => f.id === feature.id)}
@@ -46,13 +56,6 @@ export function FeaturesStep() {
               }}
               className="order-1 after:absolute after:inset-0"
             />
-            <div className="flex grow items-center gap-3">
-              <div className="grid gap-1">
-                <Label htmlFor={feature.id} className="font-semibold">
-                  {feature.label}
-                </Label>
-              </div>
-            </div>
           </div>
         ))}
       </div>

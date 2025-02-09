@@ -54,6 +54,16 @@ export function ServicesStep() {
                 updateFormData(service.id, !formData[service.id])
               }}
             >
+              <div className="flex grow items-center gap-3">
+                <div className="grid gap-1">
+                  <Label htmlFor={service.id} className="text-sm font-semibold">
+                    {service.label}
+                  </Label>
+                  <p className="text-[10px] text-muted-foreground md:text-xs">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
               <Checkbox
                 id={service.id}
                 checked={!!formData[service.id]}
@@ -62,14 +72,6 @@ export function ServicesStep() {
                 }}
                 className="order-1 after:absolute after:inset-0"
               />
-              <div className="space-y-1">
-                <Label htmlFor={service.id} className="text-sm font-semibold">
-                  {service.label}
-                </Label>
-                <p className="text-[10px] text-muted-foreground md:text-xs">
-                  {service.description}
-                </p>
-              </div>
             </div>
           ))}
         </div>

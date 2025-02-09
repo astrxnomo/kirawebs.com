@@ -66,6 +66,7 @@ export function PriceSimulatorForm() {
 
   const handleNext = () =>
     setCurrentStep((previous) => Math.min(previous + 1, STEPS.length - 1))
+
   const handlePrevious = () =>
     setCurrentStep((previous) => Math.max(previous - 1, 0))
 
