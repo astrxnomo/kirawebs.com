@@ -1,49 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Kirawebs.com
 
-## Getting Started
+**Kirawebs.com** is a website developed for a company that offers technological solutions, including web development, consulting, and cloud services. One of the project's standout features is an **interactive multi-step form** that allows clients to simulate the cost of their website.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+- ⚡ **Next.js** – Main framework for building the application.
+- ⚛️ **React** – For creating interactive components.
+- 🎨 **Tailwind CSS** – For designing and styling the user interface.
+- ✨ **Shadcn/UI** – For modern and accessible UI components.
+- 📝 **Notion API** – Used to store contact form submissions in a Notion database.
+- 🚀 **Redis** – Implements a rate limiting system (3 messages per minute).
+- ✅ **Zod** – Used for schema validation in the contact form.
+- 🧹 **ESLint** & **Prettier** – Maintain clean and well-formatted code.
+- 🌐 **Appwrite** – Deployment and hosting platform.
 
-You can start editing the page by modifying `app/page.tsx`. The page
-auto-updates as you edit the file.
+---
 
-This project uses
-[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
-to automatically optimize and load [Geist](https://vercel.com/font), a new font
-family for Vercel.
+## 🌟 Key Features
 
-## Learn More
+### 💰 Interactive Website Cost Estimation Form
 
-To learn more about Next.js, take a look at the following resources:
+Clients can follow a series of steps to receive a dynamic estimate of their website's cost.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js) - your
-feedback and contributions are welcome!
+### 📝 Contact Form with Validation and Rate Limiting
 
-## Deploy on Vercel
+- 📧 Collects email and message from the user.
+- ✅ Data is validated using **Zod**.
+- 💾 Upon successful validation, data is stored in a **Notion** database.
+- ⚡ A **rate limiter** using **Redis** restricts users to **3 messages per minute**.
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+---
 
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-for more details.
+## 📊 Notion Database Integration
+
+All contact form submissions are automatically stored in a Notion database for easy management and retrieval.
+
+---
