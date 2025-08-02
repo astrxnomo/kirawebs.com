@@ -14,7 +14,7 @@
 - 🚀 **Redis** – Implements a rate limiting system (3 messages per minute).
 - ✅ **Zod** – Used for schema validation in the contact form.
 - 🧹 **ESLint** & **Prettier** – Maintain clean and well-formatted code.
-- 🌐 **Appwrite** – Deployment and hosting platform.
+- 🌐 **Appwrite** – Deployment and BaaS platform.
 
 ---
 
